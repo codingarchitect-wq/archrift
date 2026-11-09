@@ -18,8 +18,14 @@ export interface ParadigmRule {
    * name itself, or it followed by `/` or `.`), or a regular expression.
    */
   imports?: (string | RegExp)[]
-  /** A pattern in the file's text. */
+  /**
+   * A pattern in the file's text. In JavaScript and TypeScript it looks at the code only:
+   * comments, strings and regular expressions are left out, since a file that spells a pattern
+   * out (a label, a regular expression, a comment) doesn't use it.
+   */
   text?: RegExp
+  /** The pattern looks inside strings too: markup (Angular templates, class names) and import lines. */
+  strings?: boolean
   /** Text patterns look only at files matching these globs (the languages they are written for). */
   files?: string[]
 }
@@ -88,7 +94,7 @@ export const CATALOG: ConcernRule[] = [
       { id: 'ngxs', label: 'NGXS', imports: ['@ngxs/store'] },
       { id: 'akita', label: 'Akita', imports: ['@datorama/akita'] },
       { id: 'subjects', label: 'RxJS subjects', text: /\bnew\s+(?:BehaviorSubject|ReplaySubject)\b/, files: TS },
-      { id: 'angular-signals', label: 'Angular signals', text: /import\s*\{[^}]*\bsignal\b[^}]*\}\s*from\s*['"]@angular\/core['"]/, files: TS },
+      { id: 'angular-signals', label: 'Angular signals', text: /import\s*\{[^}]*\bsignal\b[^}]*\}\s*from\s*['"]@angular\/core['"]/, strings: true, files: TS },
       { id: 'redux', label: 'Redux', imports: ['redux', '@reduxjs/toolkit', 'react-redux'] },
       { id: 'zustand', label: 'Zustand', imports: ['zustand'] },
       { id: 'jotai', label: 'Jotai', imports: ['jotai'] },
@@ -96,7 +102,7 @@ export const CATALOG: ConcernRule[] = [
       { id: 'mobx', label: 'MobX', imports: ['mobx', 'mobx-react', 'mobx-react-lite'] },
       { id: 'valtio', label: 'Valtio', imports: ['valtio'] },
       { id: 'xstate', label: 'XState', imports: ['xstate', '@xstate/react'] },
-      { id: 'react-context', label: 'React context', text: /import\s+(?:\w+\s*,\s*)?\{[^}]*\bcreateContext\b[^}]*\}\s*from\s*['"]react['"]|\bReact\.createContext\b/, files: TS },
+      { id: 'react-context', label: 'React context', text: /import\s+(?:\w+\s*,\s*)?\{[^}]*\bcreateContext\b[^}]*\}\s*from\s*['"]react['"]|\bReact\.createContext\b/, strings: true, files: TS },
       { id: 'external-store', label: 'external store (useSyncExternalStore)', text: /\buseSyncExternalStore\s*\(/, files: TS },
     ],
   },
@@ -108,7 +114,7 @@ export const CATALOG: ConcernRule[] = [
     paradigms: [
       { id: 'reactive-forms', label: 'Angular reactive forms (typed)', text: /\b(?:FormGroup|FormControl|FormBuilder|FormArray|NonNullableFormBuilder)\b/, files: ['**/*.ts'] },
       { id: 'untyped-forms', label: 'Angular reactive forms (untyped)', legacy: true, text: /\bUntyped(?:FormGroup|FormControl|FormBuilder|FormArray)\b/, files: ['**/*.ts'] },
-      { id: 'template-forms', label: 'Angular template-driven forms (ngModel)', text: /\bngModel\b/, files: NG },
+      { id: 'template-forms', label: 'Angular template-driven forms (ngModel)', text: /\[\(?ngModel\)?\]|\(ngModelChange\)|<[^>]*\sngModel\b/, strings: true, files: NG },
       { id: 'react-hook-form', label: 'React Hook Form', imports: ['react-hook-form'] },
       { id: 'formik', label: 'Formik', imports: ['formik'] },
       { id: 'final-form', label: 'React Final Form', imports: ['react-final-form', 'final-form'] },
@@ -206,7 +212,7 @@ export const CATALOG: ConcernRule[] = [
     stack: 'JS',
     about: 'how components get their styles',
     paradigms: [
-      { id: 'tailwind', label: 'Tailwind classes', text: /className=\{?["'`][^"'`]*\b(?:flex|grid|items-center|justify-between|gap-\d|p[xytrbl]?-\d|m[xytrbl]?-\d|text-(?:xs|sm|base|lg|xl)|rounded(?:-\w+)?)\b/, files: TSX },
+      { id: 'tailwind', label: 'Tailwind classes', text: /className=\{?["'`][^"'`]*\b(?:flex|grid|items-center|justify-between|gap-\d|p[xytrbl]?-\d|m[xytrbl]?-\d|text-(?:xs|sm|base|lg|xl)|rounded(?:-\w+)?)\b/, strings: true, files: TSX },
       { id: 'css-modules', label: 'CSS modules', imports: [/\.module\.(?:css|scss|sass|less)$/] },
       // a component's own stylesheet; the app's global one (globals.css, index.css …) every setup has, Tailwind's too
       { id: 'stylesheets', label: 'imported stylesheets', imports: [/^(?!.*\.module\.)(?!(?:.*\/)?(?:globals?|index|main|app|styles?|tailwind)\.)[^?]*\.(?:css|scss|sass|less)$/] },
@@ -245,7 +251,7 @@ export const CATALOG: ConcernRule[] = [
       { id: 'i18next', label: 'i18next', imports: ['i18next', 'react-i18next'] },
       { id: 'react-intl', label: 'react-intl (FormatJS)', imports: ['react-intl', /^@formatjs\//] },
       { id: 'ngx-translate', label: 'ngx-translate', imports: [/^@ngx-translate\//] },
-      { id: 'angular-i18n', label: 'Angular i18n ($localize)', text: /\$localize\b|<[^>]*\si18n(?:-[\w-]+)?(?:="[^"]*")?[\s>/]/, files: NG },
+      { id: 'angular-i18n', label: 'Angular i18n ($localize)', text: /\$localize\s*`|<[^>]*\si18n(?:-[\w-]+)?(?:="[^"]*")?[\s>/]/, strings: true, files: NG },
       { id: 'transloco', label: 'Transloco', imports: ['@jsverse/transloco', '@ngneat/transloco'] },
       { id: 'lingui', label: 'Lingui', imports: [/^@lingui\//] },
     ],
@@ -349,7 +355,7 @@ export const CATALOG: ConcernRule[] = [
       { id: 'take-until', label: 'takeUntil(destroy$)', text: /\btakeUntil\(/, files: ['**/*.ts'] },
       { id: 'take-until-destroyed', label: 'takeUntilDestroyed()', text: /\btakeUntilDestroyed\(/, files: ['**/*.ts'] },
       { id: 'until-destroy', label: '@ngneat/until-destroy', imports: ['@ngneat/until-destroy'] },
-      { id: 'async-pipe', label: 'async pipe', text: /\|\s*async\b/, files: NG },
+      { id: 'async-pipe', label: 'async pipe', text: /\|\s*async\b/, strings: true, files: NG },
     ],
   },
   {

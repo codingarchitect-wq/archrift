@@ -92,10 +92,12 @@ way, and accepts concerns it does several ways on purpose:
   "concerns": [
     // the project's own HTTP helper counts as fetch for the files that import it
     { "id": "js.http", "paradigms": [{ "id": "fetch", "imports": ["src/lib/http.ts"] }] },
-    // a concern of its own: imports (a prefix, a project file or /regex/) or a text pattern
+    // a concern of its own: imports (a prefix, a project file or /regex/) or a text pattern;
+    // in JavaScript and TypeScript a text pattern reads the code only, "strings": true reads strings too
     { "id": "events", "label": "Events", "paradigms": [
       { "id": "bus", "imports": ["@acme/bus"] },
-      { "id": "emitter", "text": "new EventEmitter\\(" }
+      { "id": "emitter", "text": "new EventEmitter\\(" },
+      { "id": "template-events", "text": "\\(\\w+\\)=\"on[A-Z]", "strings": true }
     ] }
   ],
   "accept": { "js.charts": "D3 for the custom diagrams, Chart.js for the plain charts" }
@@ -179,11 +181,11 @@ way, and accepts concerns it does several ways on purpose:
 
 ## Results on archrift itself (2026-11-09)
 
-`archrift coherence .` in the archrift checkout. Its config adds no concerns
-of its own and accepts one, Forms, as a false positive (below) (trimmed):
+`archrift coherence .` in the archrift checkout, whose config adds no
+concerns of its own (trimmed):
 
 ```
-archrift coherence archrift: 12 concerns · 10 done one way · 0 one way per block · 1 mixed · 1 accepted · 3 of 170 files off their block's main way
+archrift coherence archrift: 9 concerns · 8 done one way · 0 one way per block · 1 mixed · 3 of 172 files off their block's main way
 recent work: files first committed after 2026-11-09 (the newest fifth)
 
 Mixed: blocks doing one job several ways, least coherent first
@@ -197,14 +199,14 @@ Mixed: blocks doing one job several ways, least coherent first
       src/viewer/views/terrain/controls.tsx  external store (useSyncExternalStore)
 
 One way
-  JS · Test framework: Vitest, 77 files
+  JS · Test framework: Vitest, 80 files
   JS · Asynchronous code: promises (async/await, then), 33 files
   JS · End-to-end tests: Playwright, 25 files
-  …
+  JS · Styling: imported stylesheets, 8 files
+  JS · Charts: D3, 2 files
   JS · HTTP calls: fetch, 1 file
-  JS · Translations: Angular i18n ($localize), 1 file
-  JS · Notifications: alert(), 1 file
-  …
+  JS · Logging: console, 1 file
+  JS · Validation: Zod, 1 file
 ```
 
 - **Shared state is the one real mix.** The viewer keeps its state in one
@@ -214,13 +216,11 @@ One way
   (0 transitions), so no code translates between them. The decision left is
   whether a view's own state belongs in the shared store, or the concern is
   accepted.
-- **Forms is a false positive,** and so are Translations and Notifications
-  in the one-way list. The only file "doing" them is
-  `src/analyzer/coherence/catalog.ts`, which spells out the patterns those
-  ways are recognized by (`FormControl`, `ngModel`, `$localize`, `alert(`).
-  A text pattern can't tell code from a description of code (see Limits).
-  archrift's config accepts Forms with that reason
-  (`"accept": { "js.forms": "…" }`), so it no longer counts as mixed.
+- **The catalog doesn't count as using what it describes.**
+  `src/analyzer/coherence/catalog.ts` spells out the patterns ways are
+  recognized by (`FormControl`, `ngModel`, `$localize`, `alert(`), in
+  regular expressions and labels. Text patterns read a script's code only,
+  so it does no forms, translations or notifications.
 - **Done one way:** Vitest and Playwright for the tests, promises for
   asynchronous code, imported stylesheets, D3 (the galaxy layout and the
   Coherence clouds), Zod (the config), and `fetch` in a single file: the
@@ -249,9 +249,13 @@ multiply.
   most for value models (dates, state, async).
 - **Text patterns are approximations.** Constructor injection is a Spring
   stereotype whose class takes `val` parameters. Tailwind is recognized by
-  common utility classes in `className`. A file that spells a pattern out,
-  in a string or a regular expression, counts as using it: archrift's own
-  catalog does forms, translations and notifications by that measure.
+  common utility classes in `className`. In JavaScript and TypeScript a text
+  pattern reads the code only: comments, strings and regular expressions are
+  left out, so a file that spells a pattern out (a label, a comment, the
+  catalog itself) doesn't use it. The ways that live in strings read them too
+  (`strings: true`: Angular templates, `$localize` texts, class names, import
+  lines). The scanner reads JSX text as code, and other languages' files
+  whole.
 - **Recent work is relative:** the newest fifth of the files, by first commit
   (renames followed). It says which way new code took, not how fast the
   decoherence grows. A repository whose files all came in one commit has no

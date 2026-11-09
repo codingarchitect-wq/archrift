@@ -7,6 +7,7 @@ import type { ImpactAnswer, ImpactStart } from '../../src/core/query.ts'
 import { RULES, appGraph, blockOf, coherenceOfApp, tagsFor } from '../helpers/query-graph.ts'
 import { IMPACT_FILES } from '../helpers/query-graph.ts'
 import type { AppFile } from '../helpers/query-graph.ts'
+import { waysText } from '../../src/cli/query.ts'
 
 // pages call the server through tRPC, but c.tsx fetches and reaches the database; the old
 // reports still use Moment.js where the library moved to date-fns
@@ -96,6 +97,13 @@ describe('ways', () => {
     expect(a.jobs[0].migration).toMatchObject({ from: ['Moment.js'], to: 'date-fns' })
     expect(a.jobs[0].migration!.done).toBeCloseTo(1 / 3)
     expect(a.jobs[0].blocks[0]).toMatchObject({ main: { label: 'Moment.js' }, use: { label: 'date-fns' }, examples: ['src/lib/dates.ts'] })
+  })
+
+  it('a job that matches none: no job, and every job the project does, to ask instead', () => {
+    const a = q.ways(q.place('src/app'), 'read a file')
+    expect(a.jobs).toEqual([])
+    expect(a.elsewhere.map(e => e.id)).toEqual(['js.http', 'js.dates'])
+    expect(waysText(a, 'read a file')).toBe('src/app/ (a folder: 4 files, block src/app)\n\nNo job this project does matches "read a file". Its jobs: HTTP calls (js.http), Dates (js.dates).\n')
   })
 
   it('without a job: the jobs of the place’s block, and the project’s way for the others', () => {

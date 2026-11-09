@@ -136,6 +136,15 @@ describe('decision ids', () => {
     ])
   })
 
+  it('are looked for in the prose given (a script’s comments and strings), shown with the line as written', () => {
+    const text = "type D7 = [number, number] // D34\nit('D2 holds', () => {})"
+    const prose = "                           // D34\n   'D2 holds'             "
+    expect([...citedIds(text, IDS, () => true, prose)]).toEqual([
+      ['D34', { line: 1, count: 1, text: 'type D7 = [number, number] // D34' }],
+      ['D2', { line: 2, count: 1, text: "it('D2 holds', () => {})" }],
+    ])
+  })
+
   it('count only where a document defines them, in natural order', () => {
     const m = link([defs('docs/plan.md', [{ id: 'D10', line: 3, label: 'ten' }, { id: 'D2', line: 2, label: 'two' }])], new Map([['src/lib/db.ts', new Map([['D10', { line: 4, count: 1, text: '' }], ['D2', { line: 1, count: 1, text: '' }], ['D7', { line: 9, count: 1, text: '' }]])]]))
     expect(m.ids.map(i => i.id)).toEqual(['D2', 'D10'])

@@ -557,7 +557,9 @@ text alone (no model):
   a link to it, or a file name only one file has), or by an exported name in
   a code span (`loadConfig`, `ProjectList.add`; a plain word like `config`
   doesn't count).
-- **The code cites decisions** by id (`// D34: …`, `ADR-12`). An id counts
+- **The code cites decisions** by id (`// D34: …`, `ADR-12`). In
+  JavaScript and TypeScript only comments and strings cite (a test's name
+  does); a type or variable named like an id (`P2`) doesn't. An id counts
   where a document defines it: in a heading, as a table row's first cell, or
   as a bold lead (`**D45 — …**`, `- [x] **R6 …**`). Ids several documents
   define are meant from the one that fits the citing file best: its
@@ -818,7 +820,7 @@ types stay unknown. Pulumi projects need this: each one otherwise loads the
 - **TypeScript 7:** the analyzer uses TypeScript 6.0's in-process API. TS 7's is faster but still `unstable` and doesn't expose module resolution.
 - **Snapshots borrow today's `node_modules`,** and generated code that isn't committed (such as a Prisma client) is missing from them, so imports of it don't resolve there.
 - **Kotlin is resolved by name, not by a compiler.** A value whose type is only known by inference (a lambda's `it`, a generic call's result, a fluent builder's next step) leads nowhere: its calls get no edge rather than a wrong one. Java sources aren't read; code generated at build time (JPA metamodel classes, Avro builders) is missing.
-- **Coherence sees only the ways it knows.** A way is a package, a prefix or a text pattern in the catalog or the config, counted per file; a project's own wrapper hides its library unless the config names it.
+- **Coherence sees only the ways it knows.** A way is a package, a prefix or a text pattern in the catalog or the config, counted per file (in JavaScript and TypeScript a text pattern reads the code, not comments, strings or regular expressions, unless the way says `"strings": true`); a project's own wrapper hides its library unless the config names it.
 - **Matching HTTP paths and topic names is a guess.** Two services serving the same path both get the call; a URL that arrives as data isn't matched.
 - **Unresolved identifier tracing:** set `ARCHRIFT_TRACE_UNRESOLVED=1` to list every identifier that doesn't resolve (TypeScript and Kotlin).
 

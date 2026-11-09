@@ -11,6 +11,7 @@ import type { Config } from '../config.ts'
 import type { FileFragment } from '../fragment.ts'
 import { CATALOG } from './catalog.ts'
 import type { ConcernRule, ParadigmRule } from './catalog.ts'
+import { hideSpans, isScript, literalSpans } from '../ts/lexical.ts'
 
 /** The catalog with a project's own concerns: a concern with a catalog id adds paradigms to it (or imports and patterns to one of its own). */
 export function concernsOf(config: Config): ConcernRule[] {
@@ -27,7 +28,7 @@ export function concernsOf(config: Config): ConcernRule[] {
       if (at < 0) known.paradigms.push(p)
       else {
         const was = known.paradigms[at]
-        known.paradigms[at] = { ...was, imports: [...(was.imports ?? []), ...(p.imports ?? [])], ...(p.text && !was.text ? { text: p.text, files: p.files } : {}) }
+        known.paradigms[at] = { ...was, imports: [...(was.imports ?? []), ...(p.imports ?? [])], ...(p.text && !was.text ? { text: p.text, files: p.files, strings: p.strings } : {}) }
       }
     }
   }
@@ -43,14 +44,19 @@ function fromConfig(c: ConfigConcern): ConcernRule {
     stack: c.stack ?? 'project',
     about: c.about ?? '',
     ...(c.tests ? { tests: true } : {}),
-    paradigms: c.paradigms.map(p => ({
-      id: p.id,
-      label: p.label ?? p.id,
-      ...(p.legacy ? { legacy: true } : {}),
-      ...(p.imports ? { imports: p.imports.map(asPattern) } : {}),
-      ...(p.text ? { text: new RegExp(p.text, 'm') } : {}),
-      ...(p.files ? { files: p.files } : {}),
-    })),
+    paradigms: c.paradigms.map(paradigmFromConfig),
+  }
+}
+
+function paradigmFromConfig(p: ConfigConcern['paradigms'][number]): ParadigmRule {
+  return {
+    id: p.id,
+    label: p.label ?? p.id,
+    ...(p.legacy ? { legacy: true } : {}),
+    ...(p.imports ? { imports: p.imports.map(asPattern) } : {}),
+    ...(p.text ? { text: new RegExp(p.text, 'm') } : {}),
+    ...(p.strings ? { strings: true } : {}),
+    ...(p.files ? { files: p.files } : {}),
   }
 }
 
@@ -97,8 +103,7 @@ export function tagParadigms(input: ParadigmInput): ConcernMeta[] {
     if (file.tags?.includes('declaration') || !file.path) continue
     const isTest = file.tags?.includes('test') ?? false
     const specs = imports.get(file.path) ?? []
-    let text: string | undefined | null = null // read once, when a text rule needs it
-    const textOf = () => (text === null ? (text = input.readText(file.path!)) : text)
+    const textOf = textViews(file.path, () => input.readText(file.path!)) // read once, when a text rule needs it
     const tags: string[] = []
     for (const c of concerns) {
       if (!!c.tests !== isTest) continue
@@ -125,9 +130,36 @@ export function tagParadigms(input: ParadigmInput): ConcernMeta[] {
     }))
 }
 
-function uses(p: ParadigmRule, path: string, specs: string[], textOf: () => string | undefined, matchesGlob: (list: string[], path: string) => boolean): boolean {
+/** How a text pattern sees a file: all of it; a script's code alone (no comments, strings, regular expressions); or its code and strings. */
+type TextView = 'all' | 'code' | 'strings'
+
+/** A file's text in each view, read and scanned at most once. */
+function textViews(path: string, read: () => string | undefined): (view: TextView) => string | undefined {
+  let all: string | undefined | null = null
+  let script: ((view: Exclude<TextView, 'all'>) => string) | undefined
+  return view => {
+    if (all === null) all = read()
+    if (all === undefined || view === 'all' || !isScript(path)) return all
+    script ??= scriptViews(all, path)
+    return script(view)
+  }
+}
+
+/** A script's code alone, or its code and strings: comments and regular expressions never. */
+function scriptViews(text: string, path: string): (view: Exclude<TextView, 'all'>) => string {
+  const spans = literalSpans(text, /x$/.test(path))
+  const views = new Map<TextView, string>()
+  return view => {
+    let seen = views.get(view)
+    if (seen === undefined) views.set(view, (seen = hideSpans(text, spans, kind => kind !== 'string' || view === 'code')))
+    return seen
+  }
+}
+
+function uses(p: ParadigmRule, path: string, specs: string[], textOf: (view: TextView) => string | undefined, matchesGlob: (list: string[], path: string) => boolean): boolean {
   if (p.imports?.some(pattern => specs.some(s => importMatches(pattern, s)))) return true
   if (!p.text || (p.files && !matchesGlob(p.files, path))) return false
-  const text = textOf()
-  return text !== undefined && p.text.test(text)
+  // the whole text first: most files don't match at all, and those are never scanned
+  const all = textOf('all')
+  return all !== undefined && p.text.test(all) && p.text.test(textOf(p.strings ? 'strings' : 'code')!)
 }

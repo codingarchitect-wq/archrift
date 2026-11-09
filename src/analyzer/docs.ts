@@ -11,6 +11,7 @@ import { globToRegExp } from '../core/glob.ts'
 import { GraphIndex } from '../core/graph-index.ts'
 import type { Graph } from '../core/model.ts'
 import type { Config } from './config.ts'
+import { isScript, proseOf } from './ts/lexical.ts'
 
 const DOC_EXT = /\.(?:md|mdx|markdown|html?|txt|adoc|rst)$/i
 const SKIP_DIRS = new Set(['node_modules', 'dist', 'build', 'out', 'coverage', 'vendor'])
@@ -41,8 +42,7 @@ export function readDocs(graph: Graph, options: DocsOptions): void {
   if (ids && defined.size)
     for (const n of graph.nodes) {
       if (n.kind !== 'file' || n.tags?.includes('asset')) continue
-      const text = options.readCode(n.path!)
-      const cited = text === undefined ? undefined : citedIds(text, ids, id => defined.has(id))
+      const cited = citationsIn(n.path!, options.readCode(n.path!), ids, defined)
       if (cited?.size) citations.set(n.path!, cited)
     }
   const current = currentDocs(config.docs.current ?? config.docs.include)
@@ -51,6 +51,12 @@ export function readDocs(graph: Graph, options: DocsOptions): void {
   graph.meta.counts.docMentions = graph.meta.docs.docs.reduce((n, d) => n + d.mentions.length, 0)
   graph.meta.counts.decisionIds = graph.meta.docs.ids.length
   graph.meta.timings.docs = Math.round(performance.now() - t0)
+}
+
+/** The defined ids a file cites. A script cites in its comments and strings: a type whose name looks like an id is no citation. */
+function citationsIn(path: string, text: string | undefined, ids: RegExp, defined: ReadonlySet<string>): Map<string, Citation> | undefined {
+  if (text === undefined) return undefined
+  return citedIds(text, ids, id => defined.has(id), isScript(path) ? proseOf(text, path) : text)
 }
 
 function idPattern(ids: string | false | undefined): RegExp | undefined {

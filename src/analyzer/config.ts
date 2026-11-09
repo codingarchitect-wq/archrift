@@ -76,8 +76,10 @@ const ParadigmSchema = z.strictObject({
   legacy: z.boolean().optional(),
   /** Import specifiers: a package or prefix (`date-fns`, `org.junit.jupiter`), a project file (`src/trpc/client.ts`), or `/regex/`. */
   imports: z.array(z.string().min(1)).optional(),
-  /** A regular expression the file's text matches (multiline). */
+  /** A regular expression the file's text matches (multiline). In JavaScript and TypeScript, the code's only: no comments, strings or regular expressions. */
   text: z.string().min(1).optional(),
+  /** The text pattern looks inside strings too (markup in templates, class names, import lines). */
+  strings: z.boolean().optional(),
   /** Text patterns look only at files matching these globs. */
   files: z.array(z.string()).optional(),
 })

@@ -19,7 +19,8 @@ write('app/docs/historical/2025.md', '# Old\n\nsrc/lib/db.ts was in src/lib/lega
 write('app/docs/node_modules/x.md', '# ignored\n')
 write('app/docs/image.png', 'not a document')
 write('decisions/ADR.html', '<title>Decisions</title>\n<table>\n<tr><td>D7</td><td>The database opens once</td></tr>\n</table>\n')
-write('app/src/lib/db.ts', '// D7: opened once\nexport function openDb() {}\n// D8 is no decision anyone wrote down\n')
+// a type named like the id is code, no citation: D7 is cited once
+write('app/src/lib/db.ts', '// D7: opened once\nexport function openDb() {}\nexport type D7 = number\n// D8 is no decision anyone wrote down\n')
 afterAll(() => fs.rmSync(top, { recursive: true, force: true }))
 
 function graph(): Graph {

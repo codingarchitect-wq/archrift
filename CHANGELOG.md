@@ -24,6 +24,14 @@ The first release as archrift (formerly archviz, a tool inside another project).
   saved views) to `$ARCHRIFT_CACHE/<name>/`: nothing is written into the
   project. A cache archrift may not write (a sandbox, a read-only checkout) is
   a warning, no longer a crash.
+- Coherence's text patterns read a script's code only, not its comments,
+  strings or regular expressions: a file that spells a way out (a label, a
+  comment) no longer counts as using it. A paradigm with `"strings": true`
+  reads strings too (templates, class names, import lines).
+- A decision id counts as cited in a script's comments and strings only: a
+  type or variable named like one (`P2`) is no citation.
+- `query ways --job` with a job the project doesn't do lists the jobs it
+  does, with their ids.
 - The worktree `diff` and `snapshot` check older commits out in is removed on
   Ctrl-C and SIGTERM too, and one a killed run left is removed by the next
   run (each is locked with its process id, so a parallel run's stays).

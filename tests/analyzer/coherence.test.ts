@@ -81,6 +81,29 @@ describe('paradigms: which way each file does each job', () => {
     expect(read.sort()).toEqual(['src/Other.kt', 'src/Svc.kt', 'src/page.tsx'])
   })
 
+  it('takes a way spelled out in a comment, a label or a regular expression for no use of it', () => {
+    const catalog = "// alert( is the browser's way\nconst ways = [{ label: 'alert()', text: /(?:^|[^.\\w$])alert\\(/ }, { label: 'forms (FormGroup, ngModel)', text: /\\bFormGroup\\b|ngModel/ }, { label: '$localize' }]\n"
+    const { ways } = run([source('src/catalog.ts', {}), source('src/save.ts', {})], { 'src/catalog.ts': catalog, 'src/save.ts': "export const save = () => alert('saved') // and a FormGroup? no\n" })
+    expect(ways('src/catalog.ts')).toEqual([])
+    expect(ways('src/save.ts')).toEqual(['paradigm:js.notify=alert'])
+  })
+
+  it('reads strings for the ways that live in them: templates, class names, import lines', () => {
+    const { ways } = run(
+      [source('src/form.component.ts', { '@angular/core': null }), source('src/hello.ts', {}), source('src/page.tsx', {}), source('src/label.ts', {})],
+      {
+        'src/form.component.ts': "@Component({ template: '<input [(ngModel)]=\"name\"> {{ items$ | async }}' })\nexport class Form {}\n",
+        'src/hello.ts': 'export const hello = $localize`Hello`\n',
+        'src/page.tsx': 'export const Page = () => <div className="flex items-center gap-2" />\n',
+        'src/label.ts': "export const labels = ['template-driven forms (ngModel)', 'i18n ($localize)', 'use | async in templates']\n",
+      },
+    )
+    expect(ways('src/form.component.ts')).toEqual(['paradigm:js.forms=template-forms', 'paradigm:ng.subscriptions=async-pipe'])
+    expect(ways('src/hello.ts')).toEqual(['paradigm:js.i18n=angular-i18n'])
+    expect(ways('src/page.tsx')).toEqual(['paradigm:js.styling=tailwind'])
+    expect(ways('src/label.ts')).toEqual([])
+  })
+
   it('looks at Angular’s concerns in Angular code only', () => {
     const ctor = 'export class S {\n  constructor(private http: HttpClient) {}\n}\n'
     const { ways } = run([source('src/s.service.ts', { '@angular/core': null }), source('src/plain.ts', {})], { 'src/s.service.ts': ctor, 'src/plain.ts': ctor })

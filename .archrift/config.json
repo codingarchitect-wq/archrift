@@ -51,11 +51,6 @@
       ]
     }
   ],
-  "coherence": {
-    "accept": {
-      "js.forms": "only the coherence catalog's own patterns (src/analyzer/coherence/catalog.ts) match: archrift has no forms"
-    }
-  },
   "rules": [
     {
       "name": "no-cycles",

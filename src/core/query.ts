@@ -105,12 +105,14 @@ export class Query {
     const inBlocks = (s: ConcernStats) => s.paradigms.some(p => p.files.some(f => blocks.includes(this.blockOfId(f) ?? '')))
     const concerns = job ? findJobs(c, job) : c.concerns.filter(s => inBlocks(s) && (tests || !s.concern.tests))
     const jobs = concerns.map(s => this.job(s, place, blocks, here))
-    const elsewhere = job
-      ? []
-      : c.concerns
-          .filter(s => !concerns.includes(s) && !s.concern.tests)
-          .map(s => ({ id: s.concern.id, label: s.concern.label, stack: s.concern.stack, use: label(s, this.newer(s, s.main.id)) }))
-    return { place, blocks, jobs, elsewhere }
+    return { place, blocks, jobs, elsewhere: this.otherJobs(concerns, job) }
+  }
+
+  /** Besides the jobs answered: without a job asked, the others the project does; a job asked that matches none, every job it does, to ask instead. */
+  private otherJobs(answered: ConcernStats[], job?: string): WaysAnswer['elsewhere'] {
+    const all = this.input.coherence.concerns
+    const others = job ? (answered.length ? [] : all) : all.filter(s => !answered.includes(s) && !s.concern.tests)
+    return others.map(s => ({ id: s.concern.id, label: s.concern.label, stack: s.concern.stack, use: label(s, this.newer(s, s.main.id)) }))
   }
 
   private job(s: ConcernStats, place: Place, blocks: string[], here: string[]): JobAnswer {
@@ -693,7 +695,7 @@ export interface WaysAnswer {
   place: Place
   blocks: string[]
   jobs: JobAnswer[]
-  /** Without a job asked: the jobs the project does but not here, with the way it takes. */
+  /** Without a job asked: the jobs the project does but not here, with the way it takes. With a job that matches none: every job the project does. */
   elsewhere: { id: string; label: string; stack: string; use: string }[]
 }
 

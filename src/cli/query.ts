@@ -296,9 +296,9 @@ function placeLine(p: Place, blocks: string[]): string {
 
 export function waysText(a: WaysAnswer, job?: string): string {
   const lines = [placeLine(a.place, a.blocks)]
-  if (!a.jobs.length) lines.push('', job ? `No job of the catalog matches "${job}". The jobs: ${a.elsewhere.map(e => e.label).join(', ') || '(none found in this project)'}` : 'It does none of the jobs of the catalog.')
+  if (!a.jobs.length) lines.push('', job ? noJobText(job, a.elsewhere) : 'It does none of the jobs of the catalog.')
   for (const j of a.jobs) lines.push('', ...jobLines(j))
-  if (a.elsewhere.length) lines.push('', `Done elsewhere in the project (its way): ${a.elsewhere.map(e => `${e.stack} · ${e.label}: ${e.use}`).join(' · ')}`)
+  if (a.elsewhere.length && !job) lines.push('', `Done elsewhere in the project (its way): ${a.elsewhere.map(e => `${e.stack} · ${e.label}: ${e.use}`).join(' · ')}`)
   return `${lines.join('\n')}\n`
 }
 
@@ -566,3 +566,9 @@ function codeDocsText(a: DocsAnswer & { kind: 'code' }, max: number): string {
 }
 
 const nodeName = nodeLabel
+
+/** A job that matches none the project does: the ones it does, to ask instead. */
+function noJobText(job: string, jobs: WaysAnswer['elsewhere']): string {
+  if (!jobs.length) return `No job matches "${job}", and the project does none of the jobs of the catalog.`
+  return `No job this project does matches "${job}". Its jobs: ${jobs.map(e => `${e.label} (${e.id})`).join(', ')}.`
+}

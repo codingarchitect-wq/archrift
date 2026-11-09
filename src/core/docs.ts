@@ -206,16 +206,17 @@ export interface Citation {
   text: string
 }
 
-/** Where a file cites ids: each id the pattern finds (and `keep` accepts). */
-export function citedIds(text: string, ids: RegExp, keep: (id: string) => boolean): Map<string, Citation> {
+/** Where a file cites ids: each id the pattern finds (and `keep` accepts) in `prose`, the text where ids count (a script's comments and strings, as long as the text, line for line). */
+export function citedIds(text: string, ids: RegExp, keep: (id: string) => boolean, prose = text): Map<string, Citation> {
   const found = new Map<string, Citation>()
   const all = new RegExp(ids.source, 'g')
-  text.split('\n').forEach((raw, i) => {
-    for (const m of raw.matchAll(all)) {
+  const lines = text.split('\n')
+  prose.split('\n').forEach((searched, i) => {
+    for (const m of searched.matchAll(all)) {
       if (!keep(m[0])) continue
       const seen = found.get(m[0])
       if (seen) seen.count++
-      else found.set(m[0], { line: i + 1, count: 1, text: clip(raw.trim(), 200) })
+      else found.set(m[0], { line: i + 1, count: 1, text: clip(lines[i].trim(), 200) })
     }
   })
   return found
