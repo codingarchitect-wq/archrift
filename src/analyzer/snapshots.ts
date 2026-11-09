@@ -15,6 +15,7 @@ import type { Revision, SnapshotInfo } from '../core/snapshot-index.ts'
 import type { Config } from './config.ts'
 import { gitRoot } from './history.ts'
 import { analyzeIsolated } from './isolated.ts'
+import { WORKTREE_PREFIX, inWorktree } from './worktrees.ts'
 
 const git = (cwd: string, args: string[]) => execFileSync('git', ['-C', cwd, ...args], { encoding: 'utf8', maxBuffer: 1 << 28, stdio: ['ignore', 'pipe', 'pipe'] })
 
@@ -82,11 +83,8 @@ export async function takeSnapshots(options: SnapshotOptions): Promise<SnapshotI
     const s = index.get(r.sha)
     if (s && r.rev !== r.sha) s.rev = r.rev
   }
-  if (todo.length) {
-    const worktree = worktreeFor(options.dir, 'snapshots')
-    removeWorktree(repo.top, worktree) // left over from an interrupted run
-    git(repo.top, ['worktree', 'add', '--detach', '--quiet', worktree, todo[0].sha])
-    try {
+  if (todo.length)
+    await inWorktree(repo.top, worktreeFor(options.dir, 'snapshots'), todo[0].sha, async worktree => {
       for (const [i, r] of todo.entries()) {
         log(`snapshot ${i + 1}/${todo.length}: ${r.rev} ${r.sha.slice(0, 8)} (${new Date(r.time * 1000).toISOString().slice(0, 10)}) ${r.subject}`)
         git(worktree, ['checkout', '--detach', '--force', '--quiet', r.sha])
@@ -100,10 +98,7 @@ export async function takeSnapshots(options: SnapshotOptions): Promise<SnapshotI
         index.set(r.sha, { ...r, files: graph.meta.counts.files ?? 0, loc: graph.meta.counts.loc ?? 0 })
         save() // an interrupted run keeps what it finished
       }
-    } finally {
-      removeWorktree(repo.top, worktree)
-    }
-  }
+    })
   save()
   return [...index.values()].sort((a, b) => a.time - b.time)
 }
@@ -116,18 +111,11 @@ export async function takeSnapshots(options: SnapshotOptions): Promise<SnapshotI
 export async function analyzeRevision(options: Omit<SnapshotOptions, 'revisions'> & { sha: string }): Promise<Graph | undefined> {
   const repo = gitRoot(options.root)
   if (!repo) throw new Error(`${options.root} is not in a git repository with commits`)
-  const worktree = worktreeFor(options.dir, 'revision')
-  removeWorktree(repo.top, worktree)
-  git(repo.top, ['worktree', 'add', '--detach', '--quiet', worktree, options.sha])
-  try {
-    return await analyzeCheckout(worktree, repo.prefix, options)
-  } finally {
-    removeWorktree(repo.top, worktree)
-  }
+  return inWorktree(repo.top, worktreeFor(options.dir, 'revision'), options.sha, worktree => analyzeCheckout(worktree, repo.prefix, options))
 }
 
 /** A worktree's place: the same for a snapshots folder every run, so compiler options don't change and the cache carries over. */
-const worktreeFor = (dir: string, use: string) => path.join(os.tmpdir(), `archrift-worktree-${crypto.createHash('sha1').update(`${path.resolve(dir)}${use === 'snapshots' ? '' : `#${use}`}`).digest('hex').slice(0, 10)}`)
+const worktreeFor = (dir: string, use: string) => path.join(os.tmpdir(), `${WORKTREE_PREFIX}${crypto.createHash('sha1').update(`${path.resolve(dir)}${use === 'snapshots' ? '' : `#${use}`}`).digest('hex').slice(0, 10)}`)
 
 /** The root as a checkout has it, analyzed without history; undefined when it didn't exist then. */
 async function analyzeCheckout(worktree: string, prefix: string, options: { root: string; config: Config; files?: number; dir: string }): Promise<Graph | undefined> {
@@ -138,18 +126,4 @@ async function analyzeCheckout(worktree: string, prefix: string, options: { root
   const link = path.join(root, 'node_modules')
   if (fs.existsSync(modules) && !fs.existsSync(link)) fs.symlinkSync(modules, link, 'dir')
   return analyzeIsolated({ root, config: options.config, files: options.files, cacheDir: path.join(options.dir, 'cache'), history: false })
-}
-
-function removeWorktree(top: string, worktree: string) {
-  if (fs.existsSync(worktree))
-    try {
-      git(top, ['worktree', 'remove', '--force', worktree])
-    } catch {
-      fs.rmSync(worktree, { recursive: true, force: true })
-    }
-  try {
-    git(top, ['worktree', 'prune'])
-  } catch {
-    // nothing to prune
-  }
 }

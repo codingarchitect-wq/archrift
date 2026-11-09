@@ -20,3 +20,10 @@ The first release as archrift (formerly archviz, a tool inside another project).
 - `check --format json` and `diff --format json` carry `schemaVersion: 1`.
 - Printed commands (init's lines for agents, the hook's notes) use the command
   archrift was started with: `archrift`, `npx archrift` or `node <path>`.
+- `ARCHRIFT_CACHE` moves every project's results (graph, cache, snapshots,
+  saved views) to `$ARCHRIFT_CACHE/<name>/`: nothing is written into the
+  project. A cache archrift may not write (a sandbox, a read-only checkout) is
+  a warning, no longer a crash.
+- The worktree `diff` and `snapshot` check older commits out in is removed on
+  Ctrl-C and SIGTERM too, and one a killed run left is removed by the next
+  run (each is locked with its process id, so a parallel run's stays).

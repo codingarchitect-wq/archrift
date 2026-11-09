@@ -65,6 +65,7 @@ was started with: `archrift`, `npx archrift` or `node <path>/src/cli/main.ts`.
 - **archrift's home folder** is `~/.config/archrift/` (`$XDG_CONFIG_HOME/archrift`; `ARCHRIFT_HOME` moves it). It holds:
   - `projects.json`: the viewer's project list (local paths);
   - `projects/<name>/`: the results of a project without a `.archrift/` of its own, and its config when that is kept outside the project.
+- **`ARCHRIFT_CACHE`** moves every project's results (graph, cache, snapshots, saved views) to `$ARCHRIFT_CACHE/<name>/`, so nothing is written into the project. A sandboxed agent, a CI job or a read-only checkout sets it once instead of adding `--out` to every command. Without it, a cache archrift may not write (`EPERM`, `EACCES`, `EROFS`) is skipped with one warning per folder: the answer is the same, only slower.
 
 ## Start on a new project
 
@@ -322,7 +323,10 @@ archrift snapshot ~/src/my-app v1.0 HEAD~50 …      # or named revisions (--eve
 
 Each snapshot is analyzed in a temporary git worktree, borrowing today's
 `node_modules`, and kept in `<out dir>/snapshots/` by commit. The worktree is
-removed afterwards.
+removed afterwards, however the command ends: done, an error, Ctrl-C, or a
+SIGTERM (a timeout). It is locked with archrift's process id, so after a kill
+nothing can catch, the next archrift that adds a worktree in the repository
+removes it, while one whose process still runs (a parallel `diff`) stays.
 
 `serve` then offers **History → Open the timeline**:
 - Step or play through the snapshots up to now. The city keeps its layout: files rise from the ground when they're added, grow and shrink with their size, and sink when they're removed.

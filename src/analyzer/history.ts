@@ -6,6 +6,7 @@ import { execFileSync } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
 import type { Graph } from '../core/model.ts'
+import { writeCache } from './cache-write.ts'
 
 export interface CommitFile {
   path: string
@@ -235,10 +236,7 @@ export function loadHistory(
     }
     if (!commits) {
       commits = readLog(dir)
-      if (file) {
-        fs.mkdirSync(path.dirname(file), { recursive: true })
-        fs.writeFileSync(file, JSON.stringify({ head: repo.head, prefix: repo.prefix, commits }))
-      }
+      if (file) writeCache(file, JSON.stringify({ head: repo.head, prefix: repo.prefix, commits }))
     }
     if (own) Object.assign(own, { head: repo.head, prefix: repo.prefix, commits })
     logs.push({ head: repo.head, commits: prefix ? commits.map(c => ({ ...c, files: c.files.map(f => ({ ...f, path: prefix + f.path, ...(f.from !== undefined ? { from: prefix + f.from } : {}) })) })) : commits })

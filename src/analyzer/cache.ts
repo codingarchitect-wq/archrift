@@ -6,6 +6,7 @@ import crypto from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
 import type { ExtractedFile } from './fragment.ts'
+import { writeCache } from './cache-write.ts'
 
 /** Bump when extraction output changes shape or meaning. */
 export const CACHE_VERSION = 1
@@ -71,8 +72,7 @@ export class FragmentCache {
 
   save(files: ExtractedFile[]) {
     if (!this.file) return
-    fs.mkdirSync(path.dirname(this.file), { recursive: true })
     const data: CacheFile = { key: this.key, files: Object.fromEntries(files.map(f => [f.path, f])) }
-    fs.writeFileSync(this.file, JSON.stringify(data))
+    writeCache(this.file, JSON.stringify(data))
   }
 }

@@ -20,6 +20,7 @@ import { readKotlin } from './kotlin-decls.ts'
 import { linkKotlin } from './kotlin-link.ts'
 import type { LinkResult } from './kotlin-link.ts'
 import type { JvmDecl, JvmFile } from './model.ts'
+import { writeCache } from '../cache-write.ts'
 
 /** Bump when what either pass produces changes. */
 const VERSION = 11
@@ -166,10 +167,7 @@ export const jvmAnalyzer: LanguageAnalyzer = {
     const next: CacheFile = { key, decls: Object.fromEntries(files.map(f => [f.path, f])), indexHash, links: Object.fromEntries(links) }
     if (session) session.cache = next
     if (cacheFile && relinked)
-      time('jvm.cacheWrite', () => {
-        fs.mkdirSync(path.dirname(cacheFile), { recursive: true })
-        fs.writeFileSync(cacheFile, JSON.stringify(next))
-      })
+      time('jvm.cacheWrite', () => writeCache(cacheFile, JSON.stringify(next)))
 
     for (const f of files) {
       const { link, imports } = links.get(f.path)!

@@ -23,6 +23,7 @@ import { GoIndex } from './index.ts'
 import { linkGo } from './link.ts'
 import type { LinkResult } from './link.ts'
 import type { GoDecl, GoFile, GoModule } from './model.ts'
+import { writeCache } from '../cache-write.ts'
 
 /** Bump when what either pass produces changes. */
 const VERSION = 1
@@ -157,10 +158,7 @@ export const goAnalyzer: LanguageAnalyzer = {
     const next: CacheFile = { key, decls: Object.fromEntries(files.map(f => [f.path, f])), links: Object.fromEntries(links) }
     if (session) session.cache = next
     if (cacheFile && relinked)
-      time('go.cacheWrite', () => {
-        fs.mkdirSync(path.dirname(cacheFile), { recursive: true })
-        fs.writeFileSync(cacheFile, JSON.stringify(next))
-      })
+      time('go.cacheWrite', () => writeCache(cacheFile, JSON.stringify(next)))
 
     // whole-program parts: interface satisfaction, and tags a file put on another's declarations (a handler's route)
     const implementations = time('go.implements', () => index.implementations(ctx.config.maxSitesPerEdge))

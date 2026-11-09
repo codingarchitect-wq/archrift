@@ -67,11 +67,16 @@ export function descriptionsPath(root: string, config?: string): string {
 }
 
 /**
- * Where a project's graph goes by default: the project's `.archrift/` when its config is there
- * (results stay with the project, as `init` sets it up), else ~/.config/archrift/projects/<name>/.
+ * Where a project's graph goes by default (its cache, snapshots and saved views beside it):
+ * `$ARCHRIFT_CACHE/<name>/` when that is set, so nothing is written into the project (a sandbox,
+ * a read-only checkout); else the project's `.archrift/` when its config is there (results stay
+ * with the project, as `init` sets it up); else ~/.config/archrift/projects/<name>/.
  */
-export const defaultOut = (name: string, root?: string) =>
-  root !== undefined && fs.existsSync(path.join(projectDir(root), 'config.json')) ? path.join(projectDir(root), 'graph.json') : path.join(HOME_DIR, 'projects', slug(name), 'graph.json')
+export function defaultOut(name: string, root?: string, env: NodeJS.ProcessEnv = process.env): string {
+  if (env.ARCHRIFT_CACHE) return path.join(path.resolve(env.ARCHRIFT_CACHE), slug(name), 'graph.json')
+  if (root !== undefined && fs.existsSync(path.join(projectDir(root), 'config.json'))) return path.join(projectDir(root), 'graph.json')
+  return path.join(HOME_DIR, 'projects', slug(name), 'graph.json')
+}
 
 /** `~/x` and relative paths, made absolute. */
 export function expandPath(p: string, base = process.cwd()) {

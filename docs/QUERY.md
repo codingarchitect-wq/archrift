@@ -384,7 +384,9 @@ the walk still reaches 151 files, against 189 for the whole file.
   checkout has no local main and uses the remote's.
 - The base (and a `--head` ref) is analyzed in a worktree beside the
   snapshots' and shares their fragment cache. Packages come from the root's
-  `node_modules`, and both sides use today's config.
+  `node_modules`, and both sides use today's config. The worktree is removed
+  however `diff` ends (an error, Ctrl-C, SIGTERM); after a kill, the next run
+  in the repository removes it (docs/GUIDE.md, "Look back in time").
 
 **What it reports**, each finding saying whether the change touched the file:
 - **Rules:** new violations and fixed ones. A violation is the same one on

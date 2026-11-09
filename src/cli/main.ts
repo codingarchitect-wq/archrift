@@ -116,7 +116,8 @@ Usage:
 
 Options:
   --config <file>   config file (default: <root>/.archrift/config.json when present)
-  --out <file>      graph output (default: <root>/.archrift/graph.json when the config is there, else
+  --out <file>      graph output (default: $ARCHRIFT_CACHE/<name>/graph.json when that is set, else
+                    <root>/.archrift/graph.json when the config is there, else
                     ~/.config/archrift/projects/<name>/graph.json); sites, cache, snapshots and saved views
                     go next to it. export html: the HTML file; export archify: the JSON's folder
   --no-cache        re-analyze every file
@@ -163,6 +164,13 @@ Options:
   --every <n>       snapshot: …or every n-th commit back from HEAD
   --shared          hook install, uninstall: .claude/settings.json (committed) instead of settings.local.json
   --dir <folder>    hook: the folder Claude Code runs in (default: the git top-level, else the current folder)
+
+Environment:
+  ARCHRIFT_HOME     archrift's home folder (default ~/.config/archrift): the project list, and the results
+                    of projects without a .archrift/ of their own
+  ARCHRIFT_CACHE    every project's results and caches in $ARCHRIFT_CACHE/<name>/ instead, so nothing is
+                    written into the project (a sandbox, a read-only checkout). Without it, a cache archrift
+                    may not write is skipped with a warning, and the answer is the same, only slower
 `
 
 type Values = ReturnType<typeof parse>['values']

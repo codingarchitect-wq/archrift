@@ -349,6 +349,11 @@ Outside the project, archrift keeps its home folder, `~/.config/archrift/`
   don't want to write into, keep its config there too
   (`projects/<name>/config.json`).
 
+`ARCHRIFT_CACHE` moves every project's results to `$ARCHRIFT_CACHE/<name>/`,
+so nothing is written into the project: set it for a sandboxed agent, a CI job
+or a read-only checkout. Without it, a cache archrift may not write is skipped
+with a warning, and the answer is the same, only slower.
+
 ## Privacy
 
 - The analysis, the server and the viewer run on your machine. The server

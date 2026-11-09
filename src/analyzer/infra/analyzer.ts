@@ -22,6 +22,7 @@ import type { InfraFile, InfraKind, InfraLanguage } from './model.ts'
 import { readShell } from './shell.ts'
 import { readSql } from './sql.ts'
 import { readChart, readCompose, readHelpers, readManifest, readValues } from './yaml.ts'
+import { writeCache } from '../cache-write.ts'
 
 /** Bump when what pass A produces changes. */
 const VERSION = 4
@@ -221,10 +222,7 @@ export const infraAnalyzer: LanguageAnalyzer = {
     if (session) session.cache = next
     const changed = Object.entries(next.files).some(([p, f]) => cache!.files[p] !== f) || Object.keys(cache.files).some(p => !next.files[p])
     if (cacheFile && changed)
-      time('config.cacheWrite', () => {
-        fs.mkdirSync(path.dirname(cacheFile), { recursive: true })
-        fs.writeFileSync(cacheFile, JSON.stringify(next))
-      })
+      time('config.cacheWrite', () => writeCache(cacheFile, JSON.stringify(next)))
 
     const refs = time('config.link', () => {
       renderTemplates(files, texts)
