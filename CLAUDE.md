@@ -44,7 +44,7 @@ npm run dev              # Vite dev server on 4310 over fixtures/plain-ts (ARCHR
 
 ## Releasing
 
-Version 0.x: a minor may change the config or the JSON reports (CHANGELOG.md says how to move). `npm version minor` (or patch), update CHANGELOG.md, `git push --follow-tags`: `.github/workflows/release.yml` tests and publishes with provenance (npm trusted publishing). CI runs on GitHub's runners only, never self-hosted ones (a public repo's fork PRs could run code on them).
+Version 0.x: a minor may change the config or the JSON reports (CHANGELOG.md says how to move). `npm version minor` (or patch), update CHANGELOG.md, `git push --follow-tags`: `.github/workflows/release.yml` tests and **stages** the version with provenance (npm trusted publishing may only stage). It goes live when the owner approves it with 2FA: `npm stage list archrift`, then `npm stage approve <id>`. CI runs on GitHub's runners only, never self-hosted ones (a public repo's fork PRs could run code on them).
 
 ## Architecture checks (archrift on itself)
 

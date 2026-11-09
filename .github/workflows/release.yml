@@ -1,7 +1,9 @@
-# Publishes the package when a version tag (v0.2.0) is pushed: npm version minor,
+# Stages the package when a version tag (v0.2.0) is pushed: npm version minor,
 # then git push --follow-tags. npm's trusted publishing (OIDC) signs it with
-# provenance; no npm token is stored. The first version is published by hand
-# (a package must exist before its trusted publisher can be set on npmjs.com).
+# provenance; no npm token is stored. The trusted publisher may only stage: the
+# version goes live when a maintainer approves it with 2FA
+# (npm stage list archrift, then npm stage approve <id>), so a workflow or a
+# GitHub account alone can't publish. 0.1.0 was published by hand.
 name: Release
 
 on:
@@ -32,8 +34,10 @@ jobs:
       - run: npm test
       - run: npm run test:pack
       - run: npm run build
+      # npm stage arrived in npm 11.x; Node's own npm may predate it
+      - run: npm install -g npm@11.19.0
       # a version already on npm (0.1.0 was published by hand) is left as it is
-      - name: Publish, unless this version is on npm already
+      - name: Stage for approval, unless this version is on npm already
         run: |
           version=$(node -p "require('./package.json').version")
-          if npm view "archrift@$version" version > /dev/null 2>&1; then echo "archrift $version is on npm already"; else npm publish --provenance --access public; fi
+          if npm view "archrift@$version" version > /dev/null 2>&1; then echo "archrift $version is on npm already"; else npm stage publish --provenance --access public; fi
