@@ -5,7 +5,7 @@ version (0.x.0) may change the config or the JSON reports; the notes below say
 how to move. `"requires": ">=0.x"` in a project's `.archrift/config.json` makes
 an older archrift stop with a message instead of answering wrongly.
 
-## 0.1.0 (unreleased)
+## 0.1.0 (2026-11-09)
 
 The first release as archrift (formerly archviz, a tool inside another project).
 

@@ -32,4 +32,8 @@ jobs:
       - run: npm test
       - run: npm run test:pack
       - run: npm run build
-      - run: npm publish --provenance --access public
+      # a version already on npm (0.1.0 was published by hand) is left as it is
+      - name: Publish, unless this version is on npm already
+        run: |
+          version=$(node -p "require('./package.json').version")
+          if npm view "archrift@$version" version > /dev/null 2>&1; then echo "archrift $version is on npm already"; else npm publish --provenance --access public; fi
