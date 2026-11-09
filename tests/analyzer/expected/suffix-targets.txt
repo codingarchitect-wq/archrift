@@ -1,0 +1,44 @@
+# nodes
+d:.  directory  name="suffix-targets"  files=8  loc=22
+d:src  directory  files=7  loc=18
+d:src/platform  directory  files=3  loc=3
+d:tests  directory  files=1  loc=4
+f:src/compute.worker.ts  file  complexity=1  externalDeps=0  fanIn=1  fanOut=0  instability=0  loc=3  symbols=1  testReach=1  testedDirectly=0  [entrypoint,typescript]
+f:src/data.json  file  loc=1  [asset]
+f:src/main.ts  file  complexity=1  externalDeps=1  fanIn=0  fanOut=6  instability=1  loc=8  symbols=1  testReach=1  testedDirectly=1  [entrypoint,typescript]
+f:src/platform/impl.desktop.ts  file  complexity=1  externalDeps=0  fanIn=2  fanOut=0  instability=0  loc=1  symbols=1  testReach=1  testedDirectly=0  [typescript]
+f:src/platform/impl.ts  file  complexity=1  externalDeps=0  fanIn=2  fanOut=0  instability=0  loc=1  symbols=1  testReach=1  testedDirectly=0  [typescript]
+f:src/platform/index.ts  file  complexity=1  externalDeps=0  fanIn=1  fanOut=2  instability=0.67  loc=1  symbols=0  testReach=1  testedDirectly=1  [typescript]
+f:src/styles.css  file  loc=3  [asset]
+f:tests/main.test.ts  file  complexity=1  externalDeps=0  fanIn=0  fanOut=2  instability=1  loc=4  symbols=1  [paradigm:js.mocks=vitest,test,typescript]
+s:src/compute.worker.ts#compute  symbol/function  exported  1:1-3:2  complexity=1  fanIn=0  fanOut=0  loc=3  sig="export function compute(n: number)"
+s:src/main.ts#start  symbol/function  exported  6:1-9:2  complexity=1  fanIn=0  fanOut=2  loc=4  sig="export function start()"
+s:src/platform/impl.desktop.ts#platform  symbol/variable  exported  1:1-1:81  complexity=1  fanIn=1  fanOut=0  loc=1  sig="export const platform = { name: 'desktop', open: (url: string) => `app:${url}` }"
+s:src/platform/impl.ts#platform  symbol/variable  exported  1:1-1:68  complexity=1  fanIn=1  fanOut=0  loc=1  sig="export const platform = { name: 'web', open: (url: string) => url }"
+s:tests/main.test.ts#vi  symbol/variable  1:1-1:47  complexity=1  fanIn=0  fanOut=0  loc=1  sig="declare const vi: { mock(path: string): void }"
+x:excluded:src/generated/client.ts  external  name="src/generated/client.ts"  [excluded]
+
+# edges
+f:src/main.ts -spawns-worker-> f:src/compute.worker.ts  ×1  @7:37
+f:src/main.ts -imports/static-> f:src/data.json  ×1  @4:18
+f:src/main.ts -imports/static-> f:src/platform/index.ts  ×1  @2:26
+f:src/main.ts -imports/side-effect-> f:src/styles.css  ×1  @1:8
+f:src/main.ts -imports/static-> x:excluded:src/generated/client.ts  ×1  @3:24
+f:src/platform/index.ts -re-exports/static-> f:src/platform/impl.desktop.ts  ×1  [desktop]  @1:26
+f:src/platform/index.ts -re-exports/static-> f:src/platform/impl.ts  ×1  [web]  @1:26
+f:tests/main.test.ts -imports/static-> f:src/main.ts  ×1  @3:23
+f:tests/main.test.ts -mocks-> f:src/platform/index.ts  ×1  @2:9
+f:tests/main.test.ts -calls-> s:src/main.ts#start  ×1  @5:1
+f:tests/main.test.ts -calls-> s:tests/main.test.ts#vi  ×1  @2:4
+f:tests/main.test.ts -references-> s:tests/main.test.ts#vi  ×1  @2:1
+s:src/main.ts#start -calls-> s:src/platform/impl.desktop.ts#platform  ×1  [desktop]  @8:20
+s:src/main.ts#start -references-> s:src/platform/impl.desktop.ts#platform  ×1  [desktop]  @8:11
+s:src/main.ts#start -calls-> s:src/platform/impl.ts#platform  ×1  [web]  @8:20
+s:src/main.ts#start -references-> s:src/platform/impl.ts#platform  ×1  [web]  @8:11
+
+# rules
+generated-behind-platform  forbid  error  1 broken
+  f:src/main.ts -> x:excluded:src/generated/client.ts
+web-without-desktop-code  forbidReach  error  [web]  ok
+main-reaches-desktop  forbidReach  warn  1 broken
+  f:src/main.ts -> f:src/platform/impl.desktop.ts  [desktop]  via f:src/main.ts > f:src/platform/index.ts > f:src/platform/impl.desktop.ts

@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/orders?useSSL=false
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/order-events

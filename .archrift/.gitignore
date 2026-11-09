@@ -1,0 +1,5 @@
+# archrift (archrift init): the analysis results stay local; the config and the descriptions are meant for git
+*
+!.gitignore
+!config.json
+!descriptions.json

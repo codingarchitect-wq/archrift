@@ -1,0 +1,23 @@
+# nodes
+d:.  directory  name="js-only"  files=3  loc=11
+d:lib  directory  files=2  loc=6
+f:lib/legacy.cjs  file  complexity=1  externalDeps=0  fanIn=1  fanOut=1  instability=0.5  loc=2  symbols=1  testReach=0  testedDirectly=0  [javascript]
+f:lib/math.js  file  complexity=1  externalDeps=0  fanIn=2  fanOut=0  instability=0  loc=4  symbols=2  testReach=0  testedDirectly=0  [javascript]
+f:main.mjs  file  complexity=1  externalDeps=2  fanIn=0  fanOut=2  instability=1  loc=5  symbols=0  testReach=0  testedDirectly=0  [javascript,paradigm:js.logging=console]
+s:lib/legacy.cjs#add  symbol/variable  1:9-1:12  complexity=1  fanIn=0  fanOut=0  loc=1
+s:lib/math.js#add  symbol/function  exported  1:1-3:2  complexity=1  fanIn=2  fanOut=0  loc=3  sig="export function add(a, b)"
+s:lib/math.js#PI  symbol/variable  exported  5:1-5:23  complexity=1  fanIn=1  fanOut=0  loc=1  sig="export const PI = 3.14"
+x:node:fs  external  name="fs"  [node]
+x:npm:chalk  external  name="chalk"  [npm]
+
+# edges
+f:lib/legacy.cjs -imports/require-> f:lib/math.js  ×1  @1:25
+f:lib/legacy.cjs -calls-> s:lib/math.js#add  ×1  @3:32
+f:main.mjs -calls-> f:lib/legacy.cjs  ×1  @6:32
+f:main.mjs -imports/static-> f:lib/legacy.cjs  ×1  @2:20
+f:main.mjs -references-> f:lib/legacy.cjs  ×1  @6:25
+f:main.mjs -imports/static-> f:lib/math.js  ×1  @1:25
+f:main.mjs -calls-> s:lib/math.js#add  ×1  @6:13
+f:main.mjs -references-> s:lib/math.js#PI  ×1  @6:17
+f:main.mjs -imports/static-> x:node:fs  ×1  @3:16
+f:main.mjs -imports/static-> x:npm:chalk  ×1  @4:19

@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    // comments, as tsconfig files have them
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "preserve",
+    "strict": true,
+    "baseUrl": ".",
+    "paths": { "@/*": ["./src/*"] },
+    "types": [],
+  },
+  "include": ["src", "scripts", "tests"]
+}

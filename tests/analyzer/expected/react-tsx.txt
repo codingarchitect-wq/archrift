@@ -1,0 +1,22 @@
+# nodes
+d:.  directory  name="react-tsx"  files=3  loc=26
+d:src  directory  files=3  loc=26
+f:src/Button.tsx  file  complexity=1  externalDeps=0  fanIn=1  fanOut=0  instability=0  loc=8  symbols=2  testReach=0  testedDirectly=0  [typescript,use-client]
+f:src/Panel.tsx  file  complexity=1  externalDeps=0  fanIn=0  fanOut=2  instability=1  loc=14  symbols=2  testReach=0  testedDirectly=0  [typescript]
+f:src/useCounter.ts  file  complexity=1  externalDeps=0  fanIn=1  fanOut=0  instability=0  loc=4  symbols=1  testReach=0  testedDirectly=0  [typescript]
+s:src/Button.tsx#Button  symbol/component  exported  8:1-10:2  complexity=1  fanIn=1  fanOut=1  loc=3  sig="export function Button({ label, onClick }: ButtonProps)"
+s:src/Button.tsx#ButtonProps  symbol/interface  exported  3:1-6:2  complexity=1  fanIn=1  fanOut=0  loc=4  [dead-export]  sig="export interface ButtonProps"
+s:src/Button.tsx#ButtonProps.label  member/property  4:3-4:16  complexity=1  fanIn=0  fanOut=0  loc=1  sig="label: string"
+s:src/Button.tsx#ButtonProps.onClick  member/property  5:3-5:23  complexity=1  fanIn=0  fanOut=0  loc=1  sig="onClick?: () => void"
+s:src/Panel.tsx#Page  symbol/component  exported  14:1-16:2  complexity=1  fanIn=0  fanOut=1  loc=3  [dead-export,default-export]  sig="export default function Page()"
+s:src/Panel.tsx#Panel  symbol/component  exported  4:1-12:2  complexity=1  fanIn=1  fanOut=2  loc=9  [dead-export]  sig="export const Panel = ({ title }: { title: string })"
+s:src/useCounter.ts#useCounter  symbol/hook  exported  1:1-4:2  complexity=1  fanIn=1  fanOut=0  loc=4  sig="export function useCounter(start = 0)"
+
+# edges
+f:src/Panel.tsx -imports/static-> f:src/Button.tsx  ×1  @1:24
+f:src/Panel.tsx -imports/static-> f:src/useCounter.ts  ×1  @2:28
+s:src/Button.tsx#Button -type-ref-> s:src/Button.tsx#ButtonProps  ×1  @8:44
+s:src/Panel.tsx#Page -renders-> s:src/Panel.tsx#Panel  ×1  @15:11
+s:src/Panel.tsx#Panel -renders-> s:src/Button.tsx#Button  ×1  @9:8
+s:src/Panel.tsx#Panel -calls-> s:src/useCounter.ts#useCounter  ×1  @5:19
+s:src/Panel.tsx#Panel -references-> s:src/useCounter.ts#useCounter  ×1  @9:42

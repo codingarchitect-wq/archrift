@@ -1,0 +1,34 @@
+{
+  "entrypoints": ["src/app/**/{page,layout,route}.{ts,tsx}"],
+  "rules": [
+    {
+      "name": "pages-use-services",
+      "description": "Pages go through the client services and UI, nothing else.",
+      "allow": { "from": "src/app/**", "to": ["src/client/**", "src/ui/**"] }
+    },
+    {
+      "name": "client-apart-from-server",
+      "severity": "warn",
+      "description": "The client knows the server's types, nothing more.",
+      "forbid": { "from": "src/client/**", "to": "src/server/**" }
+    },
+    {
+      "name": "no-server-in-pages",
+      "description": "Server code never ends up in a page bundle (type-only imports are fine).",
+      "forbidReach": { "from": "tag:entrypoint", "to": "src/server/**" }
+    },
+    {
+      "name": "short-pages",
+      "severity": "warn",
+      "description": "Page components stay short.",
+      "limit": { "functions": "src/app/**", "max": { "loc": 5 } }
+    },
+    {
+      "name": "components-acyclic",
+      "severity": "warn",
+      "description": "A folder the fixture doesn't have: the rule matches nothing.",
+      "cycles": "forbid",
+      "scope": "src/components/**"
+    }
+  ]
+}

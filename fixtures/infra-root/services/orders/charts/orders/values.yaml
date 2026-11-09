@@ -1,0 +1,5 @@
+replicas: 2
+imageName: "acme/orders"
+container:
+  port: 8080
+env: dev

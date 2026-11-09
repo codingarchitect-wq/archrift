@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "OrderEventAvro",
+  "namespace": "com.acme.messages",
+  "fields": [
+    { "name": "orderId", "type": "long" },
+    {
+      "name": "status",
+      "type": { "type": "enum", "name": "OrderStatusAvro", "symbols": ["OPEN", "PAID"] }
+    },
+    { "name": "previous", "type": ["null", "OrderEventAvro"], "default": null }
+  ]
+}

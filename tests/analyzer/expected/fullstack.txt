@@ -1,0 +1,194 @@
+# nodes
+d:.  directory  name="fullstack"  files=15  loc=147
+d:prisma  directory  files=1  loc=20
+d:src  directory  files=13  loc=123
+d:src/app  directory  files=4  loc=25
+d:src/app/(shop)  directory  files=2  loc=11
+d:src/app/(shop)/accounts  directory  files=2  loc=11
+d:src/app/(shop)/accounts/[id]  directory  files=1  loc=3
+d:src/app/api  directory  files=1  loc=3
+d:src/app/api/health  directory  files=1  loc=3
+d:src/client  directory  files=2  loc=15
+d:src/lib  directory  files=1  loc=19
+d:src/local  directory  files=2  loc=15
+d:src/server  directory  files=3  loc=41
+d:src/server/routers  directory  files=2  loc=10
+d:src/ui  directory  files=1  loc=8
+d:tests  directory  files=1  loc=4
+f:prisma/schema.prisma  file  externalDeps=0  fanIn=1  fanOut=0  instability=0  loc=20  testReach=0  testedDirectly=0  [feature:accounts,prisma,prisma-schema]
+f:src/app/(shop)/accounts/[id]/page.tsx  file  complexity=1  externalDeps=0  fanIn=1  fanOut=0  instability=0  loc=3  symbols=1  testReach=0  testedDirectly=0  [entrypoint,feature:accounts,route:/accounts/[id],typescript]
+f:src/app/(shop)/accounts/page.tsx  file  complexity=1  externalDeps=0  fanIn=1  fanOut=3  instability=0.75  loc=8  symbols=1  testReach=0  testedDirectly=0  [entrypoint,feature:accounts,route:/accounts,typescript]
+f:src/app/api/health/route.ts  file  complexity=1  externalDeps=0  fanIn=0  fanOut=0  loc=3  symbols=1  testReach=0  testedDirectly=0  [api:/api/health,entrypoint,typescript]
+f:src/app/page.tsx  file  complexity=1  externalDeps=0  fanIn=0  fanOut=3  instability=1  loc=11  symbols=1  testReach=0  testedDirectly=0  [entrypoint,feature:home,route:/,typescript]
+f:src/client/service.ts  file  complexity=1  externalDeps=0  fanIn=1  fanOut=3  instability=0.75  loc=9  symbols=1  testReach=1  testedDirectly=1  [feature:accounts,typescript]
+f:src/client/trpc.ts  file  complexity=1  externalDeps=0  fanIn=1  fanOut=2  instability=0.67  loc=6  symbols=2  testReach=1  testedDirectly=0  [feature:accounts,typescript]
+f:src/lib/fake-libs.ts  file  complexity=1  externalDeps=0  fanIn=5  fanOut=0  instability=0  loc=19  symbols=6  testReach=1  testedDirectly=0  [feature:home,typescript]
+f:src/local/db.ts  file  complexity=1  externalDeps=0  fanIn=1  fanOut=1  instability=0.5  loc=8  symbols=2  testReach=1  testedDirectly=0  [typescript]
+f:src/local/service.ts  file  complexity=1  externalDeps=0  fanIn=0  fanOut=2  instability=1  loc=7  symbols=2  testReach=1  testedDirectly=1  [typescript]
+f:src/server/routers/accounts.ts  file  complexity=1  externalDeps=0  fanIn=2  fanOut=2  instability=0.5  loc=5  symbols=1  testReach=0  testedDirectly=0  [feature:accounts,typescript]
+f:src/server/routers/index.ts  file  complexity=1  externalDeps=0  fanIn=2  fanOut=2  instability=0.5  loc=5  symbols=1  testReach=0  testedDirectly=0  [feature:accounts,typescript]
+f:src/server/trpc.ts  file  complexity=1  externalDeps=0  fanIn=3  fanOut=0  instability=0  loc=31  symbols=6  testReach=0  testedDirectly=0  [feature:accounts,typescript]
+f:src/ui/ThemeContext.tsx  file  complexity=1  externalDeps=0  fanIn=1  fanOut=1  instability=0.5  loc=8  symbols=3  testReach=0  testedDirectly=0  [feature:home,typescript]
+f:tests/service.test.ts  file  complexity=1  externalDeps=0  fanIn=0  fanOut=2  instability=1  loc=4  symbols=0  [test,typescript]
+s:prisma/schema.prisma#Account  symbol/model  11:1-19:2  fanIn=2  fanOut=0  loc=9
+s:prisma/schema.prisma#Account.id  member/field  12:1-12:2  fanIn=0  fanOut=0  loc=1  sig="id String"
+s:prisma/schema.prisma#Account.name  member/field  13:1-13:2  fanIn=0  fanOut=0  loc=1  sig="name String"
+s:prisma/schema.prisma#Account.type  member/field  14:1-14:2  fanIn=0  fanOut=0  loc=1  sig="type AccountType"
+s:prisma/schema.prisma#Account.user  member/relation  16:1-16:2  fanIn=0  fanOut=1  loc=1  sig="user User"
+s:prisma/schema.prisma#Account.userId  member/field  15:1-15:2  fanIn=0  fanOut=0  loc=1  sig="userId String"
+s:prisma/schema.prisma#AccountType  symbol/enum  21:1-24:2  fanIn=0  fanOut=0  loc=4
+s:prisma/schema.prisma#User  symbol/model  5:1-9:2  fanIn=1  fanOut=0  loc=5
+s:prisma/schema.prisma#User.accounts  member/relation  8:1-8:2  fanIn=0  fanOut=0  loc=1  sig="accounts Account[]"
+s:prisma/schema.prisma#User.email  member/field  7:1-7:2  fanIn=0  fanOut=0  loc=1  sig="email String"
+s:prisma/schema.prisma#User.id  member/field  6:1-6:2  fanIn=0  fanOut=0  loc=1  sig="id String"
+s:src/app/(shop)/accounts/[id]/page.tsx#Account  symbol/component  exported  1:1-3:2  complexity=1  fanIn=0  fanOut=0  loc=3  [default-export]  sig="export default function Account()"
+s:src/app/(shop)/accounts/page.tsx#Accounts  symbol/component  exported  4:1-9:2  complexity=1  fanIn=0  fanOut=3  loc=6  [default-export]  sig="export default function Accounts()"
+s:src/app/api/health/route.ts#GET  symbol/function  exported  1:1-3:2  complexity=1  fanIn=0  fanOut=0  loc=3  sig="export function GET()"
+s:src/app/page.tsx#Home  symbol/component  exported  4:1-12:2  complexity=1  fanIn=0  fanOut=2  loc=9  [default-export]  sig="export default function Home()"
+s:src/client/service.ts#CloudService  symbol/class  exported  3:1-11:2  complexity=1  fanIn=1  fanOut=0  loc=8  sig="export class CloudService"
+s:src/client/service.ts#CloudService.createAccount  member/method  8:3-10:4  complexity=1  fanIn=0  fanOut=4  loc=3  sig="createAccount(name: string)"
+s:src/client/service.ts#CloudService.getAccounts  member/method  4:3-6:4  complexity=1  fanIn=1  fanOut=4  loc=3  sig="getAccounts()"
+s:src/client/trpc.ts#Client  symbol/type  4:1-6:2  complexity=1  fanIn=3  fanOut=1  loc=3  sig="type Client<R> = { [K in keyof R]: R[K] extends Procedure<infer I, infer O> ? { query(input?: I): Promise<Awaited<O>>; mutate(input: I): Promise<Awaited<O>> } …"
+s:src/client/trpc.ts#trpc  symbol/variable  exported  8:1-8:51  complexity=1  fanIn=2  fanOut=2  loc=1  sig="export const trpc = {} as Client<typeof appRouter>"
+s:src/lib/fake-libs.ts#createContext  symbol/function  exported  2:1-4:2  complexity=1  fanIn=2  fanOut=0  loc=3  sig="export function createContext<T>(value: T)"
+s:src/lib/fake-libs.ts#Dexie  symbol/class  exported  8:1-10:2  complexity=1  fanIn=1  fanOut=0  loc=3  sig="export class Dexie"
+s:src/lib/fake-libs.ts#Dexie.constructor  member/constructor  9:3-9:32  complexity=1  fanIn=0  fanOut=0  loc=1  sig="constructor(_name: string)"
+s:src/lib/fake-libs.ts#Link  symbol/function  exported  15:1-17:2  complexity=1  fanIn=1  fanOut=0  loc=3  sig="export function Link(_props: { href: string; children?: unknown })"
+s:src/lib/fake-libs.ts#Table  symbol/interface  exported  11:1-14:2  complexity=1  fanIn=3  fanOut=0  loc=4  sig="export interface Table<T>"
+s:src/lib/fake-libs.ts#Table.put  member/method  13:3-13:31  complexity=1  fanIn=1  fanOut=1  loc=1  sig="put(row: T): Promise<string>"
+s:src/lib/fake-libs.ts#Table.where  member/method  12:3-12:52  complexity=1  fanIn=1  fanOut=1  loc=1  sig="where(index: string): { toArray(): Promise<T[]> }"
+s:src/lib/fake-libs.ts#useContext  symbol/hook  exported  5:1-7:2  complexity=1  fanIn=1  fanOut=0  loc=3  sig="export function useContext<T>(context: { value: T }): T"
+s:src/lib/fake-libs.ts#useRouter  symbol/hook  exported  18:1-20:2  complexity=1  fanIn=1  fanOut=0  loc=3  sig="export function useRouter()"
+s:src/local/db.ts#AppDB  symbol/class  exported  3:1-9:2  complexity=1  fanIn=1  fanOut=1  loc=6  sig="export class AppDB extends Dexie"
+s:src/local/db.ts#AppDB.accounts  member/table  4:3-4:49  complexity=1  fanIn=2  fanOut=1  loc=1  [dexie]  sig="accounts!: Table<{ id: string; name: string }>"
+s:src/local/db.ts#AppDB.constructor  member/constructor  6:3-8:4  complexity=1  fanIn=0  fanOut=0  loc=3  sig="constructor()"
+s:src/local/db.ts#db  symbol/variable  exported  11:1-11:30  complexity=1  fanIn=2  fanOut=1  loc=1  sig="export const db = new AppDB()"
+s:src/local/service.ts#localAccounts  symbol/function  exported  3:1-5:2  complexity=1  fanIn=0  fanOut=3  loc=3  [test-only]  sig="export async function localAccounts()"
+s:src/local/service.ts#saveAccount  symbol/function  exported  7:1-9:2  complexity=1  fanIn=0  fanOut=3  loc=3  [dead-export]  sig="export async function saveAccount(name: string)"
+s:src/server/routers/accounts.ts#accountsRouter  symbol/variable  exported  3:1-6:3  complexity=1  fanIn=1  fanOut=1  loc=4  sig="export const accountsRouter = router({ list: procedure.query(async ({ ctx }) => ctx.prisma.account.findMany({ where: { userId: ctx.userId } })), create: proced…"
+s:src/server/routers/accounts.ts#accountsRouter.create  member/procedure  5:3-5:119  complexity=1  fanIn=1  fanOut=5  loc=1  [rpc:accounts.create,trpc:mutation]  sig="create: procedure.input({ name: '' }).mutation(async ({ ctx, input }) => ctx.prisma.account.create({ data: input }))"
+s:src/server/routers/accounts.ts#accountsRouter.list  member/procedure  4:3-4:107  complexity=1  fanIn=1  fanOut=6  loc=1  [rpc:accounts.list,trpc:query]  sig="list: procedure.query(async ({ ctx }) => ctx.prisma.account.findMany({ where: { userId: ctx.userId } }))"
+s:src/server/routers/index.ts#appRouter  symbol/variable  exported  4:1-6:3  complexity=1  fanIn=1  fanOut=1  loc=3  sig="export const appRouter = router({ accounts: accountsRouter, })"
+s:src/server/routers/index.ts#appRouter.accounts  member/router  5:3-5:27  complexity=1  fanIn=2  fanOut=1  loc=1  sig="accounts: accountsRouter"
+s:src/server/trpc.ts#builder  symbol/variable  20:1-31:2  complexity=1  fanIn=3  fanOut=2  loc=12  sig="const builder = { input<I>(_schema: I) { return { mutation<O>(resolve: (opts: { ctx: Context; input: I }) => O): Procedure<I, O> { return { type: 'mutation', r…"
+s:src/server/trpc.ts#Context  symbol/interface  exported  7:1-10:2  complexity=1  fanIn=2  fanOut=0  loc=4  sig="export interface Context"
+s:src/server/trpc.ts#Context.prisma  member/property  8:3-8:24  complexity=1  fanIn=2  fanOut=1  loc=1  sig="prisma: typeof prisma"
+s:src/server/trpc.ts#Context.userId  member/property  9:3-9:17  complexity=1  fanIn=1  fanOut=0  loc=1  sig="userId: string"
+s:src/server/trpc.ts#prisma  symbol/variable  exported  12:1-18:2  complexity=1  fanIn=3  fanOut=0  loc=7  sig="export const prisma = { account: { findMany: async (_args?: unknown) => [] as { id: string; name: string }[], create: async (args: { data: { name: string } }) …"
+s:src/server/trpc.ts#procedure  symbol/variable  exported  33:1-33:33  complexity=1  fanIn=2  fanOut=1  loc=1  sig="export const procedure = builder"
+s:src/server/trpc.ts#Procedure  symbol/interface  exported  2:1-5:2  complexity=1  fanIn=3  fanOut=0  loc=4  sig="export interface Procedure<I, O>"
+s:src/server/trpc.ts#Procedure.resolve  member/property  4:3-4:51  complexity=1  fanIn=0  fanOut=2  loc=1  sig="resolve: (opts: { ctx: Context; input: I }) => O"
+s:src/server/trpc.ts#Procedure.type  member/property  3:3-3:29  complexity=1  fanIn=0  fanOut=0  loc=1  sig="type: 'query' | 'mutation'"
+s:src/server/trpc.ts#router  symbol/function  exported  35:1-37:2  complexity=1  fanIn=2  fanOut=0  loc=3  sig="export function router<T extends Record<string, unknown>>(routes: T): T"
+s:src/ui/ThemeContext.tsx#ThemeContext  symbol/context  exported  3:1-3:51  complexity=1  fanIn=2  fanOut=1  loc=1  [dead-export]  sig="export const ThemeContext = createContext('light')"
+s:src/ui/ThemeContext.tsx#ThemeProvider  symbol/component  exported  5:1-7:2  complexity=1  fanIn=0  fanOut=2  loc=3  [dead-export]  sig="export function ThemeProvider({ children }: { children?: unknown })"
+s:src/ui/ThemeContext.tsx#useTheme  symbol/hook  exported  9:1-11:2  complexity=1  fanIn=1  fanOut=2  loc=3  sig="export function useTheme()"
+
+# edges
+f:src/app/(shop)/accounts/page.tsx -imports/static-> f:src/client/service.ts  ×1  @1:30
+f:src/app/(shop)/accounts/page.tsx -imports/static-> f:src/lib/fake-libs.ts  ×1  @2:27
+f:src/app/page.tsx -imports/static-> f:src/lib/fake-libs.ts  ×1  @1:22
+f:src/app/page.tsx -imports/static-> f:src/ui/ThemeContext.tsx  ×1  @2:26
+f:src/client/service.ts -imports/static-> f:src/client/trpc.ts  ×1  @1:22
+f:src/client/trpc.ts -imports/type-only-> f:src/server/routers/index.ts  ×1  @2:32
+f:src/client/trpc.ts -imports/type-only-> f:src/server/trpc.ts  ×1  @1:32
+f:src/local/db.ts -imports/static-> f:src/lib/fake-libs.ts  ×1  @1:35
+f:src/local/service.ts -imports/static-> f:src/local/db.ts  ×1  @1:20
+f:src/server/routers/accounts.ts -imports/static-> f:src/server/trpc.ts  ×1  @1:35
+f:src/server/routers/index.ts -imports/static-> f:src/server/routers/accounts.ts  ×1  @2:32
+f:src/server/routers/index.ts -imports/static-> f:src/server/trpc.ts  ×1  @1:24
+f:src/ui/ThemeContext.tsx -imports/static-> f:src/lib/fake-libs.ts  ×1  @1:43
+f:tests/service.test.ts -imports/static-> f:src/client/service.ts  ×1  @1:30
+f:tests/service.test.ts -imports/static-> f:src/local/service.ts  ×1  @2:31
+f:tests/service.test.ts -instantiates-> s:src/client/service.ts#CloudService  ×1  @4:5
+f:tests/service.test.ts -calls-> s:src/client/service.ts#CloudService.getAccounts  ×1  @4:20
+f:tests/service.test.ts -calls-> s:src/local/service.ts#localAccounts  ×1  @5:1
+s:prisma/schema.prisma#Account.user -type-ref-> s:prisma/schema.prisma#User  ×1  @16:1
+s:src/app/(shop)/accounts/page.tsx#Accounts -navigates//accounts/42-> f:src/app/(shop)/accounts/[id]/page.tsx  ×1  inferred  @8:35
+s:src/app/(shop)/accounts/page.tsx#Accounts -instantiates-> s:src/client/service.ts#CloudService  ×1  @7:7
+s:src/app/(shop)/accounts/page.tsx#Accounts -calls-> s:src/client/service.ts#CloudService.getAccounts  ×1  @7:22
+s:src/app/(shop)/accounts/page.tsx#Accounts -calls-> s:src/lib/fake-libs.ts#useRouter  ×3  @5:18 @6:39 @8:42
+s:src/app/page.tsx#Home -navigates//accounts-> f:src/app/(shop)/accounts/page.tsx  ×1  inferred  @8:13
+s:src/app/page.tsx#Home -renders-> s:src/lib/fake-libs.ts#Link  ×2  @8:8 @9:8
+s:src/app/page.tsx#Home -calls-> s:src/ui/ThemeContext.tsx#useTheme  ×1  @5:17
+s:src/client/service.ts#CloudService.createAccount -calls-> s:src/client/trpc.ts#Client  ×1  @9:33
+s:src/client/service.ts#CloudService.createAccount -references-> s:src/client/trpc.ts#trpc  ×1  @9:12
+s:src/client/service.ts#CloudService.createAccount -rpc-call/mutate-> s:src/server/routers/accounts.ts#accountsRouter.create  ×1  @9:26
+s:src/client/service.ts#CloudService.createAccount -references-> s:src/server/routers/index.ts#appRouter.accounts  ×1  @9:17
+s:src/client/service.ts#CloudService.getAccounts -calls-> s:src/client/trpc.ts#Client  ×1  @5:31
+s:src/client/service.ts#CloudService.getAccounts -references-> s:src/client/trpc.ts#trpc  ×1  @5:12
+s:src/client/service.ts#CloudService.getAccounts -rpc-call/query-> s:src/server/routers/accounts.ts#accountsRouter.list  ×1  @5:26
+s:src/client/service.ts#CloudService.getAccounts -references-> s:src/server/routers/index.ts#appRouter.accounts  ×1  @5:17
+s:src/client/trpc.ts#Client -type-ref-> s:src/server/trpc.ts#Procedure  ×1  @5:32
+s:src/client/trpc.ts#trpc -type-ref-> s:src/client/trpc.ts#Client  ×1  @8:27
+s:src/client/trpc.ts#trpc -type-ref-> s:src/server/routers/index.ts#appRouter  ×1  @8:41
+s:src/lib/fake-libs.ts#Table.put -type-ref-> s:src/lib/fake-libs.ts#Table  ×1  @13:12
+s:src/lib/fake-libs.ts#Table.where -type-ref-> s:src/lib/fake-libs.ts#Table  ×1  @12:46
+s:src/local/db.ts#AppDB -extends-> s:src/lib/fake-libs.ts#Dexie  ×1  @3:28
+s:src/local/db.ts#AppDB.accounts -type-ref-> s:src/lib/fake-libs.ts#Table  ×1  @4:14
+s:src/local/db.ts#db -instantiates-> s:src/local/db.ts#AppDB  ×1  @11:23
+s:src/local/service.ts#localAccounts -calls-> s:src/lib/fake-libs.ts#Table.where  ×2  @4:22 @4:36
+s:src/local/service.ts#localAccounts -queries/read-> s:src/local/db.ts#AppDB.accounts  ×1  @4:13
+s:src/local/service.ts#localAccounts -references-> s:src/local/db.ts#db  ×1  @4:10
+s:src/local/service.ts#saveAccount -calls-> s:src/lib/fake-libs.ts#Table.put  ×1  @8:22
+s:src/local/service.ts#saveAccount -queries/write-> s:src/local/db.ts#AppDB.accounts  ×1  @8:13
+s:src/local/service.ts#saveAccount -references-> s:src/local/db.ts#db  ×1  @8:10
+s:src/server/routers/accounts.ts#accountsRouter -calls-> s:src/server/trpc.ts#router  ×1  @3:31
+s:src/server/routers/accounts.ts#accountsRouter.create -queries/write-> s:prisma/schema.prisma#Account  ×1  inferred  @5:87
+s:src/server/routers/accounts.ts#accountsRouter.create -calls-> s:src/server/trpc.ts#builder  ×2  @5:21 @5:41
+s:src/server/routers/accounts.ts#accountsRouter.create -references-> s:src/server/trpc.ts#Context.prisma  ×1  @5:80
+s:src/server/routers/accounts.ts#accountsRouter.create -calls-> s:src/server/trpc.ts#prisma  ×1  @5:95
+s:src/server/routers/accounts.ts#accountsRouter.create -references-> s:src/server/trpc.ts#prisma  ×1  @5:87
+s:src/server/routers/accounts.ts#accountsRouter.create -references-> s:src/server/trpc.ts#procedure  ×1  @5:11
+s:src/server/routers/accounts.ts#accountsRouter.list -queries/read-> s:prisma/schema.prisma#Account  ×1  inferred  @4:55
+s:src/server/routers/accounts.ts#accountsRouter.list -calls-> s:src/server/trpc.ts#builder  ×1  @4:19
+s:src/server/routers/accounts.ts#accountsRouter.list -references-> s:src/server/trpc.ts#Context.prisma  ×1  @4:48
+s:src/server/routers/accounts.ts#accountsRouter.list -references-> s:src/server/trpc.ts#Context.userId  ×1  @4:95
+s:src/server/routers/accounts.ts#accountsRouter.list -calls-> s:src/server/trpc.ts#prisma  ×1  @4:63
+s:src/server/routers/accounts.ts#accountsRouter.list -references-> s:src/server/trpc.ts#prisma  ×1  @4:55
+s:src/server/routers/accounts.ts#accountsRouter.list -references-> s:src/server/trpc.ts#procedure  ×1  @4:9
+s:src/server/routers/index.ts#appRouter -calls-> s:src/server/trpc.ts#router  ×1  @4:26
+s:src/server/routers/index.ts#appRouter.accounts -references-> s:src/server/routers/accounts.ts#accountsRouter  ×1  @5:13
+s:src/server/trpc.ts#builder -type-ref-> s:src/server/trpc.ts#Context  ×2  @23:42 @28:35
+s:src/server/trpc.ts#builder -type-ref-> s:src/server/trpc.ts#Procedure  ×2  @23:70 @28:66
+s:src/server/trpc.ts#Context.prisma -type-ref-> s:src/server/trpc.ts#prisma  ×1  @8:18
+s:src/server/trpc.ts#procedure -references-> s:src/server/trpc.ts#builder  ×1  @33:26
+s:src/server/trpc.ts#Procedure.resolve -type-ref-> s:src/server/trpc.ts#Context  ×1  @4:26
+s:src/server/trpc.ts#Procedure.resolve -type-ref-> s:src/server/trpc.ts#Procedure  ×2  @4:42 @4:50
+s:src/ui/ThemeContext.tsx#ThemeContext -calls-> s:src/lib/fake-libs.ts#createContext  ×1  @3:29
+s:src/ui/ThemeContext.tsx#ThemeProvider -renders-> s:src/lib/fake-libs.ts#createContext  ×1  @6:24
+s:src/ui/ThemeContext.tsx#ThemeProvider -provides-> s:src/ui/ThemeContext.tsx#ThemeContext  ×1  @6:11
+s:src/ui/ThemeContext.tsx#useTheme -calls-> s:src/lib/fake-libs.ts#useContext  ×1  @10:10
+s:src/ui/ThemeContext.tsx#useTheme -consumes-> s:src/ui/ThemeContext.tsx#ThemeContext  ×1  @10:21
+
+# databases
+db:dexie:app  indexeddb  dexie  module=""  name="app"
+  table accounts  nodes=s:src/local/db.ts#AppDB.accounts
+db:prisma:db  sql  prisma  module=""  name="db"
+  table Account  nodes=s:prisma/schema.prisma#Account
+    id  String  pk  :12
+    name  String  :13
+    type  AccountType  :14
+    userId  String  :15
+    user  User  virtual  -> User  :16
+    fk  (userId) -> User (id)
+    index  (userId)
+  table User  nodes=s:prisma/schema.prisma#User
+    id  String  pk  :6
+    email  String  unique  :7
+    accounts  Account[]  virtual  -> Account  :8
+    index  (email)  unique
+
+# rules
+pages-use-services  allow  error  2 broken
+  f:src/app/(shop)/accounts/page.tsx -> f:src/lib/fake-libs.ts
+  f:src/app/page.tsx -> f:src/lib/fake-libs.ts
+client-apart-from-server  forbid  warn  2 broken
+  f:src/client/trpc.ts -> f:src/server/routers/index.ts
+  f:src/client/trpc.ts -> f:src/server/trpc.ts
+no-server-in-pages  forbidReach  error  ok
+short-pages  limit  warn  2 broken
+  s:src/app/page.tsx#Home  loc 9 max 5
+  s:src/app/(shop)/accounts/page.tsx#Accounts  loc 6 max 5
+components-acyclic  cycles  warn  matches nothing
+  ? scope src/components/** matches no file

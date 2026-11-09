@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:mysql://db-host.internal:3306/acme-orders?serverTimezone=UTC&marker=keep-out-of-the-graph
+custom:
+  kafka:
+    bindings:
+      payment:
+        kafkaTopic: ${kafka-topic-payment}
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+custom:
+  kafka:
+    bindings:
+      payment:
+        kafkaTopic: "acme.local.payments"

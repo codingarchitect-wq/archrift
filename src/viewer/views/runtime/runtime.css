@@ -1,0 +1,70 @@
+/* Runtime view: the message and fragment labels' own styles (the kit's arc42.css has the rest). */
+
+.label.rt-rpc {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.label.rt-query {
+  color: var(--warn);
+  font-weight: 700;
+}
+
+.label.rt-tag {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.label.rt-guard {
+  font-style: italic;
+}
+
+.label.rt-interface {
+  font-style: italic;
+}
+
+.label.rt-collapsed {
+  color: var(--muted);
+}
+
+.rt-scenarios ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 32vh;
+  overflow-y: auto;
+}
+
+.rt-scenarios .rt-group {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+}
+
+.rt-scenarios button {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  padding: 3px 8px;
+  text-align: left;
+}
+
+.rt-scenarios button:hover,
+.rt-scenarios button[aria-checked='true'] {
+  background: var(--hover);
+}
+
+.rt-scenarios button[aria-checked='true'] .rt-entry {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.rt-scenarios .dim {
+  font-size: 11px;
+  white-space: nowrap;
+}

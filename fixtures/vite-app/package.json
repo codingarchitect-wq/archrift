@@ -1,0 +1,8 @@
+{
+  "name": "vite-react-template",
+  "private": true,
+  "type": "module",
+  "scripts": { "dev": "vite", "seed": "tsx scripts/seed.ts", "test": "vitest" },
+  "dependencies": { "react": "^19.0.0", "react-dom": "^19.0.0" },
+  "devDependencies": { "vite": "^8.0.0", "vitest": "^4.0.0", "tailwindcss": "^4.0.0" }
+}

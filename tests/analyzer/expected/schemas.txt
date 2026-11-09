@@ -1,0 +1,362 @@
+# nodes
+d:.  directory  name="schemas"  files=25  loc=285
+d:libs  directory  files=1  loc=5
+d:libs/audit  directory  files=1  loc=5
+d:libs/audit/src  directory  files=1  loc=5
+d:libs/audit/src/main  directory  files=1  loc=5
+d:libs/audit/src/main/kotlin  directory  files=1  loc=5
+d:libs/audit/src/main/kotlin/com  directory  files=1  loc=5
+d:libs/audit/src/main/kotlin/com/acme  directory  files=1  loc=5
+d:libs/audit/src/main/kotlin/com/acme/audit  directory  files=1  loc=5
+d:prisma  directory  files=2  loc=42
+d:prisma/migrations  directory  files=1  loc=2
+d:prisma/migrations/0001_init  directory  files=1  loc=2
+d:services  directory  files=19  loc=192
+d:services/billing  directory  files=1  loc=13
+d:services/billing/src  directory  files=1  loc=13
+d:services/billing/src/main  directory  files=1  loc=13
+d:services/billing/src/main/resources  directory  files=1  loc=13
+d:services/billing/src/main/resources/db  directory  files=1  loc=13
+d:services/orders  directory  files=18  loc=179
+d:services/orders/src  directory  files=18  loc=179
+d:services/orders/src/main  directory  files=17  loc=175
+d:services/orders/src/main/kotlin  directory  files=8  loc=121
+d:services/orders/src/main/kotlin/com  directory  files=8  loc=121
+d:services/orders/src/main/kotlin/com/acme  directory  files=8  loc=121
+d:services/orders/src/main/kotlin/com/acme/orders  directory  files=8  loc=121
+d:services/orders/src/main/resources  directory  files=9  loc=54
+d:services/orders/src/main/resources/db  directory  files=8  loc=48
+d:services/orders/src/main/resources/db/migration  directory  files=7  loc=46
+d:services/orders/src/main/resources/db/migration/h2  directory  files=1  loc=3
+d:services/orders/src/main/resources/db/migration/mysql  directory  files=6  loc=43
+d:services/orders/src/test  directory  files=1  loc=4
+d:services/orders/src/test/kotlin  directory  files=1  loc=4
+d:services/orders/src/test/kotlin/com  directory  files=1  loc=4
+d:services/orders/src/test/kotlin/com/acme  directory  files=1  loc=4
+d:services/orders/src/test/kotlin/com/acme/orders  directory  files=1  loc=4
+d:src  directory  files=3  loc=46
+d:src/lib  directory  files=1  loc=10
+d:src/local  directory  files=2  loc=36
+f:libs/audit/src/main/kotlin/com/acme/audit/AuditEntry.kt  file  complexity=1  externalDeps=1  fanIn=0  fanOut=0  loc=5  symbols=1  testReach=0  testedDirectly=0  [db:sql,kotlin,paradigm:jvm.namespace=jakarta,paradigm:jvm.persistence=jpa]
+f:prisma/migrations/0001_init/migration.sql  file  complexity=1  externalDeps=0  fanIn=0  fanOut=0  loc=2  symbols=1  testReach=0  testedDirectly=0  [sql]
+f:prisma/schema.prisma  file  externalDeps=0  fanIn=0  fanOut=0  loc=40  testReach=0  testedDirectly=0  [prisma,prisma-schema]
+f:services/billing/src/main/resources/db/schema-postgres.sql  file  complexity=1  externalDeps=0  fanIn=0  fanOut=0  loc=13  symbols=2  testReach=0  testedDirectly=0  [sql]
+f:services/orders/src/main/kotlin/com/acme/orders/Address.kt  file  complexity=1  externalDeps=1  fanIn=1  fanOut=0  instability=0  loc=10  symbols=2  testReach=0  testedDirectly=0  [kotlin,paradigm:jvm.namespace=jakarta,paradigm:jvm.persistence=jpa]
+f:services/orders/src/main/kotlin/com/acme/orders/AuditLog.kt  file  complexity=1  externalDeps=1  fanIn=0  fanOut=2  instability=1  loc=5  symbols=1  testReach=0  testedDirectly=0  [db:sql,kotlin,paradigm:jvm.namespace=jakarta,paradigm:jvm.persistence=jpa]
+f:services/orders/src/main/kotlin/com/acme/orders/BaseEntity.kt  file  complexity=1  externalDeps=1  fanIn=4  fanOut=0  instability=0  loc=10  symbols=1  testReach=0  testedDirectly=0  [kotlin,paradigm:jvm.namespace=jakarta,paradigm:jvm.persistence=jpa]
+f:services/orders/src/main/kotlin/com/acme/orders/Customer.kt  file  complexity=1  externalDeps=1  fanIn=2  fanOut=3  instability=0.6  loc=24  symbols=1  testReach=0  testedDirectly=0  [db:sql,kotlin,paradigm:jvm.namespace=jakarta,paradigm:jvm.persistence=jpa]
+f:services/orders/src/main/kotlin/com/acme/orders/OrderEvent.kt  file  complexity=1  externalDeps=3  fanIn=1  fanOut=0  instability=0  loc=25  symbols=2  testReach=0  testedDirectly=0  [db:mongodb,kotlin,paradigm:jvm.dates=java-time]
+f:services/orders/src/main/kotlin/com/acme/orders/Payment.kt  file  complexity=1  externalDeps=1  fanIn=0  fanOut=1  instability=1  loc=19  symbols=5  testReach=0  testedDirectly=0  [db:sql,kotlin,paradigm:jvm.namespace=jakarta,paradigm:jvm.persistence=jpa]
+f:services/orders/src/main/kotlin/com/acme/orders/PurchaseOrder.kt  file  complexity=1  externalDeps=2  fanIn=3  fanOut=2  instability=0.4  loc=20  symbols=2  testReach=0  testedDirectly=0  [db:sql,kotlin,paradigm:jvm.dates=java-time,paradigm:jvm.namespace=jakarta,paradigm:jvm.persistence=jpa]
+f:services/orders/src/main/kotlin/com/acme/orders/Repositories.kt  file  complexity=1  externalDeps=3  fanIn=0  fanOut=3  instability=1  loc=8  symbols=3  testReach=0  testedDirectly=0  [kotlin,paradigm:jvm.persistence=jpa]
+f:services/orders/src/main/resources/application.yml  file  complexity=1  externalDeps=0  fanIn=0  fanOut=0  loc=6  symbols=0  testReach=0  testedDirectly=0  [app-config,yaml]
+f:services/orders/src/main/resources/db/migration/h2/V1__init.sql  file  complexity=1  externalDeps=0  fanIn=0  fanOut=0  loc=3  symbols=2  testReach=0  testedDirectly=0  [sql]
+f:services/orders/src/main/resources/db/migration/mysql/R__views.sql  file  complexity=1  externalDeps=0  fanIn=0  fanOut=0  loc=1  symbols=1  testReach=0  testedDirectly=0  [sql]
+f:services/orders/src/main/resources/db/migration/mysql/V1__init.sql  file  complexity=1  externalDeps=0  fanIn=0  fanOut=0  loc=33  symbols=6  testReach=0  testedDirectly=0  [sql]
+f:services/orders/src/main/resources/db/migration/mysql/V1_1__note.sql  file  complexity=1  externalDeps=0  fanIn=0  fanOut=0  loc=1  symbols=0  testReach=0  testedDirectly=0  [sql]
+f:services/orders/src/main/resources/db/migration/mysql/V10__unique_number.sql  file  complexity=1  externalDeps=0  fanIn=0  fanOut=0  loc=4  symbols=0  testReach=0  testedDirectly=0  [sql]
+f:services/orders/src/main/resources/db/migration/mysql/V2__rename.sql  file  complexity=1  externalDeps=0  fanIn=0  fanOut=0  loc=2  symbols=0  testReach=0  testedDirectly=0  [sql]
+f:services/orders/src/main/resources/db/migration/mysql/V3__rename_table.sql  file  complexity=1  externalDeps=0  fanIn=0  fanOut=0  loc=2  symbols=0  testReach=0  testedDirectly=0  [sql]
+f:services/orders/src/main/resources/db/schema-mysql.sql  file  complexity=1  externalDeps=0  fanIn=0  fanOut=0  loc=2  symbols=1  testReach=0  testedDirectly=0  [sql]
+f:services/orders/src/test/kotlin/com/acme/orders/TestOnlyEntity.kt  file  complexity=1  externalDeps=1  fanIn=0  fanOut=0  loc=4  symbols=1  [db:sql,kotlin,test]
+f:src/lib/fake-dexie.ts  file  complexity=1  externalDeps=0  fanIn=1  fanOut=0  instability=0  loc=10  symbols=2  testReach=0  testedDirectly=0  [typescript]
+f:src/local/db.ts  file  complexity=1  externalDeps=0  fanIn=0  fanOut=2  instability=1  loc=35  symbols=6  testReach=0  testedDirectly=0  [typescript]
+f:src/local/names.ts  file  complexity=1  externalDeps=0  fanIn=1  fanOut=0  instability=0  loc=1  symbols=1  testReach=0  testedDirectly=0  [typescript]
+s:libs/audit/src/main/kotlin/com/acme/audit/AuditEntry.kt#AuditEntry  symbol/entity  exported  7:1-8:53  complexity=1  fanIn=0  fanOut=0  loc=2  [db:sql,dead-export,entity,table:AuditEntry]  sig="class AuditEntry(val id: Long, val text: String)"
+s:libs/audit/src/main/kotlin/com/acme/audit/AuditEntry.kt#AuditEntry.id  member/property  exported  8:18-8:34  complexity=1  fanIn=0  fanOut=0  loc=1  sig="@Id val id: Long"
+s:libs/audit/src/main/kotlin/com/acme/audit/AuditEntry.kt#AuditEntry.text  member/property  exported  8:36-8:52  complexity=1  fanIn=0  fanOut=0  loc=1  sig="val text: String"
+s:prisma/migrations/0001_init/migration.sql#users  symbol/table  2:1-2:89  complexity=1  fanIn=0  fanOut=0  loc=1  [table:users]  sig="CREATE TABLE users"
+s:prisma/schema.prisma#Account  symbol/model  19:1-31:2  fanIn=1  fanOut=0  loc=13
+s:prisma/schema.prisma#Account.balance  member/field  25:1-25:2  fanIn=0  fanOut=0  loc=1  sig="balance Decimal?"
+s:prisma/schema.prisma#Account.id  member/field  20:1-20:2  fanIn=0  fanOut=0  loc=1  sig="id String"
+s:prisma/schema.prisma#Account.kind  member/field  24:1-24:2  fanIn=0  fanOut=0  loc=1  sig="kind AccountKind"
+s:prisma/schema.prisma#Account.number  member/field  23:1-23:2  fanIn=0  fanOut=0  loc=1  sig="number String"
+s:prisma/schema.prisma#Account.postings  member/relation  27:1-27:2  fanIn=0  fanOut=0  loc=1  sig="postings Posting[]"
+s:prisma/schema.prisma#Account.tags  member/field  26:1-26:2  fanIn=0  fanOut=0  loc=1  sig="tags String[]"
+s:prisma/schema.prisma#Account.user  member/relation  22:1-22:2  fanIn=0  fanOut=1  loc=1  sig="user User"
+s:prisma/schema.prisma#Account.userId  member/field  21:1-21:2  fanIn=0  fanOut=0  loc=1  sig="userId Int"
+s:prisma/schema.prisma#AccountKind  symbol/enum  46:1-49:2  fanIn=0  fanOut=0  loc=4
+s:prisma/schema.prisma#Balance  symbol/view  41:1-44:2  fanIn=0  fanOut=0  loc=4
+s:prisma/schema.prisma#Balance.accountId  member/field  42:1-42:2  fanIn=0  fanOut=0  loc=1  sig="accountId String"
+s:prisma/schema.prisma#Balance.total  member/field  43:1-43:2  fanIn=0  fanOut=0  loc=1  sig="total Decimal"
+s:prisma/schema.prisma#Posting  symbol/model  33:1-39:2  fanIn=0  fanOut=0  loc=7
+s:prisma/schema.prisma#Posting.account  member/relation  36:1-36:2  fanIn=0  fanOut=1  loc=1  sig="account Account"
+s:prisma/schema.prisma#Posting.accountId  member/field  34:1-34:2  fanIn=0  fanOut=0  loc=1  sig="accountId String"
+s:prisma/schema.prisma#Posting.seq  member/field  35:1-35:2  fanIn=0  fanOut=0  loc=1  sig="seq Int"
+s:prisma/schema.prisma#User  symbol/model  9:1-17:2  fanIn=1  fanOut=0  loc=9
+s:prisma/schema.prisma#User.accounts  member/relation  13:1-13:2  fanIn=0  fanOut=0  loc=1  sig="accounts Account[]"
+s:prisma/schema.prisma#User.createdAt  member/field  14:1-14:2  fanIn=0  fanOut=0  loc=1  sig="createdAt DateTime"
+s:prisma/schema.prisma#User.email  member/field  11:1-11:2  fanIn=0  fanOut=0  loc=1  sig="email String"
+s:prisma/schema.prisma#User.homepage  member/field  12:1-12:2  fanIn=0  fanOut=0  loc=1  sig="homepage String?"
+s:prisma/schema.prisma#User.id  member/field  10:1-10:2  fanIn=0  fanOut=0  loc=1  sig="id Int"
+s:services/billing/src/main/resources/db/schema-postgres.sql#invoice  symbol/table  6:1-11:3  complexity=1  fanIn=0  fanOut=0  loc=6  [table:invoice]  sig="CREATE TABLE invoice"
+s:services/billing/src/main/resources/db/schema-postgres.sql#public.account  symbol/table  name="public.account"  1:1-4:3  complexity=1  fanIn=0  fanOut=0  loc=4  [table:account]  sig="CREATE TABLE public.account"
+s:services/orders/src/main/kotlin/com/acme/orders/Address.kt#Address  symbol/class  exported  12:1-13:73  complexity=1  fanIn=1  fanOut=1  loc=2  sig="class Address(val street: String) : Place()"
+s:services/orders/src/main/kotlin/com/acme/orders/Address.kt#Address.street  member/property  exported  13:15-13:62  complexity=1  fanIn=0  fanOut=0  loc=1  sig="@Column(name = \"streetName\") val street: String"
+s:services/orders/src/main/kotlin/com/acme/orders/Address.kt#Place  symbol/class  exported  7:1-10:2  complexity=1  fanIn=1  fanOut=0  loc=4  [abstract,dead-export]  sig="abstract class Place"
+s:services/orders/src/main/kotlin/com/acme/orders/Address.kt#Place.city  member/property  exported  9:3-9:27  complexity=1  fanIn=0  fanOut=0  loc=1  sig="var city: String?"
+s:services/orders/src/main/kotlin/com/acme/orders/AuditLog.kt#AuditLog  symbol/entity  exported  7:1-8:95  complexity=1  fanIn=0  fanOut=2  loc=2  [db:sql,dead-export,entity,table:AuditLog]  sig="class AuditLog(val message: String, val order: PurchaseOrder?) : BaseEntity<Long>()"
+s:services/orders/src/main/kotlin/com/acme/orders/AuditLog.kt#AuditLog.message  member/property  exported  8:16-8:35  complexity=1  fanIn=0  fanOut=0  loc=1  sig="val message: String"
+s:services/orders/src/main/kotlin/com/acme/orders/AuditLog.kt#AuditLog.order  member/property  exported  8:37-8:73  complexity=1  fanIn=0  fanOut=0  loc=1  sig="@ManyToOne val order: PurchaseOrder?"
+s:services/orders/src/main/kotlin/com/acme/orders/BaseEntity.kt#BaseEntity  symbol/class  exported  8:1-13:2  complexity=1  fanIn=5  fanOut=0  loc=5  [abstract]  sig="abstract class BaseEntity<ID>"
+s:services/orders/src/main/kotlin/com/acme/orders/BaseEntity.kt#BaseEntity.id  member/property  exported  10:3-10:41  complexity=1  fanIn=0  fanOut=0  loc=1  sig="var id: ID?"
+s:services/orders/src/main/kotlin/com/acme/orders/BaseEntity.kt#BaseEntity.version  member/property  exported  12:3-12:33  complexity=1  fanIn=0  fanOut=0  loc=1  sig="var version: Long"
+s:services/orders/src/main/kotlin/com/acme/orders/Customer.kt#Customer  symbol/entity  exported  13:1-33:2  complexity=1  fanIn=2  fanOut=1  loc=15  [db:sql,entity,table:Customer]  sig="class Customer : BaseEntity<Long>()"
+s:services/orders/src/main/kotlin/com/acme/orders/Customer.kt#Customer.address  member/property  exported  17:3-19:31  complexity=1  fanIn=0  fanOut=1  loc=3  sig="var address: Address?"
+s:services/orders/src/main/kotlin/com/acme/orders/Customer.kt#Customer.cached  member/property  exported  25:3-25:40  complexity=1  fanIn=0  fanOut=0  loc=1  sig="var cached: String?"
+s:services/orders/src/main/kotlin/com/acme/orders/Customer.kt#Customer.displayName  member/property  exported  15:3-15:83  complexity=1  fanIn=1  fanOut=1  loc=1  sig="lateinit var displayName: String"
+s:services/orders/src/main/kotlin/com/acme/orders/Customer.kt#Customer.NAME_LENGTH  member/property  exported  31:5-31:32  complexity=1  fanIn=1  fanOut=0  loc=1  [const,static]  sig="const val NAME_LENGTH"
+s:services/orders/src/main/kotlin/com/acme/orders/Customer.kt#Customer.orders  member/property  exported  21:3-21:93  complexity=1  fanIn=0  fanOut=1  loc=1  sig="var orders: MutableList<PurchaseOrder>"
+s:services/orders/src/main/kotlin/com/acme/orders/Customer.kt#Customer.tags  member/property  exported  23:3-23:107  complexity=1  fanIn=0  fanOut=0  loc=1  sig="var tags: MutableSet<String>"
+s:services/orders/src/main/kotlin/com/acme/orders/Customer.kt#Customer.upper  member/property  exported  27:3-28:36  complexity=1  fanIn=0  fanOut=1  loc=2  sig="val upper: String"
+s:services/orders/src/main/kotlin/com/acme/orders/OrderEvent.kt#CustomerProfile  symbol/entity  exported  27:1-28:62  complexity=1  fanIn=1  fanOut=0  loc=2  [data,db:mongodb,dead-export,entity,table:CustomerProfile]  sig="data class CustomerProfile(val id: String, val name: String?)"
+s:services/orders/src/main/kotlin/com/acme/orders/OrderEvent.kt#CustomerProfile.id  member/property  exported  28:28-28:42  complexity=1  fanIn=0  fanOut=0  loc=1  sig="val id: String"
+s:services/orders/src/main/kotlin/com/acme/orders/OrderEvent.kt#CustomerProfile.name  member/property  exported  28:44-28:61  complexity=1  fanIn=0  fanOut=0  loc=1  sig="val name: String?"
+s:services/orders/src/main/kotlin/com/acme/orders/OrderEvent.kt#OrderEvent  symbol/entity  exported  12:1-25:2  complexity=1  fanIn=1  fanOut=1  loc=14  [data,db:mongodb,entity,table:order_events]  sig="data class OrderEvent( val key: String, val orderNumber: String, val sequence: Long, val profile: CustomerProfile?, val at: Instant, val correlation: UUID, )"
+s:services/orders/src/main/kotlin/com/acme/orders/OrderEvent.kt#OrderEvent.at  member/property  exported  19:5-19:20  complexity=1  fanIn=0  fanOut=0  loc=1  sig="val at: Instant"
+s:services/orders/src/main/kotlin/com/acme/orders/OrderEvent.kt#OrderEvent.correlation  member/property  exported  20:5-20:26  complexity=1  fanIn=0  fanOut=0  loc=1  sig="val correlation: UUID"
+s:services/orders/src/main/kotlin/com/acme/orders/OrderEvent.kt#OrderEvent.EVENTS  member/property  exported  23:5-23:38  complexity=1  fanIn=0  fanOut=0  loc=1  [const,static]  sig="const val EVENTS"
+s:services/orders/src/main/kotlin/com/acme/orders/OrderEvent.kt#OrderEvent.key  member/property  exported  15:5-15:24  complexity=1  fanIn=0  fanOut=0  loc=1  sig="@Id val key: String"
+s:services/orders/src/main/kotlin/com/acme/orders/OrderEvent.kt#OrderEvent.orderNumber  member/property  exported  16:5-16:44  complexity=1  fanIn=0  fanOut=0  loc=1  sig="@Field(\"order\") val orderNumber: String"
+s:services/orders/src/main/kotlin/com/acme/orders/OrderEvent.kt#OrderEvent.profile  member/property  exported  18:5-18:41  complexity=1  fanIn=0  fanOut=0  loc=1  sig="@DBRef val profile: CustomerProfile?"
+s:services/orders/src/main/kotlin/com/acme/orders/OrderEvent.kt#OrderEvent.sequence  member/property  exported  17:5-17:47  complexity=1  fanIn=0  fanOut=0  loc=1  sig="@Indexed(unique = true) val sequence: Long"
+s:services/orders/src/main/kotlin/com/acme/orders/Payment.kt#CardPayment  symbol/entity  exported  14:1-15:55  complexity=1  fanIn=0  fanOut=1  loc=2  [db:sql,dead-export,entity,table:CardPayment]  sig="class CardPayment(val cardNumber: String) : Payment(0)"
+s:services/orders/src/main/kotlin/com/acme/orders/Payment.kt#CardPayment.cardNumber  member/property  exported  15:19-15:41  complexity=1  fanIn=0  fanOut=0  loc=1  sig="val cardNumber: String"
+s:services/orders/src/main/kotlin/com/acme/orders/Payment.kt#Money  symbol/class  exported  26:1-28:29  complexity=1  fanIn=0  fanOut=0  loc=3  [dead-export]  sig="class Money(val cents: Long)"
+s:services/orders/src/main/kotlin/com/acme/orders/Payment.kt#Money.cents  member/property  exported  28:13-28:28  complexity=1  fanIn=0  fanOut=0  loc=1  sig="val cents: Long"
+s:services/orders/src/main/kotlin/com/acme/orders/Payment.kt#ParcelShipment  symbol/entity  exported  22:1-23:57  complexity=1  fanIn=0  fanOut=1  loc=2  [db:sql,dead-export,entity,table:ParcelShipment]  sig="class ParcelShipment(val weight: Int) : Shipment(\"post\")"
+s:services/orders/src/main/kotlin/com/acme/orders/Payment.kt#ParcelShipment.weight  member/property  exported  23:22-23:37  complexity=1  fanIn=0  fanOut=0  loc=1  sig="val weight: Int"
+s:services/orders/src/main/kotlin/com/acme/orders/Payment.kt#Payment  symbol/entity  exported  10:1-12:62  complexity=1  fanIn=1  fanOut=1  loc=3  [abstract,db:sql,dead-export,entity,table:payment]  sig="abstract class Payment(val amount: Long) : BaseEntity<Long>()"
+s:services/orders/src/main/kotlin/com/acme/orders/Payment.kt#Payment.amount  member/property  exported  12:24-12:40  complexity=1  fanIn=0  fanOut=0  loc=1  sig="val amount: Long"
+s:services/orders/src/main/kotlin/com/acme/orders/Payment.kt#Shipment  symbol/entity  exported  18:1-20:66  complexity=1  fanIn=1  fanOut=1  loc=3  [abstract,db:sql,dead-export,entity,table:Shipment]  sig="abstract class Shipment(val carrier: String) : BaseEntity<Long>()"
+s:services/orders/src/main/kotlin/com/acme/orders/Payment.kt#Shipment.carrier  member/property  exported  20:25-20:44  complexity=1  fanIn=0  fanOut=0  loc=1  sig="val carrier: String"
+s:services/orders/src/main/kotlin/com/acme/orders/PurchaseOrder.kt#ORDER_TABLE  symbol/variable  exported  23:1-23:41  complexity=1  fanIn=1  fanOut=0  loc=1  [const,dead-export]  sig="const val ORDER_TABLE"
+s:services/orders/src/main/kotlin/com/acme/orders/PurchaseOrder.kt#PurchaseOrder  symbol/entity  exported  12:1-21:23  complexity=1  fanIn=4  fanOut=3  loc=10  [db:sql,entity,table:purchase_order]  sig="class PurchaseOrder( val customer: Customer, val number: String, val note: String?, val placedAt: Instant, ) : BaseEntity<Long>()"
+s:services/orders/src/main/kotlin/com/acme/orders/PurchaseOrder.kt#PurchaseOrder.customer  member/property  exported  15:5-17:27  complexity=1  fanIn=0  fanOut=0  loc=3  sig="@ManyToOne(optional = false) @JoinColumn(foreignKey = ForeignKey(name = \"FK_Order_Customer\")) val customer: Customer"
+s:services/orders/src/main/kotlin/com/acme/orders/PurchaseOrder.kt#PurchaseOrder.note  member/property  exported  19:5-19:22  complexity=1  fanIn=0  fanOut=0  loc=1  sig="val note: String?"
+s:services/orders/src/main/kotlin/com/acme/orders/PurchaseOrder.kt#PurchaseOrder.number  member/property  exported  18:5-18:46  complexity=1  fanIn=0  fanOut=0  loc=1  sig="@Column(unique = true) val number: String"
+s:services/orders/src/main/kotlin/com/acme/orders/PurchaseOrder.kt#PurchaseOrder.placedAt  member/property  exported  20:5-20:26  complexity=1  fanIn=0  fanOut=0  loc=1  sig="val placedAt: Instant"
+s:services/orders/src/main/kotlin/com/acme/orders/Repositories.kt#CustomerRepository  symbol/repository  exported  10:1-10:61  complexity=1  fanIn=0  fanOut=1  loc=1  [db:sql,dead-export]  sig="interface CustomerRepository : JpaRepository<Customer, Long>"
+s:services/orders/src/main/kotlin/com/acme/orders/Repositories.kt#EventRepository  symbol/repository  exported  12:1-12:64  complexity=1  fanIn=0  fanOut=1  loc=1  [db:mongodb,dead-export]  sig="interface EventRepository : MongoRepository<OrderEvent, String>"
+s:services/orders/src/main/kotlin/com/acme/orders/Repositories.kt#OrderRepository  symbol/repository  exported  6:1-8:2  complexity=1  fanIn=0  fanOut=1  loc=3  [db:sql,dead-export]  sig="interface OrderRepository : JpaRepository<PurchaseOrder, Long>"
+s:services/orders/src/main/kotlin/com/acme/orders/Repositories.kt#OrderRepository.findByNumber  member/method  exported  7:3-7:51  complexity=1  fanIn=0  fanOut=1  loc=1  sig="fun findByNumber(number: String): PurchaseOrder?"
+s:services/orders/src/main/resources/db/migration/h2/V1__init.sql#customer  symbol/table  2:1-2:80  complexity=1  fanIn=0  fanOut=0  loc=1  [table:customer]  sig="CREATE TABLE customer"
+s:services/orders/src/main/resources/db/migration/h2/V1__init.sql#h2_only  symbol/table  3:1-3:34  complexity=1  fanIn=0  fanOut=0  loc=1  [table:h2_only]  sig="CREATE TABLE h2_only"
+s:services/orders/src/main/resources/db/migration/mysql/R__views.sql#open_orders  symbol/view  1:1-1:77  complexity=1  fanIn=0  fanOut=0  loc=1  sig="CREATE VIEW open_orders"
+s:services/orders/src/main/resources/db/migration/mysql/V1__init.sql#audit_entry  symbol/table  20:1-20:61  complexity=1  fanIn=0  fanOut=0  loc=1  [table:audit_entry]  sig="CREATE TABLE audit_entry"
+s:services/orders/src/main/resources/db/migration/mysql/V1__init.sql#customer  symbol/table  1:1-8:19  complexity=1  fanIn=0  fanOut=0  loc=8  [table:customer]  sig="CREATE TABLE customer"
+s:services/orders/src/main/resources/db/migration/mysql/V1__init.sql#customer_tag  symbol/table  22:1-22:110  complexity=1  fanIn=0  fanOut=0  loc=1  [table:customer_tag]  sig="CREATE TABLE customer_tag"
+s:services/orders/src/main/resources/db/migration/mysql/V1__init.sql#legacy_refund  symbol/table  39:1-39:52  complexity=1  fanIn=0  fanOut=0  loc=1  [table:legacy_refund]  sig="CREATE TABLE legacy_refund"
+s:services/orders/src/main/resources/db/migration/mysql/V1__init.sql#payment  symbol/table  31:1-37:3  complexity=1  fanIn=0  fanOut=0  loc=7  [table:payment]  sig="CREATE TABLE payment"
+s:services/orders/src/main/resources/db/migration/mysql/V1__init.sql#purchase_order  symbol/table  10:1-18:19  complexity=1  fanIn=0  fanOut=0  loc=9  [table:purchase_order]  sig="CREATE TABLE purchase_order"
+s:services/orders/src/main/resources/db/schema-mysql.sql#legacy_snapshot  symbol/table  2:1-2:54  complexity=1  fanIn=0  fanOut=0  loc=1  [table:legacy_snapshot]  sig="CREATE TABLE legacy_snapshot"
+s:services/orders/src/test/kotlin/com/acme/orders/TestOnlyEntity.kt#TestOnlyEntity  symbol/entity  exported  5:1-6:35  complexity=1  fanIn=0  fanOut=0  loc=2  [db:sql,entity,table:TestOnlyEntity]  sig="class TestOnlyEntity(val id: Long)"
+s:services/orders/src/test/kotlin/com/acme/orders/TestOnlyEntity.kt#TestOnlyEntity.id  member/property  exported  6:22-6:34  complexity=1  fanIn=0  fanOut=0  loc=1  sig="val id: Long"
+s:src/lib/fake-dexie.ts#Dexie  symbol/class  exported  6:1-11:2  complexity=1  fanIn=1  fanOut=0  loc=6  sig="export class Dexie"
+s:src/lib/fake-dexie.ts#Dexie.constructor  member/constructor  7:3-7:32  complexity=1  fanIn=0  fanOut=0  loc=1  sig="constructor(_name: string)"
+s:src/lib/fake-dexie.ts#Dexie.version  member/method  8:3-10:4  complexity=1  fanIn=2  fanOut=0  loc=3  sig="version(_n: number)"
+s:src/lib/fake-dexie.ts#Table  symbol/interface  exported  2:1-5:2  complexity=1  fanIn=5  fanOut=0  loc=4  sig="export interface Table<T, K = string>"
+s:src/lib/fake-dexie.ts#Table.get  member/method  3:3-3:38  complexity=1  fanIn=1  fanOut=1  loc=1  sig="get(key: K): Promise<T | undefined>"
+s:src/lib/fake-dexie.ts#Table.put  member/method  4:3-4:26  complexity=1  fanIn=0  fanOut=1  loc=1  sig="put(row: T): Promise<K>"
+s:src/local/db.ts#db  symbol/variable  exported  35:1-35:31  complexity=1  fanIn=2  fanOut=1  loc=1  [dead-export]  sig="export const db = new ShopDB()"
+s:src/local/db.ts#Draft  symbol/interface  exported  10:1-12:2  complexity=1  fanIn=1  fanOut=0  loc=3  [dead-export]  sig="export interface Draft"
+s:src/local/db.ts#Draft.at  member/property  11:3-11:13  complexity=1  fanIn=0  fanOut=0  loc=1  sig="at: number"
+s:src/local/db.ts#firstItem  symbol/function  exported  39:1-41:2  complexity=1  fanIn=0  fanOut=3  loc=3  [dead-export]  sig="export async function firstItem()"
+s:src/local/db.ts#Item  symbol/interface  exported  4:1-9:2  complexity=1  fanIn=1  fanOut=0  loc=6  [dead-export]  sig="export interface Item"
+s:src/local/db.ts#Item.email  member/property  7:3-7:16  complexity=1  fanIn=0  fanOut=0  loc=1  sig="email: string"
+s:src/local/db.ts#Item.id  member/property  5:3-5:13  complexity=1  fanIn=0  fanOut=0  loc=1  sig="id: string"
+s:src/local/db.ts#Item.name  member/property  6:3-6:15  complexity=1  fanIn=0  fanOut=0  loc=1  sig="name: string"
+s:src/local/db.ts#Item.tags  member/property  8:3-8:17  complexity=1  fanIn=0  fanOut=0  loc=1  sig="tags: string[]"
+s:src/local/db.ts#Old  symbol/interface  exported  13:1-15:2  complexity=1  fanIn=1  fanOut=0  loc=3  [dead-export]  sig="export interface Old"
+s:src/local/db.ts#Old.id  member/property  14:3-14:13  complexity=1  fanIn=0  fanOut=0  loc=1  sig="id: string"
+s:src/local/db.ts#ShopDB  symbol/class  exported  17:1-33:2  complexity=1  fanIn=1  fanOut=1  loc=16  [dead-export]  sig="export class ShopDB extends Dexie"
+s:src/local/db.ts#ShopDB.constructor  member/constructor  22:3-32:4  complexity=1  fanIn=0  fanOut=2  loc=11  sig="constructor()"
+s:src/local/db.ts#ShopDB.drafts  member/table  19:3-19:32  complexity=1  fanIn=0  fanOut=2  loc=1  [dexie]  sig="drafts!: Table<Draft, number>"
+s:src/local/db.ts#ShopDB.items  member/table  18:3-18:22  complexity=1  fanIn=1  fanOut=2  loc=1  [dexie]  sig="items!: Table<Item>"
+s:src/local/db.ts#ShopDB.old  member/table  20:3-20:19  complexity=1  fanIn=0  fanOut=2  loc=1  [dexie]  sig="old!: Table<Old>"
+s:src/local/names.ts#DB_NAME  symbol/variable  exported  1:1-1:36  complexity=1  fanIn=1  fanOut=0  loc=1  sig="export const DB_NAME = 'shop-local'"
+x:db:mongodb:order-events  external  name="order-events"  [database,infra,mongodb]  sig="mongodb: order-events"
+x:db:mysql:orders  external  name="orders"  [database,infra,mysql]  sig="mysql: orders"
+x:jvm:jakarta.persistence  external  name="jakarta.persistence"  [jvm]
+x:jvm:java.time  external  name="java.time"  [jvm]
+x:jvm:java.util  external  name="java.util"  [jvm]
+x:jvm:org.springframework.data  external  name="org.springframework.data"  [jvm]
+
+# edges
+f:libs/audit/src/main/kotlin/com/acme/audit/AuditEntry.kt -imports/static-> x:jvm:jakarta.persistence  ×2  @3:1 @4:1
+f:services/orders/src/main/kotlin/com/acme/orders/Address.kt -imports/static-> x:jvm:jakarta.persistence  ×3  @3:1 @4:1 @5:1
+f:services/orders/src/main/kotlin/com/acme/orders/AuditLog.kt -imports/static-> x:jvm:jakarta.persistence  ×2  @3:1 @4:1
+f:services/orders/src/main/kotlin/com/acme/orders/BaseEntity.kt -imports/static-> x:jvm:jakarta.persistence  ×4  @3:1 @4:1 @5:1 @6:1
+f:services/orders/src/main/kotlin/com/acme/orders/Customer.kt -imports/static-> x:jvm:jakarta.persistence  ×8  @3:1 @4:1 @5:1 @6:1 @7:1 @8:1 @9:1 @10:1
+f:services/orders/src/main/kotlin/com/acme/orders/OrderEvent.kt -imports/static-> x:jvm:java.time  ×1  @3:1
+f:services/orders/src/main/kotlin/com/acme/orders/OrderEvent.kt -imports/static-> x:jvm:java.util  ×1  @4:1
+f:services/orders/src/main/kotlin/com/acme/orders/OrderEvent.kt -imports/static-> x:jvm:org.springframework.data  ×6  @5:1 @6:1 @7:1 @8:1 @9:1 @10:1
+f:services/orders/src/main/kotlin/com/acme/orders/Payment.kt -imports/static-> x:jvm:jakarta.persistence  ×5  @3:1 @4:1 @5:1 @6:1 @7:1
+f:services/orders/src/main/kotlin/com/acme/orders/PurchaseOrder.kt -imports/static-> x:jvm:jakarta.persistence  ×7  @3:1 @4:1 @5:1 @6:1 @7:1 @8:1 @9:1
+f:services/orders/src/main/kotlin/com/acme/orders/PurchaseOrder.kt -imports/static-> x:jvm:java.time  ×1  @10:1
+f:services/orders/src/main/kotlin/com/acme/orders/Repositories.kt -imports/static-> x:jvm:org.springframework.data  ×2  @3:1 @4:1
+f:services/orders/src/test/kotlin/com/acme/orders/TestOnlyEntity.kt -imports/static-> x:jvm:jakarta.persistence  ×1  @3:1
+f:src/local/db.ts -imports/static-> f:src/lib/fake-dexie.ts  ×1  @1:35
+f:src/local/db.ts -imports/static-> f:src/local/names.ts  ×1  @2:25
+f:src/local/db.ts -calls-> s:src/lib/fake-dexie.ts#Dexie.version  ×2  @37:4 @37:15
+f:src/local/db.ts -references-> s:src/local/db.ts#db  ×1  @37:1
+s:prisma/schema.prisma#Account.user -type-ref-> s:prisma/schema.prisma#User  ×1  @22:1
+s:prisma/schema.prisma#Posting.account -type-ref-> s:prisma/schema.prisma#Account  ×1  @36:1
+s:services/orders/src/main/kotlin/com/acme/orders/Address.kt#Address -extends-> s:services/orders/src/main/kotlin/com/acme/orders/Address.kt#Place  ×1  @13:66
+s:services/orders/src/main/kotlin/com/acme/orders/AuditLog.kt#AuditLog -extends-> s:services/orders/src/main/kotlin/com/acme/orders/BaseEntity.kt#BaseEntity  ×1  @8:77
+s:services/orders/src/main/kotlin/com/acme/orders/AuditLog.kt#AuditLog -type-ref-> s:services/orders/src/main/kotlin/com/acme/orders/PurchaseOrder.kt#PurchaseOrder  ×1  @8:59
+s:services/orders/src/main/kotlin/com/acme/orders/Customer.kt#Customer -extends-> s:services/orders/src/main/kotlin/com/acme/orders/BaseEntity.kt#BaseEntity  ×1  @14:18
+s:services/orders/src/main/kotlin/com/acme/orders/Customer.kt#Customer.address -type-ref-> s:services/orders/src/main/kotlin/com/acme/orders/Address.kt#Address  ×1  @19:16
+s:services/orders/src/main/kotlin/com/acme/orders/Customer.kt#Customer.displayName -references-> s:services/orders/src/main/kotlin/com/acme/orders/Customer.kt#Customer.NAME_LENGTH  ×1  @15:38
+s:services/orders/src/main/kotlin/com/acme/orders/Customer.kt#Customer.orders -type-ref-> s:services/orders/src/main/kotlin/com/acme/orders/PurchaseOrder.kt#PurchaseOrder  ×1  @21:61
+s:services/orders/src/main/kotlin/com/acme/orders/Customer.kt#Customer.upper -references-> s:services/orders/src/main/kotlin/com/acme/orders/Customer.kt#Customer.displayName  ×1  @28:13
+s:services/orders/src/main/kotlin/com/acme/orders/OrderEvent.kt#OrderEvent -type-ref-> s:services/orders/src/main/kotlin/com/acme/orders/OrderEvent.kt#CustomerProfile  ×1  @18:25
+s:services/orders/src/main/kotlin/com/acme/orders/Payment.kt#CardPayment -extends-> s:services/orders/src/main/kotlin/com/acme/orders/Payment.kt#Payment  ×1  @15:45
+s:services/orders/src/main/kotlin/com/acme/orders/Payment.kt#ParcelShipment -extends-> s:services/orders/src/main/kotlin/com/acme/orders/Payment.kt#Shipment  ×1  @23:41
+s:services/orders/src/main/kotlin/com/acme/orders/Payment.kt#Payment -extends-> s:services/orders/src/main/kotlin/com/acme/orders/BaseEntity.kt#BaseEntity  ×1  @12:44
+s:services/orders/src/main/kotlin/com/acme/orders/Payment.kt#Shipment -extends-> s:services/orders/src/main/kotlin/com/acme/orders/BaseEntity.kt#BaseEntity  ×1  @20:48
+s:services/orders/src/main/kotlin/com/acme/orders/PurchaseOrder.kt#PurchaseOrder -extends-> s:services/orders/src/main/kotlin/com/acme/orders/BaseEntity.kt#BaseEntity  ×1  @21:5
+s:services/orders/src/main/kotlin/com/acme/orders/PurchaseOrder.kt#PurchaseOrder -type-ref-> s:services/orders/src/main/kotlin/com/acme/orders/Customer.kt#Customer  ×1  @17:19
+s:services/orders/src/main/kotlin/com/acme/orders/PurchaseOrder.kt#PurchaseOrder -references-> s:services/orders/src/main/kotlin/com/acme/orders/PurchaseOrder.kt#ORDER_TABLE  ×1  @13:15
+s:services/orders/src/main/kotlin/com/acme/orders/Repositories.kt#CustomerRepository -type-ref-> s:services/orders/src/main/kotlin/com/acme/orders/Customer.kt#Customer  ×1  @10:46
+s:services/orders/src/main/kotlin/com/acme/orders/Repositories.kt#CustomerRepository -queries-> x:db:mysql:orders  ×1  inferred  @1:1
+s:services/orders/src/main/kotlin/com/acme/orders/Repositories.kt#EventRepository -type-ref-> s:services/orders/src/main/kotlin/com/acme/orders/OrderEvent.kt#OrderEvent  ×1  @12:45
+s:services/orders/src/main/kotlin/com/acme/orders/Repositories.kt#EventRepository -queries-> x:db:mongodb:order-events  ×1  inferred  @1:1
+s:services/orders/src/main/kotlin/com/acme/orders/Repositories.kt#OrderRepository -type-ref-> s:services/orders/src/main/kotlin/com/acme/orders/PurchaseOrder.kt#PurchaseOrder  ×1  @6:43
+s:services/orders/src/main/kotlin/com/acme/orders/Repositories.kt#OrderRepository -queries-> x:db:mysql:orders  ×1  inferred  @1:1
+s:services/orders/src/main/kotlin/com/acme/orders/Repositories.kt#OrderRepository.findByNumber -queries/read-> s:services/orders/src/main/kotlin/com/acme/orders/PurchaseOrder.kt#PurchaseOrder  ×1  @7:3
+s:services/orders/src/main/kotlin/com/acme/orders/Repositories.kt#OrderRepository.findByNumber -type-ref-> s:services/orders/src/main/kotlin/com/acme/orders/PurchaseOrder.kt#PurchaseOrder  ×1  @7:37
+s:src/lib/fake-dexie.ts#Table.get -type-ref-> s:src/lib/fake-dexie.ts#Table  ×2  @3:12 @3:24
+s:src/lib/fake-dexie.ts#Table.put -type-ref-> s:src/lib/fake-dexie.ts#Table  ×2  @4:12 @4:24
+s:src/local/db.ts#db -instantiates-> s:src/local/db.ts#ShopDB  ×1  @35:23
+s:src/local/db.ts#firstItem -calls-> s:src/lib/fake-dexie.ts#Table.get  ×1  @40:19
+s:src/local/db.ts#firstItem -references-> s:src/local/db.ts#db  ×1  @40:10
+s:src/local/db.ts#firstItem -queries/read-> s:src/local/db.ts#ShopDB.items  ×1  @40:13
+s:src/local/db.ts#ShopDB -extends-> s:src/lib/fake-dexie.ts#Dexie  ×1  @17:29
+s:src/local/db.ts#ShopDB.constructor -calls-> s:src/lib/fake-dexie.ts#Dexie.version  ×7  @28:10 @28:21 @30:10 @30:21 @30:32 @31:10 @31:21
+s:src/local/db.ts#ShopDB.constructor -references-> s:src/local/names.ts#DB_NAME  ×1  @23:11
+s:src/local/db.ts#ShopDB.drafts -type-ref-> s:src/lib/fake-dexie.ts#Table  ×1  @19:12
+s:src/local/db.ts#ShopDB.drafts -type-ref-> s:src/local/db.ts#Draft  ×1  @19:18
+s:src/local/db.ts#ShopDB.items -type-ref-> s:src/lib/fake-dexie.ts#Table  ×1  @18:11
+s:src/local/db.ts#ShopDB.items -type-ref-> s:src/local/db.ts#Item  ×1  @18:17
+s:src/local/db.ts#ShopDB.old -type-ref-> s:src/lib/fake-dexie.ts#Table  ×1  @20:9
+s:src/local/db.ts#ShopDB.old -type-ref-> s:src/local/db.ts#Old  ×1  @20:15
+
+# databases
+db:dexie:shop-local  indexeddb  dexie  module=""  name="shop-local"
+  table drafts  entity=Draft  nodes=s:src/local/db.ts#ShopDB.drafts
+    at  :37
+    index  (at)
+  table items  entity=Item  nodes=s:src/local/db.ts#ShopDB.items
+    id  pk  :29
+    email  unique  :29
+    tags  :29
+    name  :29
+    index  (email)  unique
+    index  (tags)  multi-entry
+    index  (name, email)
+  table settings  nodes=s:src/local/db.ts#ShopDB
+    key  pk  :37
+db:prisma:db  postgres  prisma  module=""  name="db"
+  table Account  nodes=s:prisma/schema.prisma#Account
+    id  String  pk  generated  :20
+    user_id  Int  :21
+    user  User  virtual  -> users  :22
+    number  String  :23
+    kind  AccountKind  :24
+    balance  Decimal?  nullable  :25
+    tags  String[]  :26
+    postings  Posting[]  virtual  -> Posting  :27
+    fk  (user_id) -> users (id)  on delete Cascade  name=fk_account_user
+    index  (user_id, number)  unique  name=account_user_number_key
+    index  (user_id, kind)
+  view Balance  nodes=s:prisma/schema.prisma#Balance
+    accountId  String  unique  :42
+    total  Decimal  :43
+    index  (accountId)  unique
+  table Posting  nodes=s:prisma/schema.prisma#Posting
+    accountId  String  pk  :34
+    seq  Int  pk  :35
+    account  Account  virtual  -> Account  :36
+    fk  (accountId) -> Account (id)
+  table users  entity=User  nodes=s:prisma/schema.prisma#User
+    id  Int  pk  generated  :10
+    email_address  String  unique  :11
+    homepage  String?  nullable  :12
+    accounts  Account[]  virtual  -> Account  :13
+    created_at  DateTime  :14
+    index  (email_address)  unique
+db:sql:services/billing  postgres  sql  module="services/billing"  name="billing"
+  table account  nodes=s:services/billing/src/main/resources/db/schema-postgres.sql#public.account
+    id  TEXT  pk  :2
+    owner  TEXT  unique  :3
+    index  (owner)  unique
+  table invoice  nodes=s:services/billing/src/main/resources/db/schema-postgres.sql#invoice
+    id  SERIAL  pk  generated  :7
+    amount  NUMERIC(10, 2)  :8
+    account_id  TEXT  :9
+    issued_at  TIMESTAMP WITH TIME ZONE  nullable  :10
+    fk  (account_id) -> account (id)  on delete SET NULL
+    index  (account_id)  name=invoice_account_idx
+x:db:mongodb:order-events  mongodb  mongo  module="services/orders"  name="order-events"  node=x:db:mongodb:order-events
+  collection customerProfile  entity=CustomerProfile  nodes=s:services/orders/src/main/kotlin/com/acme/orders/OrderEvent.kt#CustomerProfile
+    _id  String  pk  :28
+    name  String?  nullable  :28
+  collection order_events  entity=OrderEvent  nodes=s:services/orders/src/main/kotlin/com/acme/orders/OrderEvent.kt#OrderEvent
+    _id  String  pk  :15
+    order  String  :16
+    sequence  Long  unique  :17
+    profile  CustomerProfile?  virtual  -> customerProfile  :18
+    at  Instant  :19
+    correlation  UUID  :20
+    index  (sequence)  unique
+    index  (order, at)  name=by_order_time
+x:db:mysql:orders  mysql  sql,jpa  module="services/orders"  name="orders"  node=x:db:mysql:orders
+  table audit_entry  entity=AuditEntry  nodes=s:libs/audit/src/main/kotlin/com/acme/audit/AuditEntry.kt#AuditEntry, s:services/orders/src/main/resources/db/migration/mysql/V1__init.sql#audit_entry
+    id  BIGINT  pk  :20
+    text  TEXT  nullable  :20
+  table audit_log  entity=AuditLog  nodes=s:services/orders/src/main/kotlin/com/acme/orders/AuditLog.kt#AuditLog
+    id  pk  generated
+    version  Long
+    message  String  :8
+    order_id  nullable  :8
+    fk  (order_id) -> purchase_order (id)
+  table customer  entity=Customer  nodes=s:services/orders/src/main/kotlin/com/acme/orders/Customer.kt#Customer, s:services/orders/src/main/resources/db/migration/mysql/V1__init.sql#customer
+    id  BIGINT  pk  generated
+    display_name  VARCHAR(100)  :15
+    street_name  VARCHAR(255)  :17
+    town  VARCHAR(255)  nullable  :17
+    version  BIGINT
+    orders  MutableList<PurchaseOrder>  virtual  -> purchase_order  :21
+    tags  MutableSet<String>  virtual  -> customer_tag  :23
+  table customer_tag  nodes=s:services/orders/src/main/resources/db/migration/mysql/V1__init.sql#customer_tag
+    customer_id  BIGINT  :22
+    tags  VARCHAR(50)  :22
+    fk  (customer_id) -> customer (id)
+  view open_orders  nodes=s:services/orders/src/main/resources/db/migration/mysql/R__views.sql#open_orders
+  table parcel_shipment  entity=ParcelShipment  nodes=s:services/orders/src/main/kotlin/com/acme/orders/Payment.kt#ParcelShipment
+    id  pk
+    weight  Int  :23
+    fk  (id) -> shipment (id)
+  table payment  entity=Payment  nodes=s:services/orders/src/main/kotlin/com/acme/orders/Payment.kt#Payment, s:services/orders/src/main/kotlin/com/acme/orders/Payment.kt#CardPayment, s:services/orders/src/main/resources/db/migration/mysql/V1__init.sql#payment
+    id  BIGINT  pk  generated
+    version  BIGINT
+    dtype  VARCHAR(31)
+    amount  BIGINT  :12
+    card_number  VARCHAR(19)  nullable  :15
+  table purchase_order  entity=PurchaseOrder  nodes=s:services/orders/src/main/kotlin/com/acme/orders/PurchaseOrder.kt#PurchaseOrder, s:services/orders/src/main/resources/db/migration/mysql/V1__init.sql#purchase_order
+    id  BIGINT  pk  generated
+    version  BIGINT
+    customer_id  BIGINT  :15
+    number  VARCHAR(40)  unique  :18
+    note  VARCHAR(200)  nullable  :19
+    placed_at  DATETIME(6)  :20
+    fk  (customer_id) -> customer (id)  on delete CASCADE  name=FK_Order_Customer
+    index  (placed_at)  name=IX_Order_Placed
+    index  (number)  unique  name=UK_Order_Number
+  table refund  nodes=s:services/orders/src/main/resources/db/migration/mysql/V1__init.sql#legacy_refund
+    id  BIGINT  pk  :39
+  table shipment  entity=Shipment  nodes=s:services/orders/src/main/kotlin/com/acme/orders/Payment.kt#Shipment
+    id  pk  generated
+    version  Long
+    carrier  String  :20

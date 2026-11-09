@@ -1,0 +1,13 @@
+kafka:
+  broker: localhost:9092
+  topic:
+    autoCreate: true
+    orders:
+      name: shop.orders
+      partitions: 3
+    shipped:
+      name: shop.orders.shipped
+      partitions: 3
+
+server:
+  port: 8080

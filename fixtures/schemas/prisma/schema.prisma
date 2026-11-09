@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  email     String    @unique @map("email_address")
+  homepage  String?   @default("https://example.com") // a URL with // in a string
+  accounts  Account[]
+  createdAt DateTime  @default(now()) @map("created_at")
+
+  @@map("users")
+}
+
+model Account {
+  id       String      @id @default(cuid())
+  userId   Int         @map("user_id")
+  user     User        @relation(fields: [userId], references: [id], onDelete: Cascade, map: "fk_account_user")
+  number   String
+  kind     AccountKind
+  balance  Decimal?    @db.Decimal(15, 2)
+  tags     String[]
+  postings Posting[]
+
+  @@unique([userId, number], name: "account_number", map: "account_user_number_key")
+  @@index([userId, kind(sort: Desc)])
+}
+
+model Posting {
+  accountId String
+  seq       Int
+  account   Account @relation(fields: [accountId], references: [id])
+
+  @@id([accountId, seq])
+}
+
+view Balance {
+  accountId String @unique
+  total     Decimal
+}
+
+enum AccountKind {
+  checking
+  savings
+}

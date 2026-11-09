@@ -1,0 +1,91 @@
+# nodes
+d:.  directory  name="plain-ts"  files=10  loc=84
+d:src  directory  files=9  loc=79
+d:tests  directory  files=1  loc=5
+f:src/app.ts  file  complexity=1  externalDeps=0  fanIn=0  fanOut=5  instability=1  loc=9  symbols=1  testReach=0  testedDirectly=0  [paradigm:js.async=promises,typescript]
+f:src/cycle-a.ts  file  complexity=1  externalDeps=0  fanIn=1  fanOut=1  instability=0.5  loc=2  symbols=1  testReach=0  testedDirectly=0  [in-cycle,typescript]
+f:src/cycle-b.ts  file  complexity=2  externalDeps=0  fanIn=1  fanOut=1  instability=0.5  loc=4  symbols=1  testReach=0  testedDirectly=0  [in-cycle,typescript]
+f:src/index.ts  file  complexity=1  externalDeps=0  fanIn=1  fanOut=3  instability=0.75  loc=3  symbols=0  testReach=0  testedDirectly=0  [typescript]
+f:src/lazy.ts  file  complexity=1  externalDeps=0  fanIn=1  fanOut=0  instability=0  loc=3  symbols=1  testReach=0  testedDirectly=0  [typescript]
+f:src/setup.ts  file  complexity=1  externalDeps=0  fanIn=1  fanOut=0  instability=0  loc=1  symbols=1  testReach=0  testedDirectly=0  [typescript]
+f:src/shapes.ts  file  complexity=3  externalDeps=0  fanIn=2  fanOut=2  instability=0.5  loc=30  symbols=3  testReach=1  testedDirectly=1  [typescript]
+f:src/types.ts  file  complexity=1  externalDeps=0  fanIn=2  fanOut=0  instability=0  loc=11  symbols=4  testReach=1  testedDirectly=0  [typescript]
+f:src/util.ts  file  complexity=4  externalDeps=0  fanIn=3  fanOut=0  instability=0  loc=16  symbols=5  testReach=1  testedDirectly=1  [typescript]
+f:tests/shapes.test.ts  file  complexity=1  externalDeps=0  fanIn=0  fanOut=2  instability=1  loc=5  symbols=1  [test,typescript]
+s:src/app.ts#main  symbol/function  exported  5:1-10:2  complexity=1  fanIn=0  fanOut=7  loc=6  [dead-export]  sig="export async function main()"
+s:src/cycle-a.ts#a  symbol/function  exported  3:1-3:31  complexity=1  fanIn=1  fanOut=1  loc=1  sig="export const a = ()"
+s:src/cycle-b.ts#b  symbol/function  exported  3:1-5:2  complexity=2  fanIn=1  fanOut=1  loc=3  sig="export function b(): number"
+s:src/lazy.ts#load  symbol/function  exported  1:1-3:2  complexity=1  fanIn=1  fanOut=0  loc=3  sig="export function load(message: string)"
+s:src/setup.ts#ready  symbol/variable  exported  1:1-1:26  complexity=1  fanIn=0  fanOut=0  loc=1  [dead-export]  sig="export const ready = true"
+s:src/shapes.ts#Base  symbol/class  exported  5:1-13:2  complexity=1  fanIn=1  fanOut=1  loc=9  sig="export abstract class Base implements Shape"
+s:src/shapes.ts#Base.area  member/method  6:3-6:26  complexity=1  fanIn=2  fanOut=1  loc=1  [abstract]  sig="abstract area(): number"
+s:src/shapes.ts#Base.describe  member/method  10:3-12:4  complexity=1  fanIn=1  fanOut=3  loc=3  sig="describe(): string"
+s:src/shapes.ts#Base.name  member/accessor  7:3-9:4  complexity=1  fanIn=2  fanOut=1  loc=3  sig="get name()"
+s:src/shapes.ts#Circle  symbol/class  exported  15:1-28:2  complexity=1  fanIn=1  fanOut=1  loc=14  sig="export class Circle extends Base"
+s:src/shapes.ts#Circle.area  member/method  22:3-24:4  complexity=1  fanIn=1  fanOut=2  loc=3  sig="area()"
+s:src/shapes.ts#Circle.color  member/property  17:3-17:20  complexity=1  fanIn=0  fanOut=1  loc=1  sig="color = Color.red"
+s:src/shapes.ts#Circle.constructor  member/constructor  18:3-21:4  complexity=1  fanIn=0  fanOut=1  loc=4  sig="constructor(radius: number)"
+s:src/shapes.ts#Circle.name  member/accessor  25:3-27:4  complexity=1  fanIn=0  fanOut=1  loc=3  sig="override get name()"
+s:src/shapes.ts#Circle.radius  member/property  16:3-16:17  complexity=1  fanIn=2  fanOut=0  loc=1  sig="radius: number"
+s:src/shapes.ts#makeCircle  symbol/function  exported  30:1-33:2  complexity=3  fanIn=1  fanOut=2  loc=4  sig="export function makeCircle(center: Point, r = 1): Circle"
+s:src/types.ts#Color  symbol/variable  exported  9:1-10:55  complexity=1  fanIn=1  fanOut=0  loc=2  [also-type]  sig="export const Color = { red: '#f00', blue: '#00f' } as const"
+s:src/types.ts#Point  symbol/type  exported  6:1-6:45  complexity=1  fanIn=1  fanOut=0  loc=1  sig="export type Point = { x: number; y: number }"
+s:src/types.ts#Shape  symbol/interface  exported  1:1-4:2  complexity=1  fanIn=1  fanOut=0  loc=4  sig="export interface Shape"
+s:src/types.ts#Shape.area  member/method  2:3-2:17  complexity=1  fanIn=1  fanOut=0  loc=1  sig="area(): number"
+s:src/types.ts#Shape.name  member/property  3:3-3:24  complexity=1  fanIn=1  fanOut=0  loc=1  sig="readonly name: string"
+s:src/types.ts#Unit  symbol/enum  exported  12:1-15:2  complexity=1  fanIn=0  fanOut=0  loc=4  [dead-export]  sig="export enum Unit"
+s:src/util.ts#clamp  symbol/function  exported  12:1-12:98  complexity=3  fanIn=1  fanOut=0  loc=1  sig="export const clamp = (n: number, min: number, max: number)"
+s:src/util.ts#onlyTested  symbol/function  exported  20:1-22:2  complexity=1  fanIn=0  fanOut=0  loc=3  [test-only]  sig="export function onlyTested(): boolean"
+s:src/util.ts#parse  symbol/function  exported  6:1-10:2  complexity=2  fanIn=1  fanOut=0  loc=5  sig="export function parse(v: string): number"
+s:src/util.ts#round  symbol/function  exported  1:1-4:2  complexity=1  fanIn=3  fanOut=0  loc=4  sig="export function round(n: number, digits = 2): number"
+s:src/util.ts#unused  symbol/function  exported  15:1-17:2  complexity=1  fanIn=0  fanOut=1  loc=3  [dead-export]  sig="export function unused(): number"
+s:tests/shapes.test.ts#expect  symbol/function  4:1-4:64  complexity=1  fanIn=0  fanOut=0  loc=1  sig="declare function expect(v: unknown): { toBe(x: unknown): void }"
+
+# edges
+f:src/app.ts -imports/static-> f:src/index.ts  ×1  @2:37
+f:src/app.ts -imports/dynamic-> f:src/lazy.ts  ×1  @7:29
+f:src/app.ts -imports/side-effect-> f:src/setup.ts  ×1  @1:8
+f:src/app.ts -imports/static-> f:src/util.ts  ×1  @3:30
+f:src/cycle-a.ts -imports/static-> f:src/cycle-b.ts  ×1  @1:19
+f:src/cycle-b.ts -imports/static-> f:src/cycle-a.ts  ×1  @1:19
+f:src/index.ts -re-exports/static-> f:src/shapes.ts  ×1  @1:15
+f:src/index.ts -re-exports/type-only-> f:src/types.ts  ×1  @3:28
+f:src/index.ts -re-exports/static-> f:src/util.ts  ×1  @2:34
+f:src/shapes.ts -imports/static-> f:src/types.ts  ×1  @2:23
+f:src/shapes.ts -imports/type-only-> f:src/types.ts  ×1  @1:35
+f:src/shapes.ts -imports/static-> f:src/util.ts  ×1  @3:23
+f:tests/shapes.test.ts -imports/static-> f:src/shapes.ts  ×1  @1:28
+f:tests/shapes.test.ts -imports/static-> f:src/util.ts  ×1  @2:28
+f:tests/shapes.test.ts -calls-> s:src/shapes.ts#Circle.area  ×1  @5:35
+f:tests/shapes.test.ts -calls-> s:src/shapes.ts#makeCircle  ×1  @5:8
+f:tests/shapes.test.ts -calls-> s:src/util.ts#onlyTested  ×1  @6:8
+f:tests/shapes.test.ts -calls-> s:tests/shapes.test.ts#expect  ×4  @5:1 @5:43 @6:1 @6:22
+s:src/app.ts#main -calls-> s:src/lazy.ts#load  ×1  @8:8
+s:src/app.ts#main -calls-> s:src/shapes.ts#Base.describe  ×1  @8:15
+s:src/app.ts#main -calls-> s:src/shapes.ts#Circle.area  ×1  @9:20
+s:src/app.ts#main -calls-> s:src/shapes.ts#makeCircle  ×1  @6:13
+s:src/app.ts#main -calls-> s:src/util.ts#clamp  ×1  @6:40
+s:src/app.ts#main -calls-> s:src/util.ts#parse  ×1  @6:46
+s:src/app.ts#main -calls-> s:src/util.ts#round  ×1  @9:10
+s:src/cycle-a.ts#a -calls-> s:src/cycle-b.ts#b  ×1  @3:24
+s:src/cycle-b.ts#b -references-> s:src/cycle-a.ts#a  ×1  @4:17
+s:src/shapes.ts#Base -implements-> s:src/types.ts#Shape  ×1  @5:39
+s:src/shapes.ts#Base.area -implements-> s:src/types.ts#Shape.area  ×1  @6:12
+s:src/shapes.ts#Base.describe -calls-> s:src/shapes.ts#Base.area  ×1  @11:40
+s:src/shapes.ts#Base.describe -references-> s:src/shapes.ts#Base.name  ×1  @11:20
+s:src/shapes.ts#Base.describe -calls-> s:src/util.ts#round  ×1  @11:29
+s:src/shapes.ts#Base.name -implements-> s:src/types.ts#Shape.name  ×1  @7:7
+s:src/shapes.ts#Circle -extends-> s:src/shapes.ts#Base  ×1  @15:29
+s:src/shapes.ts#Circle.area -overrides-> s:src/shapes.ts#Base.area  ×1  @22:3
+s:src/shapes.ts#Circle.area -references-> s:src/shapes.ts#Circle.radius  ×1  @23:27
+s:src/shapes.ts#Circle.color -references-> s:src/types.ts#Color  ×2  @17:11 @17:17
+s:src/shapes.ts#Circle.constructor -references-> s:src/shapes.ts#Circle.radius  ×1  @20:10
+s:src/shapes.ts#Circle.name -overrides-> s:src/shapes.ts#Base.name  ×1  @25:16
+s:src/shapes.ts#makeCircle -instantiates-> s:src/shapes.ts#Circle  ×1  @32:14
+s:src/shapes.ts#makeCircle -type-ref-> s:src/shapes.ts#Circle  ×1  @30:51
+s:src/shapes.ts#makeCircle -references-> s:src/types.ts#Point  ×1  @31:23
+s:src/shapes.ts#makeCircle -type-ref-> s:src/types.ts#Point  ×1  @30:36
+s:src/util.ts#unused -calls-> s:src/util.ts#round  ×1  @16:10
+
+# cycles
+f:src/cycle-a.ts, f:src/cycle-b.ts

@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: orders
+custom:
+  kafka:
+    topic: acme.local.orders.v1

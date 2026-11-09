@@ -1,0 +1,1 @@
+ALTER TABLE purchase_order ADD COLUMN note VARCHAR(200) NULL AFTER number;

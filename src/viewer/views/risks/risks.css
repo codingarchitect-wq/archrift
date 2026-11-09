@@ -1,0 +1,146 @@
+/* The Risks view: its labels and its register. */
+
+/* ends at its anchor instead of centering on it (row names left of the matrix) */
+.label.risks-right {
+  translate: -50% 0;
+}
+
+.label.risks-rank {
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.label.risks-rank.high {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.label.risks-zone {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--danger);
+}
+
+.risks-count {
+  display: inline-block;
+  min-width: 18px;
+  padding: 0 5px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--danger);
+}
+
+.risks-count.none {
+  color: var(--muted);
+  background: var(--hover);
+}
+
+/* it opens leftward from its button, clear of the inspector on the right */
+.popover.risks-register {
+  left: auto;
+  right: 0;
+  width: 540px;
+  max-height: 70vh;
+  overflow-y: auto;
+  gap: 6px;
+}
+
+.risks-register-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.risks-register table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  font-size: 12px;
+}
+
+.risks-register col.rank {
+  width: 30px;
+}
+
+.risks-register col.scale {
+  width: 26px;
+}
+
+.risks-register col.risk {
+  width: 40px;
+}
+
+.risks-register col.debt {
+  width: 66px;
+}
+
+.risks-register th {
+  position: sticky;
+  top: -10px;
+  background: var(--panel-solid);
+  text-align: left;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 2px 4px;
+}
+
+.risks-register td {
+  padding: 2px 4px;
+  white-space: nowrap;
+}
+
+.risks-register tbody tr {
+  cursor: pointer;
+}
+
+.risks-register tbody tr:hover,
+.risks-register tbody tr.selected {
+  background: var(--hover);
+}
+
+.risks-file {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.risks-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-weight: 600;
+}
+
+.risks-level {
+  display: inline-block;
+  min-width: 22px;
+  text-align: center;
+  border-radius: 4px;
+  padding: 0 3px;
+  font-weight: 700;
+}
+
+.risks-level.high {
+  color: #fff;
+  background: var(--danger);
+}
+
+.risks-level.medium {
+  color: #1f2328;
+  background: var(--warn);
+}
+
+.risks-debts i {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  margin-right: 2px;
+}
+
+.risks-more {
+  align-self: flex-start;
+}

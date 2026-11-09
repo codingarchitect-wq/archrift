@@ -1,0 +1,10 @@
+architecture: replicaset
+image:
+  repository: bitnami/mongodb
+  tag: 8.0.3
+auth:
+  enabled: true
+  usernames:
+    - orders-user
+  databases:
+    - acme-orders-db

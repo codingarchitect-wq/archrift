@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noEmit": true,
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
+    "types": [],
+    "paths": {
+      "@angular/*": ["./stubs/@angular/*"],
+      "@ngrx/*": ["./stubs/@ngrx/*"],
+      "rxjs": ["./stubs/rxjs"],
+      "rxjs/*": ["./stubs/rxjs/*"]
+    }
+  },
+  "include": ["src"]
+}

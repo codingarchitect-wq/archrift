@@ -1,0 +1,6 @@
+/* §5 Building Block View: its own label styles (the kit's arc42.css has the shared ones). */
+
+/* a white box's neighbor, at the board's edge */
+.label.blk-stub {
+  font-style: italic;
+}

@@ -1,0 +1,114 @@
+{
+  "name": "archrift",
+  "exclude": [
+    "lib/**",
+    "fixtures/**"
+  ],
+  "tests": [
+    "tests/**"
+  ],
+  "entrypoints": [
+    "bin/archrift.js",
+    "src/cli/main.ts",
+    "src/viewer/main.tsx",
+    "src/viewer/views/*/index.{ts,tsx}",
+    "scripts/*.mjs",
+    "scripts/showcase/*.mjs",
+    "*.config.{ts,mts,cts,js,mjs,cjs}",
+    "vite.static.ts",
+    "**/*.worker.{ts,js,mjs}"
+  ],
+  "layers": [
+    {
+      "name": "cli",
+      "match": [
+        "bin/**",
+        "src/cli/**"
+      ]
+    },
+    {
+      "name": "viewer",
+      "match": [
+        "src/viewer/**"
+      ]
+    },
+    {
+      "name": "server",
+      "match": [
+        "src/server/**"
+      ]
+    },
+    {
+      "name": "analyzer",
+      "match": [
+        "src/analyzer/**"
+      ]
+    },
+    {
+      "name": "core",
+      "match": [
+        "src/core/**"
+      ]
+    }
+  ],
+  "coherence": {
+    "accept": {
+      "js.forms": "only the coherence catalog's own patterns (src/analyzer/coherence/catalog.ts) match: archrift has no forms"
+    }
+  },
+  "rules": [
+    {
+      "name": "no-cycles",
+      "description": "no files import each other in a circle",
+      "severity": "warn",
+      "cycles": "forbid"
+    },
+    {
+      "name": "layers-point-down",
+      "description": "runtime imports point down the layers: cli, viewer, server, analyzer, core",
+      "layers": "down",
+      "runtimeOnly": true
+    },
+    {
+      "name": "node-side-without-viewer",
+      "description": "the command line, server and analyzers never load the viewer, directly or through other files: the npm package builds them without it (tsconfig.build.json); only the viewer's URL format is shared",
+      "forbidReach": {
+        "from": [
+          "src/cli/**",
+          "src/server/**",
+          "src/analyzer/**",
+          "src/core/**"
+        ],
+        "to": "src/viewer/**",
+        "except": "src/viewer/url-state.ts"
+      }
+    },
+    {
+      "name": "functions-small-logic",
+      "description": "functions outside the viewer stay under complexity 10 (older code is above: split what you touch)",
+      "severity": "warn",
+      "limit": {
+        "functions": [
+          "src/cli/**",
+          "src/server/**",
+          "src/analyzer/**",
+          "src/core/**"
+        ],
+        "max": {
+          "complexity": 9
+        }
+      }
+    },
+    {
+      "name": "functions-small-ui",
+      "description": "viewer functions stay under complexity 20 (older code is above: split what you touch)",
+      "severity": "warn",
+      "limit": {
+        "functions": "src/viewer/**",
+        "max": {
+          "complexity": 19
+        }
+      }
+    }
+  ]
+}

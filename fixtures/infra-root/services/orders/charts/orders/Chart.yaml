@@ -1,0 +1,9 @@
+apiVersion: v2
+name: orders
+description: The orders service
+version: 0.3.0
+
+dependencies:
+  - name: common-chart
+    version: 1.0.0
+    repository: "file://../../../common-chart"

@@ -1,0 +1,11 @@
+image:
+  registry: registry.example.com
+  repository: bitnami/kafka
+  tag: 3.9.0
+replicaCount: 3
+listeners:
+  client:
+    protocol: SASL_PLAINTEXT
+persistence:
+  enabled: true
+  size: 8Gi

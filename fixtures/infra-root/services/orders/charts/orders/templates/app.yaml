@@ -1,0 +1,10 @@
+{{ include "common.deployment" . }}
+---
+{{ include "common.service" . }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "{{ .Chart.Name }}-config"
+data:
+  ENVIRONMENT: {{ .Values.env | quote }}

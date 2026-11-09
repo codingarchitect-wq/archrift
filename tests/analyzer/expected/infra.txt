@@ -1,0 +1,145 @@
+# nodes
+d:.  directory  name="infra-root"  files=24  loc=331
+d:db  directory  files=1  loc=8
+d:infra  directory  files=10  loc=94
+d:infra/kafka  directory  files=1  loc=15
+d:infra/mongodb  directory  files=1  loc=10
+d:infra/mysql  directory  files=1  loc=8
+d:infra/pulumi  directory  files=2  loc=11
+d:infra/sql  directory  files=1  loc=5
+d:infra/values  directory  files=1  loc=11
+d:k8s  directory  files=1  loc=99
+d:services  directory  files=11  loc=116
+d:services/common-chart  directory  files=4  loc=49
+d:services/common-chart/templates  directory  files=3  loc=44
+d:services/orders  directory  files=7  loc=67
+d:services/orders/charts  directory  files=5  loc=52
+d:services/orders/charts/orders  directory  files=5  loc=52
+d:services/orders/charts/orders/templates  directory  files=3  loc=39
+d:services/orders/src  directory  files=1  loc=6
+d:services/orders/src/main  directory  files=1  loc=6
+d:services/orders/src/main/resources  directory  files=1  loc=6
+f:db/init.sql  file  complexity=1  externalDeps=1  fanIn=1  fanOut=0  instability=0  loc=8  symbols=3  testReach=0  testedDirectly=0  [layer:infrastructure,sql]
+f:docker-compose.yml  file  complexity=1  externalDeps=0  fanIn=0  fanOut=2  instability=1  loc=14  symbols=2  testReach=0  testedDirectly=0  [compose,image:mysql,layer:infrastructure,yaml]
+f:infra/cluster.sh  file  complexity=1  externalDeps=0  fanIn=1  fanOut=0  instability=0  loc=10  symbols=1  testReach=0  testedDirectly=0  [k8s,layer:infrastructure,shell]
+f:infra/kafka/create-topics.sh  file  complexity=1  externalDeps=1  fanIn=1  fanOut=0  instability=0  loc=15  symbols=1  testReach=0  testedDirectly=0  [layer:infrastructure,shell]
+f:infra/lib.sh  file  complexity=1  externalDeps=0  fanIn=1  fanOut=0  instability=0  loc=9  symbols=2  testReach=0  testedDirectly=0  [layer:infrastructure,shell]
+f:infra/mongodb/mongodb-values.yaml  file  complexity=1  externalDeps=1  fanIn=1  fanOut=0  instability=0  loc=10  symbols=3  testReach=0  testedDirectly=0  [image:bitnami/mongodb,layer:infrastructure,values,yaml]
+f:infra/mysql/create-databases.sh  file  complexity=1  externalDeps=2  fanIn=1  fanOut=0  instability=0  loc=8  symbols=0  testReach=0  testedDirectly=0  [layer:infrastructure,shell]
+f:infra/pulumi/config.ts  file  complexity=1  externalDeps=0  fanIn=1  fanOut=0  instability=0  loc=1  symbols=1  testReach=0  testedDirectly=0  [layer:infrastructure,typescript]
+f:infra/pulumi/index.ts  file  complexity=1  externalDeps=2  fanIn=0  fanOut=1  instability=1  loc=10  symbols=1  testReach=0  testedDirectly=0  [layer:infrastructure,typescript]
+f:infra/sql/schema.sql  file  complexity=1  externalDeps=0  fanIn=0  fanOut=0  loc=5  symbols=2  testReach=0  testedDirectly=0  [layer:infrastructure,sql]
+f:infra/up.sh  file  complexity=1  externalDeps=0  fanIn=0  fanOut=5  instability=1  loc=15  symbols=0  testReach=0  testedDirectly=0  [layer:infrastructure,shell]
+f:infra/values/kafka-values.yaml  file  complexity=1  externalDeps=0  fanIn=1  fanOut=0  instability=0  loc=11  symbols=4  testReach=0  testedDirectly=0  [image:bitnami/kafka,layer:infrastructure,values,yaml]
+f:k8s/web.yaml  file  complexity=1  externalDeps=1  fanIn=0  fanOut=0  loc=99  symbols=8  testReach=0  testedDirectly=0  [k8s,layer:infrastructure,yaml]
+f:services/common-chart/Chart.yaml  file  complexity=1  externalDeps=0  fanIn=1  fanOut=0  instability=0  loc=5  symbols=1  testReach=0  testedDirectly=0  [chart,layer:services,yaml]
+f:services/common-chart/templates/_deployment.tpl  file  complexity=2  externalDeps=0  fanIn=1  fanOut=1  instability=0.5  loc=29  symbols=1  testReach=0  testedDirectly=0  [helm,helm-helpers,layer:services]
+f:services/common-chart/templates/_helpers.tpl  file  complexity=1  externalDeps=0  fanIn=1  fanOut=0  instability=0  loc=4  symbols=1  testReach=0  testedDirectly=0  [helm,helm-helpers,layer:services]
+f:services/common-chart/templates/_service.tpl  file  complexity=1  externalDeps=0  fanIn=1  fanOut=0  instability=0  loc=11  symbols=1  testReach=0  testedDirectly=0  [helm,helm-helpers,layer:services]
+f:services/orders/charts/orders/Chart.yaml  file  complexity=1  externalDeps=0  fanIn=0  fanOut=1  instability=1  loc=8  symbols=1  testReach=0  testedDirectly=0  [chart,layer:services,yaml]
+f:services/orders/charts/orders/templates/app.yaml  file  complexity=1  externalDeps=0  fanIn=1  fanOut=3  instability=0.75  loc=10  symbols=3  testReach=0  testedDirectly=0  [helm,k8s,layer:services]
+f:services/orders/charts/orders/templates/ingress.yaml  file  complexity=2  externalDeps=0  fanIn=0  fanOut=1  instability=1  loc=18  symbols=1  testReach=0  testedDirectly=0  [helm,k8s,layer:services]
+f:services/orders/charts/orders/templates/migrate-job.yaml  file  complexity=1  externalDeps=0  fanIn=0  fanOut=0  loc=11  symbols=1  testReach=0  testedDirectly=0  [helm,k8s,layer:services,parse-errors]
+f:services/orders/charts/orders/values.yaml  file  complexity=1  externalDeps=0  fanIn=0  fanOut=0  loc=5  symbols=4  testReach=0  testedDirectly=0  [image:acme/orders,layer:services,values,yaml]
+f:services/orders/Dockerfile  file  complexity=1  externalDeps=0  fanIn=1  fanOut=0  instability=0  loc=9  symbols=2  testReach=0  testedDirectly=0  [dockerfile,image:distroless/java21-debian12,image:gradle,layer:services]
+f:services/orders/src/main/resources/application.yml  file  complexity=1  externalDeps=0  fanIn=0  fanOut=0  loc=6  symbols=0  testReach=0  testedDirectly=0  [app-config,layer:services,yaml]
+s:db/init.sql#open_orders  symbol/view  10:1-10:49  complexity=1  fanIn=0  fanOut=0  loc=1  sig="CREATE VIEW open_orders"
+s:db/init.sql#orders  symbol/table  4:1-7:3  complexity=1  fanIn=0  fanOut=0  loc=4  [table:orders]  sig="CREATE TABLE orders"
+s:db/init.sql#orders_local  symbol/database  2:1-2:44  complexity=1  fanIn=0  fanOut=0  loc=1  sig="CREATE DATABASE orders_local"
+s:docker-compose.yml#db  symbol/compose-service  2:3-7:60  complexity=1  fanIn=1  fanOut=0  loc=6  [image:mysql]  sig="image: mysql:8.4"
+s:docker-compose.yml#orders  symbol/compose-service  8:3-14:21  complexity=1  fanIn=0  fanOut=1  loc=7  sig="build: ./services/orders"
+s:infra/cluster.sh#ServiceAccount/backend-sa  symbol/serviceaccount  6:1-10:24  complexity=1  fanIn=1  fanOut=0  loc=5  [k8s]  sig="ServiceAccount backend-sa -n $NAMESPACE"
+s:infra/kafka/create-topics.sh#create_compacted  symbol/function  5:1-10:2  complexity=1  fanIn=0  fanOut=0  loc=6  sig="create_compacted()"
+s:infra/lib.sh#die  symbol/function  8:1-11:2  complexity=1  fanIn=0  fanOut=0  loc=4  sig="die()"
+s:infra/lib.sh#log  symbol/function  4:1-6:2  complexity=1  fanIn=0  fanOut=0  loc=3  sig="log()"
+s:infra/mongodb/mongodb-values.yaml#architecture  symbol/value  1:1-1:25  complexity=1  fanIn=0  fanOut=0  loc=1  sig="architecture: \"…\""
+s:infra/mongodb/mongodb-values.yaml#auth  symbol/value  5:1-10:22  complexity=1  fanIn=0  fanOut=0  loc=6  sig="auth: {…}"
+s:infra/mongodb/mongodb-values.yaml#image  symbol/value  2:1-4:14  complexity=1  fanIn=0  fanOut=0  loc=3  sig="image: {…}"
+s:infra/pulumi/config.ts#region  symbol/variable  exported  1:1-1:35  complexity=1  fanIn=1  fanOut=0  loc=1  sig="export const region = 'westeurope'"
+s:infra/pulumi/index.ts#createGroup  symbol/function  exported  6:1-11:2  complexity=1  fanIn=0  fanOut=1  loc=6  [dead-export,pulumi:azure-native:resources:ResourceGroup,pulumi:azure-native:storage:StorageAccount]  sig="export function createGroup()"
+s:infra/sql/schema.sql#audit.customer_log  symbol/table  name="audit.customer_log"  5:1-5:45  complexity=1  fanIn=0  fanOut=0  loc=1  [table:customer_log]  sig="CREATE TABLE audit.customer_log"
+s:infra/sql/schema.sql#customer  symbol/table  1:1-3:3  complexity=1  fanIn=0  fanOut=0  loc=3  [table:customer]  sig="CREATE TABLE customer"
+s:infra/values/kafka-values.yaml#image  symbol/value  1:1-4:14  complexity=1  fanIn=0  fanOut=0  loc=4  sig="image: {…}"
+s:infra/values/kafka-values.yaml#listeners  symbol/value  6:1-8:30  complexity=1  fanIn=0  fanOut=0  loc=3  sig="listeners: {…}"
+s:infra/values/kafka-values.yaml#persistence  symbol/value  9:1-11:13  complexity=1  fanIn=0  fanOut=0  loc=3  sig="persistence: {…}"
+s:infra/values/kafka-values.yaml#replicaCount  symbol/value  5:1-5:16  complexity=1  fanIn=0  fanOut=0  loc=1  sig="replicaCount: 3"
+s:k8s/web.yaml#ConfigMap/web-config  symbol/configmap  60:1-66:30  complexity=1  fanIn=1  fanOut=0  loc=7  [k8s]  sig="ConfigMap web-config -n shop"
+s:k8s/web.yaml#Deployment/web  symbol/deployment  27:1-58:34  complexity=1  fanIn=1  fanOut=4  loc=32  [image:nginx,k8s]  sig="Deployment web -n shop"
+s:k8s/web.yaml#Ingress/web  symbol/ingress  2:1-12:20  complexity=1  fanIn=0  fanOut=1  loc=11  [k8s]  sig="Ingress web -n shop"
+s:k8s/web.yaml#KafkaTopic/shop-events  symbol/kafkatopic  92:1-99:17  complexity=1  fanIn=0  fanOut=0  loc=8  [k8s]  sig="KafkaTopic shop-events -n kafka"
+s:k8s/web.yaml#PersistentVolumeClaim/web-cache  symbol/persistentvolumeclaim  81:1-90:20  complexity=1  fanIn=1  fanOut=0  loc=10  [k8s]  sig="PersistentVolumeClaim web-cache -n shop"
+s:k8s/web.yaml#Secret/web-credentials  symbol/secret  68:1-73:14  complexity=1  fanIn=1  fanOut=0  loc=6  [k8s]  sig="Secret web-credentials -n shop"
+s:k8s/web.yaml#Service/web  symbol/service  14:1-25:24  complexity=1  fanIn=1  fanOut=1  loc=12  [k8s]  sig="Service web -n shop"
+s:k8s/web.yaml#ServiceAccount/web  symbol/serviceaccount  75:1-79:19  complexity=1  fanIn=1  fanOut=0  loc=5  [k8s]  sig="ServiceAccount web -n shop"
+s:services/common-chart/Chart.yaml#common-chart  symbol/chart  1:1-5:16  complexity=1  fanIn=1  fanOut=0  loc=5  [helm]  sig="chart common-chart 1.0.0 (library)"
+s:services/common-chart/templates/_deployment.tpl#common.deployment  symbol/helm-define  name="common.deployment"  4:1-29:1  complexity=2  fanIn=1  fanOut=1  loc=26  [helm]  sig="define \"common.deployment\" → Deployment"
+s:services/common-chart/templates/_helpers.tpl#common.labels  symbol/helm-define  name="common.labels"  1:1-4:1  complexity=1  fanIn=1  fanOut=0  loc=4  [helm]  sig="define \"common.labels\""
+s:services/common-chart/templates/_service.tpl#common.service  symbol/helm-define  name="common.service"  1:1-11:1  complexity=1  fanIn=1  fanOut=0  loc=11  [helm]  sig="define \"common.service\" → Service"
+s:services/orders/charts/orders/Chart.yaml#orders  symbol/chart  1:1-9:48  complexity=1  fanIn=0  fanOut=1  loc=8  [helm]  sig="chart orders 0.3.0"
+s:services/orders/charts/orders/templates/app.yaml#ConfigMap/orders-config  symbol/configmap  5:1-10:22  complexity=1  fanIn=1  fanOut=0  loc=6  [k8s]  sig="ConfigMap orders-config"
+s:services/orders/charts/orders/templates/app.yaml#Deployment/orders  symbol/deployment  1:1-1:18  complexity=1  fanIn=1  fanOut=3  loc=1  [image:acme/orders,k8s]  sig="Deployment orders (common.deployment)"
+s:services/orders/charts/orders/templates/app.yaml#Service/orders  symbol/service  3:1-3:15  complexity=1  fanIn=1  fanOut=2  loc=1  [k8s]  sig="Service orders (common.service)"
+s:services/orders/charts/orders/templates/ingress.yaml#Ingress/orders-ingress  symbol/ingress  1:1-17:28  complexity=1  fanIn=0  fanOut=1  loc=16  [k8s]  sig="Ingress orders-ingress"
+s:services/orders/charts/orders/templates/migrate-job.yaml#Job/orders-migrate  symbol/job  1:1-11:1  complexity=1  fanIn=0  fanOut=0  loc=11  [k8s]  sig="Job orders-migrate"
+s:services/orders/charts/orders/values.yaml#container  symbol/value  3:1-4:14  complexity=1  fanIn=0  fanOut=0  loc=2  sig="container: {…}"
+s:services/orders/charts/orders/values.yaml#env  symbol/value  5:1-5:9  complexity=1  fanIn=0  fanOut=0  loc=1  sig="env: \"…\""
+s:services/orders/charts/orders/values.yaml#imageName  symbol/value  2:1-2:25  complexity=1  fanIn=0  fanOut=0  loc=1  sig="imageName: \"…\""
+s:services/orders/charts/orders/values.yaml#replicas  symbol/value  1:1-1:12  complexity=1  fanIn=0  fanOut=0  loc=1  sig="replicas: 2"
+s:services/orders/Dockerfile#build  symbol/stage  1:1-6:20  complexity=1  fanIn=1  fanOut=0  loc=5  [image:gradle]  sig="FROM registry.example.com/gradle:8-jdk21"
+s:services/orders/Dockerfile#stage-1  symbol/stage  7:1-10:17  complexity=1  fanIn=0  fanOut=1  loc=4  [image:distroless/java21-debian12]  sig="FROM gcr.io/distroless/java21-debian12"
+x:db:mongodb:acme-orders  external  name="acme-orders"  [database,infra,mongodb]  sig="mongodb: acme-orders-db"
+x:db:mysql:acme-orders  external  name="acme-orders"  [database,infra,mysql]  sig="mysql: acme_orders_db"
+x:db:postgres:acme-reports  external  name="acme-reports"  [database,infra,postgres]  sig="postgres: acme_reports_db"
+x:db:sql:orders  external  name="orders"  [database,infra,sql]  sig="sql: orders_local"
+x:kafka:acme.orders  external  name="orders"  [infra,kafka,topic]  sig="acme.$ENV.orders.v1"
+x:kafka:acme.shop.events  external  name="shop.events"  [infra,kafka,topic]  sig="acme.shop.events"
+x:npm:@pulumi/azure-native  external  name="@pulumi/azure-native"  [npm]
+x:npm:@pulumi/pulumi  external  name="@pulumi/pulumi"  [npm]
+
+# edges
+f:infra/kafka/create-topics.sh -references/declares-> x:kafka:acme.orders  ×1  inferred  @12:34
+f:infra/mongodb/mongodb-values.yaml -references/declares-> x:db:mongodb:acme-orders  ×1  inferred  @10:7
+f:infra/mysql/create-databases.sh -references/declares-> x:db:mysql:acme-orders  ×1  inferred  @6:17
+f:infra/mysql/create-databases.sh -references/declares-> x:db:postgres:acme-reports  ×1  inferred  @10:51
+f:infra/pulumi/index.ts -imports/static-> f:infra/pulumi/config.ts  ×1  @4:24
+f:infra/pulumi/index.ts -imports/static-> x:npm:@pulumi/azure-native  ×2  @1:24 @2:25
+f:infra/pulumi/index.ts -imports/static-> x:npm:@pulumi/pulumi  ×1  @3:25
+f:infra/up.sh -references/runs-> f:infra/kafka/create-topics.sh  ×1  @8:1
+f:infra/up.sh -references/runs-> f:infra/lib.sh  ×1  @4:8
+f:infra/up.sh -references/uses-> f:infra/mongodb/mongodb-values.yaml  ×1  @17:18
+f:infra/up.sh -references/runs-> f:infra/mysql/create-databases.sh  ×1  @10:1
+f:infra/up.sh -references/uses-> f:infra/values/kafka-values.yaml  ×1  @14:89
+s:db/init.sql#orders_local -references/declares-> x:db:sql:orders  ×1  inferred  @2:1
+s:docker-compose.yml#db -references/uses-> f:db/init.sql  ×1  @7:9
+s:docker-compose.yml#orders -references/builds-> f:services/orders/Dockerfile  ×1  @10:16
+s:docker-compose.yml#orders -references/depends-on-> s:docker-compose.yml#db  ×1  @12:9
+s:infra/pulumi/index.ts#createGroup -references-> s:infra/pulumi/config.ts#region  ×1  @8:94
+s:k8s/web.yaml#Deployment/web -references/uses-> s:k8s/web.yaml#ConfigMap/web-config  ×1  @48:25
+s:k8s/web.yaml#Deployment/web -references/uses-> s:k8s/web.yaml#PersistentVolumeClaim/web-cache  ×1  @58:24
+s:k8s/web.yaml#Deployment/web -references/uses-> s:k8s/web.yaml#Secret/web-credentials  ×1  @53:25
+s:k8s/web.yaml#Deployment/web -references/uses-> s:k8s/web.yaml#ServiceAccount/web  ×1  @30:9
+s:k8s/web.yaml#Ingress/web -references/backend-> s:k8s/web.yaml#Service/web  ×1  @5:9
+s:k8s/web.yaml#KafkaTopic/shop-events -references/declares-> x:kafka:acme.shop.events  ×1  inferred  @98:14
+s:k8s/web.yaml#Service/web -references/selects-> s:k8s/web.yaml#Deployment/web  ×1  @21:5
+s:services/common-chart/templates/_deployment.tpl#common.deployment -references/include-> s:services/common-chart/templates/_helpers.tpl#common.labels  ×1  @10:5
+s:services/orders/charts/orders/Chart.yaml#orders -references/dependency-> s:services/common-chart/Chart.yaml#common-chart  ×1  @7:5
+s:services/orders/charts/orders/templates/app.yaml#Deployment/orders -references/uses-> s:infra/cluster.sh#ServiceAccount/backend-sa  ×1  @1:1
+s:services/orders/charts/orders/templates/app.yaml#Deployment/orders -references/include-> s:services/common-chart/templates/_deployment.tpl#common.deployment  ×1  @1:1
+s:services/orders/charts/orders/templates/app.yaml#Deployment/orders -references/uses-> s:services/orders/charts/orders/templates/app.yaml#ConfigMap/orders-config  ×1  @1:1
+s:services/orders/charts/orders/templates/app.yaml#Service/orders -references/include-> s:services/common-chart/templates/_service.tpl#common.service  ×1  @3:1
+s:services/orders/charts/orders/templates/app.yaml#Service/orders -references/selects-> s:services/orders/charts/orders/templates/app.yaml#Deployment/orders  ×1  @3:1
+s:services/orders/charts/orders/templates/ingress.yaml#Ingress/orders-ingress -references/backend-> s:services/orders/charts/orders/templates/app.yaml#Service/orders  ×1  @4:10
+s:services/orders/Dockerfile#stage-1 -references/uses-> s:services/orders/Dockerfile#build  ×1  @8:6
+
+# databases
+x:db:sql:orders  sql  sql  module=""  name="orders_local"  node=x:db:sql:orders
+  view open_orders  nodes=s:db/init.sql#open_orders
+  table orders  nodes=s:db/init.sql#orders
+    id  BIGINT  pk  :5
+    customer  VARCHAR(100)  :6
+db:sql:infra  sql  sql  module="infra"  name="infra"
+  table audit.customer_log  nodes=s:infra/sql/schema.sql#audit.customer_log
+    id  BIGINT  nullable  :5
+  table customer  nodes=s:infra/sql/schema.sql#customer
+    id  BIGINT  pk  :2
+    name  VARCHAR(100)  nullable  :4

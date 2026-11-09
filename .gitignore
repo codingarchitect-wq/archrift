@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.archrift/cache/
+out/
+test-results/
+playwright-report/
+# a fixture with its own config gets the results of an analysis without --out beside it
+fixtures/*/.archrift/*
+!fixtures/*/.archrift/config.json
+lib/

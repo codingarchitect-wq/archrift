@@ -1,0 +1,366 @@
+# nodes
+d:.  directory  name="angular"  files=37  loc=343
+d:src  directory  files=37  loc=343
+d:src/app  directory  files=37  loc=343
+d:src/app/admin  directory  files=5  loc=32
+d:src/app/projects  directory  files=14  loc=130
+d:src/app/shared  directory  files=9  loc=68
+d:src/app/store  directory  files=5  loc=80
+f:src/app/admin/admin-users.component.ts  file  complexity=1  externalDeps=1  fanIn=3  fanOut=1  instability=0.25  loc=3  symbols=1  testReach=0  testedDirectly=0  [feature:admin,route:/admin/users,typescript]
+f:src/app/admin/admin.component.ts  file  complexity=1  externalDeps=1  fanIn=2  fanOut=0  instability=0  loc=3  symbols=1  testReach=0  testedDirectly=0  [feature:admin,route:/admin,typescript]
+f:src/app/admin/admin.module.ts  file  complexity=1  externalDeps=2  fanIn=1  fanOut=3  instability=0.75  loc=10  symbols=1  testReach=0  testedDirectly=0  [feature:admin,paradigm:ng.modules=ng-module,typescript]
+f:src/app/admin/admin.routes.ts  file  complexity=1  externalDeps=1  fanIn=1  fanOut=2  instability=0.67  loc=4  symbols=1  testReach=0  testedDirectly=0  [feature:admin,typescript]
+f:src/app/admin/user.service.ts  file  complexity=1  externalDeps=3  fanIn=0  fanOut=2  instability=1  loc=12  symbols=1  testReach=0  testedDirectly=0  [feature:admin,paradigm:js.async=rxjs,paradigm:js.http=angular-http,paradigm:ng.di=constructor,typescript]
+f:src/app/app.component.html  file  loc=5  [angular-template,asset]
+f:src/app/app.component.ts  file  complexity=1  externalDeps=1  fanIn=1  fanOut=4  instability=0.8  loc=3  symbols=1  testReach=0  testedDirectly=0  [typescript]
+f:src/app/app.module.ts  file  complexity=1  externalDeps=2  fanIn=0  fanOut=7  instability=1  loc=15  symbols=1  testReach=0  testedDirectly=0  [paradigm:ng.modules=ng-module,typescript]
+f:src/app/app.routes.ts  file  complexity=1  externalDeps=1  fanIn=1  fanOut=3  instability=0.75  loc=10  symbols=2  testReach=0  testedDirectly=0  [paradigm:js.async=promises,typescript]
+f:src/app/projects/project-card.component.ts  file  complexity=1  externalDeps=1  fanIn=2  fanOut=1  instability=0.33  loc=5  symbols=1  testReach=0  testedDirectly=0  [feature:projects,typescript]
+f:src/app/projects/project-detail.component.ts  file  complexity=1  externalDeps=2  fanIn=3  fanOut=3  instability=0.5  loc=13  symbols=1  testReach=0  testedDirectly=0  [feature:projects,paradigm:ng.di=constructor,route:/projects/:projectId,typescript]
+f:src/app/projects/project-list.component.html  file  loc=3  [angular-template,asset]
+f:src/app/projects/project-list.component.spec.ts  file  complexity=1  externalDeps=1  fanIn=0  fanOut=1  instability=1  loc=6  symbols=3  [feature:projects,test,typescript]
+f:src/app/projects/project-list.component.ts  file  complexity=1  externalDeps=2  fanIn=5  fanOut=6  instability=0.55  loc=22  symbols=1  testReach=0  testedDirectly=0  [feature:projects,paradigm:js.state=ngrx,paradigm:ng.di=constructor,route:/projects/list,typescript]
+f:src/app/projects/project-route.paths.ts  file  complexity=1  externalDeps=0  fanIn=2  fanOut=1  instability=0.33  loc=6  symbols=1  testReach=0  testedDirectly=0  [feature:projects,typescript]
+f:src/app/projects/project.service.ts  file  complexity=1  externalDeps=3  fanIn=2  fanOut=3  instability=0.6  loc=34  symbols=2  testReach=0  testedDirectly=0  [feature:projects,paradigm:js.async=rxjs,paradigm:js.http=angular-http,paradigm:ng.di=constructor,typescript]
+f:src/app/projects/projects.component.html  file  loc=2  [angular-template,asset]
+f:src/app/projects/projects.component.ts  file  complexity=1  externalDeps=1  fanIn=2  fanOut=2  instability=0.5  loc=3  symbols=1  testReach=0  testedDirectly=0  [feature:projects,route:/projects,typescript]
+f:src/app/projects/projects.module.ts  file  complexity=1  externalDeps=2  fanIn=1  fanOut=6  instability=0.86  loc=13  symbols=1  testReach=0  testedDirectly=0  [feature:projects,paradigm:ng.modules=ng-module,typescript]
+f:src/app/projects/projects.routes.ts  file  complexity=1  externalDeps=1  fanIn=1  fanOut=5  instability=0.83  loc=17  symbols=1  testReach=0  testedDirectly=0  [feature:projects,typescript]
+f:src/app/projects/route-params.ts  file  complexity=1  externalDeps=0  fanIn=1  fanOut=0  instability=0  loc=1  symbols=1  testReach=0  testedDirectly=0  [feature:projects,typescript]
+f:src/app/projects/task-list.component.ts  file  complexity=1  externalDeps=1  fanIn=3  fanOut=0  instability=0  loc=3  symbols=1  testReach=0  testedDirectly=0  [feature:projects,route:/projects/:projectId/tasks,typescript]
+f:src/app/projects/tasks.routes.ts  file  complexity=1  externalDeps=0  fanIn=1  fanOut=1  instability=0.5  loc=2  symbols=1  testReach=0  testedDirectly=0  [feature:projects,typescript]
+f:src/app/shared/api-url.builder.ts  file  complexity=2  externalDeps=0  fanIn=3  fanOut=0  instability=0  loc=20  symbols=1  testReach=0  testedDirectly=0  [typescript]
+f:src/app/shared/api-url.helper.ts  file  complexity=2  externalDeps=0  fanIn=2  fanOut=1  instability=0.33  loc=10  symbols=2  testReach=0  testedDirectly=0  [typescript]
+f:src/app/shared/api-versions.enum.ts  file  complexity=1  externalDeps=0  fanIn=1  fanOut=0  instability=0  loc=4  symbols=1  testReach=0  testedDirectly=0  [typescript]
+f:src/app/shared/button.component.ts  file  complexity=1  externalDeps=1  fanIn=4  fanOut=0  instability=0  loc=3  symbols=1  testReach=0  testedDirectly=0  [feature-shared,typescript]
+f:src/app/shared/header.component.ts  file  complexity=1  externalDeps=1  fanIn=2  fanOut=4  instability=0.67  loc=15  symbols=1  testReach=0  testedDirectly=0  [typescript]
+f:src/app/shared/help.component.ts  file  complexity=1  externalDeps=1  fanIn=1  fanOut=0  instability=0  loc=3  symbols=1  testReach=0  testedDirectly=0  [feature:help,route:/(side:help),typescript]
+f:src/app/shared/highlight.directive.ts  file  complexity=1  externalDeps=1  fanIn=3  fanOut=0  instability=0  loc=3  symbols=1  testReach=0  testedDirectly=0  [feature:projects,typescript]
+f:src/app/shared/not-found.component.ts  file  complexity=1  externalDeps=1  fanIn=1  fanOut=0  instability=0  loc=3  symbols=1  testReach=0  testedDirectly=0  [not-found:/,typescript]
+f:src/app/shared/shout.pipe.ts  file  complexity=1  externalDeps=1  fanIn=3  fanOut=0  instability=0  loc=7  symbols=1  testReach=0  testedDirectly=0  [feature:projects,typescript]
+f:src/app/store/project.actions.ts  file  complexity=1  externalDeps=1  fanIn=3  fanOut=1  instability=0.25  loc=25  symbols=6  testReach=0  testedDirectly=0  [feature:projects,paradigm:js.state=ngrx,typescript]
+f:src/app/store/project.effects.ts  file  complexity=1  externalDeps=3  fanIn=0  fanOut=3  instability=1  loc=20  symbols=1  testReach=0  testedDirectly=0  [feature:projects,paradigm:js.async=rxjs,paradigm:js.state=ngrx,paradigm:ng.di=constructor,typescript]
+f:src/app/store/project.reducer.ts  file  complexity=6  externalDeps=1  fanIn=0  fanOut=1  instability=1  loc=27  symbols=4  testReach=0  testedDirectly=0  [feature:projects,paradigm:js.state=ngrx,typescript]
+f:src/app/store/ui.actions.ts  file  complexity=1  externalDeps=1  fanIn=3  fanOut=0  instability=0  loc=2  symbols=1  testReach=0  testedDirectly=0  [feature:projects,paradigm:js.state=ngrx,typescript]
+f:src/app/store/ui.reducer.ts  file  complexity=1  externalDeps=1  fanIn=0  fanOut=1  instability=1  loc=6  symbols=1  testReach=0  testedDirectly=0  [paradigm:js.state=ngrx,typescript]
+s:src/app/admin/admin-users.component.ts#AdminUsersComponent  symbol/component  exported  3:1-4:36  complexity=1  fanIn=2  fanOut=1  loc=2  [class,selector:app-admin-users]  sig="@Component({ selector: 'app-admin-users', template: '<button app-button>Invite</button>' }) export class AdminUsersComponent"
+s:src/app/admin/admin.component.ts#AdminComponent  symbol/component  exported  3:1-4:31  complexity=1  fanIn=2  fanOut=0  loc=2  [class,selector:app-admin]  sig="@Component({ selector: 'app-admin', template: '<router-outlet></router-outlet>' }) export class AdminComponent"
+s:src/app/admin/admin.module.ts#AdminModule  symbol/module  exported  7:1-11:28  complexity=1  fanIn=1  fanOut=3  loc=5  [class]  sig="@NgModule({ imports: [RouterModule.forChild(ADMIN_ROUTES)], declarations: [AdminComponent, AdminUsersComponent], }) export class AdminModule"
+s:src/app/admin/admin.routes.ts#ADMIN_ROUTES  symbol/variable  exported  6:1-6:141  complexity=1  fanIn=1  fanOut=2  loc=1  sig="export const ADMIN_ROUTES: Routes = [{ path: '', component: AdminComponent, children: [{ path: 'users', component: AdminUsersComponent }] }]"
+s:src/app/admin/user.service.ts#UserService  symbol/service  exported  6:1-16:2  complexity=1  fanIn=0  fanOut=0  loc=8  [class,dead-export]  sig="@Injectable({ providedIn: 'root' }) export class UserService"
+s:src/app/admin/user.service.ts#UserService.constructor  member/constructor  11:3-11:52  complexity=1  fanIn=1  fanOut=0  loc=1  sig="constructor(private readonly http: HttpClient)"
+s:src/app/admin/user.service.ts#UserService.findAll  member/method  13:3-15:4  complexity=1  fanIn=0  fanOut=4  loc=3  sig="findAll(): Observable<string[]>"
+s:src/app/admin/user.service.ts#UserService.urls  member/property  9:3-9:45  complexity=1  fanIn=1  fanOut=1  loc=1  [private]  sig="private readonly urls = new ApiUrlHelper()"
+s:src/app/app.component.ts#AppComponent  symbol/component  exported  3:1-4:29  complexity=1  fanIn=1  fanOut=2  loc=2  [class,selector:app-root]  sig="@Component({ selector: 'app-root', templateUrl: './app.component.html' }) export class AppComponent"
+s:src/app/app.module.ts#AppModule  symbol/module  exported  11:1-16:26  complexity=1  fanIn=0  fanOut=7  loc=6  [class,dead-export]  sig="@NgModule({ imports: [RouterModule.forRoot(APP_ROUTES), ProjectsModule], declarations: [AppComponent, ButtonComponent, HeaderComponent, HighlightDirective, Sho…"
+s:src/app/app.routes.ts#APP_ROUTES  symbol/variable  exported  7:1-12:2  complexity=1  fanIn=1  fanOut=4  loc=6  sig="export const APP_ROUTES: Routes = [ { path: '', redirectTo: 'projects', pathMatch: 'full' }, { path: 'admin', loadChildren: () => import('./admin/admin.module'…"
+s:src/app/app.routes.ts#HELP_OUTLET  symbol/variable  exported  5:1-5:34  complexity=1  fanIn=1  fanOut=0  loc=1  [dead-export]  sig="export const HELP_OUTLET = 'side'"
+s:src/app/projects/project-card.component.ts#ProjectCardComponent  symbol/component  exported  3:1-6:2  complexity=1  fanIn=2  fanOut=0  loc=4  [class,selector:app-project-card]  sig="@Component({ selector: 'app-project-card', template: `<a [routerLink]=\"['/projects', project.id]\">{{ project.name }}</a>` }) export class ProjectCardComponent"
+s:src/app/projects/project-card.component.ts#ProjectCardComponent.project  member/property  5:3-5:33  complexity=1  fanIn=0  fanOut=0  loc=1  sig="project = { id: '', name: '' }"
+s:src/app/projects/project-detail.component.ts#ProjectDetailComponent  symbol/component  exported  5:1-16:2  complexity=1  fanIn=2  fanOut=0  loc=10  [class,selector:app-project-detail]  sig="@Component({ selector: 'app-project-detail', template: '<router-outlet></router-outlet>' }) export class ProjectDetailComponent"
+s:src/app/projects/project-detail.component.ts#ProjectDetailComponent.back  member/method  13:3-15:4  complexity=1  fanIn=0  fanOut=2  loc=3  sig="back(): void"
+s:src/app/projects/project-detail.component.ts#ProjectDetailComponent.constructor  member/constructor  7:3-7:50  complexity=1  fanIn=2  fanOut=0  loc=1  sig="constructor(private readonly router: Router)"
+s:src/app/projects/project-detail.component.ts#ProjectDetailComponent.openTasks  member/method  9:3-11:4  complexity=1  fanIn=0  fanOut=1  loc=3  sig="openTasks(id: string): void"
+s:src/app/projects/project-list.component.spec.ts#declarations  symbol/variable  exported  10:1-10:74  complexity=1  fanIn=0  fanOut=2  loc=1  sig="export const declarations = [ProjectCardStubComponent, TestHostComponent]"
+s:src/app/projects/project-list.component.spec.ts#ProjectCardStubComponent  symbol/component  4:1-5:34  complexity=1  fanIn=0  fanOut=0  loc=2  [class,selector:app-project-card]  sig="@Component({ selector: 'app-project-card', template: '' }) class ProjectCardStubComponent"
+s:src/app/projects/project-list.component.spec.ts#TestHostComponent  symbol/component  7:1-8:27  complexity=1  fanIn=0  fanOut=2  loc=2  [class,selector:app-test-host]  sig="@Component({ selector: 'app-test-host', template: '<app-project-card></app-project-card><app-project-list></app-project-list>' }) class TestHostComponent"
+s:src/app/projects/project-list.component.ts#ProjectListComponent  symbol/component  exported  6:1-28:2  complexity=1  fanIn=2  fanOut=3  loc=18  [class,selector:app-project-list]  sig="@Component({ selector: 'app-project-list', templateUrl: './project-list.component.html' }) export class ProjectListComponent"
+s:src/app/projects/project-list.component.ts#ProjectListComponent.clear  member/method  25:3-27:4  complexity=1  fanIn=0  fanOut=3  loc=3  sig="clear(): void"
+s:src/app/projects/project-list.component.ts#ProjectListComponent.constructor  member/constructor  10:3-10:57  complexity=1  fanIn=4  fanOut=0  loc=1  sig="constructor(private readonly store: Store<unknown>)"
+s:src/app/projects/project-list.component.ts#ProjectListComponent.load  member/method  12:3-14:4  complexity=1  fanIn=0  fanOut=3  loc=3  sig="load(): void"
+s:src/app/projects/project-list.component.ts#ProjectListComponent.projects  member/property  8:3-8:48  complexity=1  fanIn=0  fanOut=0  loc=1  sig="projects: { id: string; name: string }[] = []"
+s:src/app/projects/project-list.component.ts#ProjectListComponent.select  member/method  16:3-19:4  complexity=1  fanIn=0  fanOut=3  loc=4  sig="select(id: string): void"
+s:src/app/projects/project-list.component.ts#ProjectListComponent.toggle  member/method  21:3-23:4  complexity=1  fanIn=0  fanOut=2  loc=3  sig="toggle(): void"
+s:src/app/projects/project-route.paths.ts#PROJECT_ROUTE_PATHS  symbol/variable  exported  4:1-8:2  complexity=1  fanIn=2  fanOut=1  loc=5  sig="export const PROJECT_ROUTE_PATHS: any = { projects: 'projects', list: 'list', projectId: `:${ROUTE_PARAM_PROJECT_ID}`, }"
+s:src/app/projects/project.service.ts#Project  symbol/interface  exported  7:1-10:2  complexity=1  fanIn=4  fanOut=0  loc=4  sig="export interface Project"
+s:src/app/projects/project.service.ts#Project.id  member/property  8:3-8:13  complexity=1  fanIn=0  fanOut=0  loc=1  sig="id: string"
+s:src/app/projects/project.service.ts#Project.name  member/property  9:3-9:15  complexity=1  fanIn=0  fanOut=0  loc=1  sig="name: string"
+s:src/app/projects/project.service.ts#ProjectService  symbol/service  exported  12:1-43:2  complexity=1  fanIn=1  fanOut=0  loc=25  [class]  sig="@Injectable({ providedIn: 'root' }) export class ProjectService"
+s:src/app/projects/project.service.ts#ProjectService.constructor  member/constructor  16:3-16:52  complexity=1  fanIn=6  fanOut=0  loc=1  sig="constructor(private readonly http: HttpClient)"
+s:src/app/projects/project.service.ts#ProjectService.create  member/method  28:3-30:4  complexity=1  fanIn=0  fanOut=5  loc=3  sig="create(project: Project): Observable<Project>"
+s:src/app/projects/project.service.ts#ProjectService.download  member/method  40:3-42:4  complexity=1  fanIn=0  fanOut=1  loc=3  sig="download(url: string): Observable<Blob>"
+s:src/app/projects/project.service.ts#ProjectService.findAll  member/method  23:3-26:4  complexity=1  fanIn=1  fanOut=6  loc=4  sig="findAll(page: number): Observable<Project[]>"
+s:src/app/projects/project.service.ts#ProjectService.findOne  member/method  18:3-21:4  complexity=1  fanIn=0  fanOut=5  loc=4  sig="findOne(id: string): Observable<Project>"
+s:src/app/projects/project.service.ts#ProjectService.health  member/method  36:3-38:4  complexity=1  fanIn=0  fanOut=2  loc=3  sig="health(): Observable<string>"
+s:src/app/projects/project.service.ts#ProjectService.remove  member/method  32:3-34:4  complexity=1  fanIn=0  fanOut=4  loc=3  sig="remove(id: string): Observable<void>"
+s:src/app/projects/project.service.ts#ProjectService.urls  member/property  14:3-14:64  complexity=1  fanIn=4  fanOut=2  loc=1  [private]  sig="private readonly urls = new ApiUrlHelper(ApiVersions.Project)"
+s:src/app/projects/projects.component.ts#ProjectsComponent  symbol/component  exported  3:1-4:34  complexity=1  fanIn=2  fanOut=1  loc=2  [class,selector:app-projects]  sig="@Component({ selector: 'app-projects', templateUrl: './projects.component.html' }) export class ProjectsComponent"
+s:src/app/projects/projects.module.ts#ProjectsModule  symbol/module  exported  10:1-14:31  complexity=1  fanIn=1  fanOut=6  loc=5  [class]  sig="@NgModule({ imports: [RouterModule.forChild(PROJECT_ROUTES)], declarations: [ProjectsComponent, ProjectListComponent, ProjectCardComponent, ProjectDetailCompon…"
+s:src/app/projects/projects.routes.ts#PROJECT_ROUTES  symbol/variable  exported  8:1-18:2  complexity=1  fanIn=1  fanOut=5  loc=11  sig="export const PROJECT_ROUTES: Routes = [ { path: PROJECT_ROUTE_PATHS.projects, component: ProjectsComponent, children: [ { path: '', redirectTo: PROJECT_ROUTE_P…"
+s:src/app/projects/route-params.ts#ROUTE_PARAM_PROJECT_ID  symbol/variable  exported  2:1-2:50  complexity=1  fanIn=1  fanOut=0  loc=1  sig="export const ROUTE_PARAM_PROJECT_ID = 'projectId'"
+s:src/app/projects/task-list.component.ts#TaskListComponent  symbol/component  exported  3:1-4:34  complexity=1  fanIn=2  fanOut=0  loc=2  [class,selector:app-task-list]  sig="@Component({ selector: 'app-task-list', template: '<p>Tasks</p>' }) export class TaskListComponent"
+s:src/app/projects/tasks.routes.ts#TASK_ROUTES  symbol/variable  exported  4:1-4:77  complexity=1  fanIn=1  fanOut=1  loc=1  sig="export const TASK_ROUTES = [{ path: 'tasks', component: TaskListComponent }]"
+s:src/app/shared/api-url.builder.ts#ApiUrlBuilder  symbol/class  exported  1:1-25:2  complexity=2  fanIn=4  fanOut=0  loc=20  sig="export class ApiUrlBuilder"
+s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.build  member/method  21:3-24:4  complexity=2  fanIn=5  fanOut=3  loc=4  sig="build(): string"
+s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.constructor  member/constructor  5:3-5:48  complexity=1  fanIn=1  fanOut=0  loc=1  sig="constructor(private readonly base: string)"
+s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.path  member/property  2:3-2:20  complexity=1  fanIn=2  fanOut=0  loc=1  [private]  sig="private path = ''"
+s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.query  member/property  3:3-3:62  complexity=1  fanIn=2  fanOut=0  loc=1  [private]  sig="private readonly query = new Map<string, string | number>()"
+s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.withBasePath  member/method  7:3-9:4  complexity=1  fanIn=1  fanOut=1  loc=3  [static]  sig="static withBasePath(base: string): ApiUrlBuilder"
+s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.withPath  member/method  11:3-14:4  complexity=1  fanIn=1  fanOut=2  loc=4  sig="withPath(path: string): ApiUrlBuilder"
+s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.withQueryParam  member/method  16:3-19:4  complexity=1  fanIn=1  fanOut=2  loc=4  sig="withQueryParam(name: string, value: string | number): ApiUrlBuilder"
+s:src/app/shared/api-url.helper.ts#apiUrl  symbol/function  exported  4:1-6:2  complexity=2  fanIn=2  fanOut=0  loc=3  sig="export function apiUrl(): string"
+s:src/app/shared/api-url.helper.ts#ApiUrlHelper  symbol/class  exported  8:1-14:2  complexity=1  fanIn=2  fanOut=0  loc=6  sig="export class ApiUrlHelper"
+s:src/app/shared/api-url.helper.ts#ApiUrlHelper.constructor  member/constructor  9:3-9:58  complexity=1  fanIn=1  fanOut=0  loc=1  sig="constructor(private readonly version: string = 'v1')"
+s:src/app/shared/api-url.helper.ts#ApiUrlHelper.withPath  member/method  11:3-13:4  complexity=1  fanIn=5  fanOut=5  loc=3  sig="withPath(path: string): ApiUrlBuilder"
+s:src/app/shared/api-versions.enum.ts#ApiVersions  symbol/enum  exported  1:1-4:2  complexity=1  fanIn=1  fanOut=0  loc=4  sig="export enum ApiVersions"
+s:src/app/shared/button.component.ts#ButtonComponent  symbol/component  exported  3:1-4:32  complexity=1  fanIn=4  fanOut=0  loc=2  [class,selector:a[app-button],selector:button[app-button]]  sig="@Component({ selector: 'button[app-button], a[app-button]', template: '<ng-content></ng-content>' }) export class ButtonComponent"
+s:src/app/shared/header.component.ts#HeaderComponent  symbol/component  exported  3:1-16:2  complexity=1  fanIn=2  fanOut=2  loc=14  [class,selector:app-header]  sig="@Component({ selector: 'app-header', template: ` <nav> <a [routerLink]=\"['/projects', 'list']\">Projects</a> <span appHighlight [class.active]=\"open\">{{ title |…"
+s:src/app/shared/header.component.ts#HeaderComponent.open  member/property  15:3-15:15  complexity=1  fanIn=0  fanOut=0  loc=1  sig="open = false"
+s:src/app/shared/header.component.ts#HeaderComponent.title  member/property  14:3-14:20  complexity=1  fanIn=0  fanOut=0  loc=1  sig="title = 'Planner'"
+s:src/app/shared/help.component.ts#HelpComponent  symbol/component  exported  3:1-4:30  complexity=1  fanIn=1  fanOut=0  loc=2  [class,selector:app-help]  sig="@Component({ selector: 'app-help', template: '<p>Help</p>' }) export class HelpComponent"
+s:src/app/shared/highlight.directive.ts#HighlightDirective  symbol/directive  exported  3:1-4:35  complexity=1  fanIn=3  fanOut=0  loc=2  [class,selector:[appHighlight]]  sig="@Directive({ selector: '[appHighlight]' }) export class HighlightDirective"
+s:src/app/shared/not-found.component.ts#NotFoundComponent  symbol/component  exported  3:1-4:34  complexity=1  fanIn=1  fanOut=0  loc=2  [class,selector:app-not-found]  sig="@Component({ selector: 'app-not-found', template: '<p>Nothing here.</p>' }) export class NotFoundComponent"
+s:src/app/shared/shout.pipe.ts#ShoutPipe  symbol/pipe  exported  3:1-8:2  complexity=1  fanIn=3  fanOut=0  loc=6  [class,pipe:shout]  sig="@Pipe({ name: 'shout' }) export class ShoutPipe implements PipeTransform"
+s:src/app/shared/shout.pipe.ts#ShoutPipe.transform  member/method  5:3-7:4  complexity=1  fanIn=0  fanOut=0  loc=3  sig="transform(value: unknown): string"
+s:src/app/store/project.actions.ts#ClearSelection  symbol/class  exported  32:1-34:2  complexity=1  fanIn=1  fanOut=0  loc=3  sig="export class ClearSelection"
+s:src/app/store/project.actions.ts#ClearSelection.type  member/property  33:3-33:42  complexity=1  fanIn=0  fanOut=1  loc=1  sig="readonly type = ProjectActionEnum.Clear"
+s:src/app/store/project.actions.ts#ProjectActionEnum  symbol/enum  exported  7:1-11:2  complexity=1  fanIn=4  fanOut=0  loc=5  sig="export enum ProjectActionEnum"
+s:src/app/store/project.actions.ts#ProjectActionEnum.Clear  member/enum-member  9:3-9:29  fanIn=2  fanOut=0  loc=1  [ngrx-action]
+s:src/app/store/project.actions.ts#ProjectActionEnum.Select  member/enum-member  8:3-8:31  fanIn=3  fanOut=0  loc=1  [ngrx-action]
+s:src/app/store/project.actions.ts#ProjectActions  symbol/namespace  exported  13:1-23:2  complexity=1  fanIn=2  fanOut=3  loc=9  sig="export namespace ProjectActions"
+s:src/app/store/project.actions.ts#REQUEST_PROJECTS  symbol/variable  exported  4:1-4:51  complexity=1  fanIn=4  fanOut=0  loc=1  [ngrx-action]  sig="export const REQUEST_PROJECTS = 'REQUEST_PROJECTS'"
+s:src/app/store/project.actions.ts#REQUEST_PROJECTS_FULFILLED  symbol/variable  exported  5:1-5:71  complexity=1  fanIn=3  fanOut=0  loc=1  [ngrx-action]  sig="export const REQUEST_PROJECTS_FULFILLED = 'REQUEST_PROJECTS_FULFILLED'"
+s:src/app/store/project.actions.ts#SelectProject  symbol/class  exported  25:1-29:2  complexity=1  fanIn=1  fanOut=0  loc=4  sig="export class SelectProject implements Action"
+s:src/app/store/project.actions.ts#SelectProject.constructor  member/constructor  28:3-28:36  complexity=1  fanIn=0  fanOut=0  loc=1  sig="constructor(public id: string)"
+s:src/app/store/project.actions.ts#SelectProject.type  member/property  26:3-26:43  complexity=1  fanIn=0  fanOut=1  loc=1  sig="readonly type = ProjectActionEnum.Select"
+s:src/app/store/project.effects.ts#ProjectEffects  symbol/service  exported  8:1-23:2  complexity=1  fanIn=0  fanOut=0  loc=14  [class,dead-export]  sig="@Injectable() export class ProjectEffects"
+s:src/app/store/project.effects.ts#ProjectEffects.constructor  member/constructor  19:3-22:7  complexity=1  fanIn=2  fanOut=1  loc=4  sig="constructor( private readonly actions$: Actions, private readonly service: ProjectService, )"
+s:src/app/store/project.effects.ts#ProjectEffects.requestAll$  member/effect  10:3-15:4  complexity=1  fanIn=0  fanOut=5  loc=6  sig="requestAll$ = createEffect(() => this.actions$.pipe( ofType(REQUEST_PROJECTS), switchMap(() => this.service.findAll(0).pipe(map(list => new ProjectActions.Requ…"
+s:src/app/store/project.effects.ts#ProjectEffects.select$  member/effect  17:3-17:113  complexity=1  fanIn=0  fanOut=4  loc=1  sig="select$ = createEffect(() => this.actions$.pipe(ofType(ProjectActionEnum.Select), map(() => toggleSidebar())))"
+s:src/app/store/project.reducer.ts#label  symbol/function  exported  25:1-32:2  complexity=2  fanIn=0  fanOut=1  loc=8  [dead-export]  sig="export function label(item: { type: string }): string"
+s:src/app/store/project.reducer.ts#projectReducer  symbol/function  exported  8:1-20:2  complexity=5  fanIn=0  fanOut=6  loc=13  [dead-export]  sig="export function projectReducer(state: ProjectState = { loading: false }, action: Action): ProjectState"
+s:src/app/store/project.reducer.ts#ProjectState  symbol/interface  exported  4:1-6:2  complexity=1  fanIn=1  fanOut=0  loc=3  [dead-export]  sig="export interface ProjectState"
+s:src/app/store/project.reducer.ts#ProjectState.loading  member/property  5:3-5:19  complexity=1  fanIn=0  fanOut=0  loc=1  sig="loading: boolean"
+s:src/app/store/project.reducer.ts#SPINNER  symbol/variable  22:1-22:26  complexity=1  fanIn=1  fanOut=0  loc=1  sig="const SPINNER = 'SPINNER'"
+s:src/app/store/ui.actions.ts#toggleSidebar  symbol/variable  exported  3:1-3:65  complexity=1  fanIn=3  fanOut=0  loc=1  [ngrx-action]  sig="export const toggleSidebar = createAction('[UI] Toggle sidebar')"
+s:src/app/store/ui.reducer.ts#uiReducer  symbol/variable  exported  4:1-7:2  complexity=1  fanIn=0  fanOut=1  loc=4  [dead-export]  sig="export const uiReducer = createReducer( { sidebar: false }, on(toggleSidebar, (state: { sidebar: boolean }) => ({ sidebar: !state.sidebar })), )"
+x:excluded:stubs/@angular/common/http/index.d.ts  external  name="stubs/@angular/common/http/index.d.ts"  [excluded]
+x:excluded:stubs/@angular/core/index.d.ts  external  name="stubs/@angular/core/index.d.ts"  [excluded]
+x:excluded:stubs/@angular/router/index.d.ts  external  name="stubs/@angular/router/index.d.ts"  [excluded]
+x:excluded:stubs/@ngrx/effects/index.d.ts  external  name="stubs/@ngrx/effects/index.d.ts"  [excluded]
+x:excluded:stubs/@ngrx/store/index.d.ts  external  name="stubs/@ngrx/store/index.d.ts"  [excluded]
+x:excluded:stubs/rxjs/index.d.ts  external  name="stubs/rxjs/index.d.ts"  [excluded]
+x:excluded:stubs/rxjs/operators/index.d.ts  external  name="stubs/rxjs/operators/index.d.ts"  [excluded]
+
+# edges
+f:src/app/admin/admin-users.component.ts -imports/static-> x:excluded:stubs/@angular/core/index.d.ts  ×1  @1:27
+f:src/app/admin/admin.component.ts -imports/static-> x:excluded:stubs/@angular/core/index.d.ts  ×1  @1:27
+f:src/app/admin/admin.module.ts -imports/static-> f:src/app/admin/admin-users.component.ts  ×1  @3:37
+f:src/app/admin/admin.module.ts -imports/static-> f:src/app/admin/admin.component.ts  ×1  @4:32
+f:src/app/admin/admin.module.ts -imports/static-> f:src/app/admin/admin.routes.ts  ×1  @5:30
+f:src/app/admin/admin.module.ts -imports/static-> x:excluded:stubs/@angular/core/index.d.ts  ×1  @1:26
+f:src/app/admin/admin.module.ts -imports/static-> x:excluded:stubs/@angular/router/index.d.ts  ×1  @2:30
+f:src/app/admin/admin.routes.ts -imports/static-> f:src/app/admin/admin-users.component.ts  ×1  @2:37
+f:src/app/admin/admin.routes.ts -imports/static-> f:src/app/admin/admin.component.ts  ×1  @3:32
+f:src/app/admin/admin.routes.ts -imports/static-> x:excluded:stubs/@angular/router/index.d.ts  ×1  @1:24
+f:src/app/admin/user.service.ts -imports/static-> f:src/app/shared/api-url.helper.ts  ×1  @4:30
+f:src/app/admin/user.service.ts -imports/static-> x:excluded:stubs/@angular/common/http/index.d.ts  ×1  @1:28
+f:src/app/admin/user.service.ts -imports/static-> x:excluded:stubs/@angular/core/index.d.ts  ×1  @2:28
+f:src/app/admin/user.service.ts -imports/static-> x:excluded:stubs/rxjs/index.d.ts  ×1  @3:28
+f:src/app/app.component.ts -imports/static-> x:excluded:stubs/@angular/core/index.d.ts  ×1  @1:27
+f:src/app/app.module.ts -imports/static-> f:src/app/app.component.ts  ×1  @3:30
+f:src/app/app.module.ts -imports/static-> f:src/app/app.routes.ts  ×1  @4:28
+f:src/app/app.module.ts -imports/static-> f:src/app/projects/projects.module.ts  ×1  @5:32
+f:src/app/app.module.ts -imports/static-> f:src/app/shared/button.component.ts  ×1  @6:33
+f:src/app/app.module.ts -imports/static-> f:src/app/shared/header.component.ts  ×1  @7:33
+f:src/app/app.module.ts -imports/static-> f:src/app/shared/highlight.directive.ts  ×1  @8:36
+f:src/app/app.module.ts -imports/static-> f:src/app/shared/shout.pipe.ts  ×1  @9:27
+f:src/app/app.module.ts -imports/static-> x:excluded:stubs/@angular/core/index.d.ts  ×1  @1:26
+f:src/app/app.module.ts -imports/static-> x:excluded:stubs/@angular/router/index.d.ts  ×1  @2:30
+f:src/app/app.routes.ts -imports/dynamic-> f:src/app/admin/admin.module.ts  ×1  @9:47
+f:src/app/app.routes.ts -imports/static-> f:src/app/shared/help.component.ts  ×1  @2:31
+f:src/app/app.routes.ts -imports/static-> f:src/app/shared/not-found.component.ts  ×1  @3:35
+f:src/app/app.routes.ts -imports/static-> x:excluded:stubs/@angular/router/index.d.ts  ×1  @1:24
+f:src/app/projects/project-card.component.ts -imports/static-> x:excluded:stubs/@angular/core/index.d.ts  ×1  @1:27
+f:src/app/projects/project-detail.component.ts -imports/static-> f:src/app/projects/project-route.paths.ts  ×1  @3:37
+f:src/app/projects/project-detail.component.ts -imports/static-> x:excluded:stubs/@angular/core/index.d.ts  ×1  @1:27
+f:src/app/projects/project-detail.component.ts -imports/static-> x:excluded:stubs/@angular/router/index.d.ts  ×1  @2:24
+f:src/app/projects/project-list.component.spec.ts -imports/static-> x:excluded:stubs/@angular/core/index.d.ts  ×1  @1:27
+f:src/app/projects/project-list.component.ts -imports/static-> f:src/app/store/project.actions.ts  ×1  @3:63
+f:src/app/projects/project-list.component.ts -imports/static-> f:src/app/store/ui.actions.ts  ×1  @4:31
+f:src/app/projects/project-list.component.ts -imports/static-> x:excluded:stubs/@angular/core/index.d.ts  ×1  @1:27
+f:src/app/projects/project-list.component.ts -imports/static-> x:excluded:stubs/@ngrx/store/index.d.ts  ×1  @2:23
+f:src/app/projects/project-route.paths.ts -imports/static-> f:src/app/projects/route-params.ts  ×1  @1:40
+f:src/app/projects/project.service.ts -imports/static-> f:src/app/shared/api-url.helper.ts  ×1  @4:38
+f:src/app/projects/project.service.ts -imports/static-> f:src/app/shared/api-versions.enum.ts  ×1  @5:29
+f:src/app/projects/project.service.ts -imports/static-> x:excluded:stubs/@angular/common/http/index.d.ts  ×1  @1:28
+f:src/app/projects/project.service.ts -imports/static-> x:excluded:stubs/@angular/core/index.d.ts  ×1  @2:28
+f:src/app/projects/project.service.ts -imports/static-> x:excluded:stubs/rxjs/index.d.ts  ×1  @3:28
+f:src/app/projects/projects.component.ts -imports/static-> x:excluded:stubs/@angular/core/index.d.ts  ×1  @1:27
+f:src/app/projects/projects.module.ts -imports/static-> f:src/app/projects/project-card.component.ts  ×1  @3:38
+f:src/app/projects/projects.module.ts -imports/static-> f:src/app/projects/project-detail.component.ts  ×1  @4:40
+f:src/app/projects/projects.module.ts -imports/static-> f:src/app/projects/project-list.component.ts  ×1  @5:38
+f:src/app/projects/projects.module.ts -imports/static-> f:src/app/projects/projects.component.ts  ×1  @7:35
+f:src/app/projects/projects.module.ts -imports/static-> f:src/app/projects/projects.routes.ts  ×1  @6:32
+f:src/app/projects/projects.module.ts -imports/static-> f:src/app/projects/task-list.component.ts  ×1  @8:35
+f:src/app/projects/projects.module.ts -imports/static-> x:excluded:stubs/@angular/core/index.d.ts  ×1  @1:26
+f:src/app/projects/projects.module.ts -imports/static-> x:excluded:stubs/@angular/router/index.d.ts  ×1  @2:30
+f:src/app/projects/projects.routes.ts -imports/static-> f:src/app/projects/project-detail.component.ts  ×1  @2:40
+f:src/app/projects/projects.routes.ts -imports/static-> f:src/app/projects/project-list.component.ts  ×1  @3:38
+f:src/app/projects/projects.routes.ts -imports/static-> f:src/app/projects/project-route.paths.ts  ×1  @4:37
+f:src/app/projects/projects.routes.ts -imports/static-> f:src/app/projects/projects.component.ts  ×1  @5:35
+f:src/app/projects/projects.routes.ts -imports/static-> f:src/app/projects/tasks.routes.ts  ×1  @6:29
+f:src/app/projects/projects.routes.ts -imports/static-> x:excluded:stubs/@angular/router/index.d.ts  ×1  @1:24
+f:src/app/projects/task-list.component.ts -imports/static-> x:excluded:stubs/@angular/core/index.d.ts  ×1  @1:27
+f:src/app/projects/tasks.routes.ts -imports/static-> f:src/app/projects/task-list.component.ts  ×1  @1:35
+f:src/app/shared/api-url.helper.ts -imports/static-> f:src/app/shared/api-url.builder.ts  ×1  @1:31
+f:src/app/shared/button.component.ts -imports/static-> x:excluded:stubs/@angular/core/index.d.ts  ×1  @1:27
+f:src/app/shared/header.component.ts -imports/static-> x:excluded:stubs/@angular/core/index.d.ts  ×1  @1:27
+f:src/app/shared/help.component.ts -imports/static-> x:excluded:stubs/@angular/core/index.d.ts  ×1  @1:27
+f:src/app/shared/highlight.directive.ts -imports/static-> x:excluded:stubs/@angular/core/index.d.ts  ×1  @1:27
+f:src/app/shared/not-found.component.ts -imports/static-> x:excluded:stubs/@angular/core/index.d.ts  ×1  @1:27
+f:src/app/shared/shout.pipe.ts -imports/static-> x:excluded:stubs/@angular/core/index.d.ts  ×1  @1:37
+f:src/app/store/project.actions.ts -imports/static-> f:src/app/projects/project.service.ts  ×1  @2:25
+f:src/app/store/project.actions.ts -imports/static-> x:excluded:stubs/@ngrx/store/index.d.ts  ×1  @1:24
+f:src/app/store/project.effects.ts -imports/static-> f:src/app/projects/project.service.ts  ×1  @4:32
+f:src/app/store/project.effects.ts -imports/static-> f:src/app/store/project.actions.ts  ×1  @5:69
+f:src/app/store/project.effects.ts -imports/static-> f:src/app/store/ui.actions.ts  ×1  @6:31
+f:src/app/store/project.effects.ts -imports/static-> x:excluded:stubs/@angular/core/index.d.ts  ×1  @1:28
+f:src/app/store/project.effects.ts -imports/static-> x:excluded:stubs/@ngrx/effects/index.d.ts  ×1  @2:47
+f:src/app/store/project.effects.ts -imports/static-> x:excluded:stubs/rxjs/operators/index.d.ts  ×1  @3:32
+f:src/app/store/project.reducer.ts -imports/static-> f:src/app/store/project.actions.ts  ×1  @2:81
+f:src/app/store/project.reducer.ts -imports/static-> x:excluded:stubs/@ngrx/store/index.d.ts  ×1  @1:24
+f:src/app/store/ui.actions.ts -imports/static-> x:excluded:stubs/@ngrx/store/index.d.ts  ×1  @1:30
+f:src/app/store/ui.reducer.ts -imports/static-> f:src/app/store/ui.actions.ts  ×1  @2:31
+f:src/app/store/ui.reducer.ts -imports/static-> x:excluded:stubs/@ngrx/store/index.d.ts  ×1  @1:35
+s:src/app/admin/admin-users.component.ts#AdminUsersComponent -renders-> s:src/app/shared/button.component.ts#ButtonComponent  ×1  @3:43
+s:src/app/admin/admin.module.ts#AdminModule -references-> s:src/app/admin/admin-users.component.ts#AdminUsersComponent  ×1  @9:34
+s:src/app/admin/admin.module.ts#AdminModule -references-> s:src/app/admin/admin.component.ts#AdminComponent  ×1  @9:18
+s:src/app/admin/admin.module.ts#AdminModule -references-> s:src/app/admin/admin.routes.ts#ADMIN_ROUTES  ×1  @8:35
+s:src/app/admin/admin.routes.ts#ADMIN_ROUTES -references-> s:src/app/admin/admin-users.component.ts#AdminUsersComponent  ×1  @6:116
+s:src/app/admin/admin.routes.ts#ADMIN_ROUTES -references-> s:src/app/admin/admin.component.ts#AdminComponent  ×1  @6:61
+s:src/app/admin/user.service.ts#UserService.findAll -references-> s:src/app/admin/user.service.ts#UserService.constructor  ×1  @14:17
+s:src/app/admin/user.service.ts#UserService.findAll -references-> s:src/app/admin/user.service.ts#UserService.urls  ×1  @14:41
+s:src/app/admin/user.service.ts#UserService.findAll -calls-> s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.build  ×1  @14:64
+s:src/app/admin/user.service.ts#UserService.findAll -calls-> s:src/app/shared/api-url.helper.ts#ApiUrlHelper.withPath  ×1  @14:46
+s:src/app/admin/user.service.ts#UserService.urls -instantiates-> s:src/app/shared/api-url.helper.ts#ApiUrlHelper  ×1  @9:31
+s:src/app/app.component.ts#AppComponent -references/template-> f:src/app/app.component.html  ×1  @3:36
+s:src/app/app.component.ts#AppComponent -navigates//projects/list-> f:src/app/projects/project-list.component.ts  ×1  inferred  @3:36
+s:src/app/app.component.ts#AppComponent -renders-> s:src/app/shared/button.component.ts#ButtonComponent  ×1  @3:36
+s:src/app/app.component.ts#AppComponent -renders-> s:src/app/shared/header.component.ts#HeaderComponent  ×1  @3:36
+s:src/app/app.module.ts#AppModule -references-> s:src/app/app.component.ts#AppComponent  ×2  @13:18 @14:15
+s:src/app/app.module.ts#AppModule -references-> s:src/app/app.routes.ts#APP_ROUTES  ×1  @12:34
+s:src/app/app.module.ts#AppModule -references-> s:src/app/projects/projects.module.ts#ProjectsModule  ×1  @12:47
+s:src/app/app.module.ts#AppModule -references-> s:src/app/shared/button.component.ts#ButtonComponent  ×1  @13:32
+s:src/app/app.module.ts#AppModule -references-> s:src/app/shared/header.component.ts#HeaderComponent  ×1  @13:49
+s:src/app/app.module.ts#AppModule -references-> s:src/app/shared/highlight.directive.ts#HighlightDirective  ×1  @13:66
+s:src/app/app.module.ts#AppModule -references-> s:src/app/shared/shout.pipe.ts#ShoutPipe  ×1  @13:86
+s:src/app/app.routes.ts#APP_ROUTES -references-> s:src/app/admin/admin.module.ts#AdminModule  ×1  @9:83
+s:src/app/app.routes.ts#APP_ROUTES -references-> s:src/app/app.routes.ts#HELP_OUTLET  ×1  @10:53
+s:src/app/app.routes.ts#APP_ROUTES -references-> s:src/app/shared/help.component.ts#HelpComponent  ×1  @10:30
+s:src/app/app.routes.ts#APP_ROUTES -references-> s:src/app/shared/not-found.component.ts#NotFoundComponent  ×1  @11:28
+s:src/app/projects/project-card.component.ts#ProjectCardComponent -navigates//projects/{}-> f:src/app/projects/project-detail.component.ts  ×1  inferred  @3:44
+s:src/app/projects/project-detail.component.ts#ProjectDetailComponent.back -navigates//projects/list-> f:src/app/projects/project-list.component.ts  ×1  inferred  @14:5
+s:src/app/projects/project-detail.component.ts#ProjectDetailComponent.back -references-> s:src/app/projects/project-detail.component.ts#ProjectDetailComponent.constructor  ×1  @14:10
+s:src/app/projects/project-detail.component.ts#ProjectDetailComponent.back -references-> s:src/app/projects/project-route.paths.ts#PROJECT_ROUTE_PATHS  ×2  @14:35 @14:67
+s:src/app/projects/project-detail.component.ts#ProjectDetailComponent.openTasks -navigates//projects/{}/tasks-> f:src/app/projects/task-list.component.ts  ×1  inferred  @10:5
+s:src/app/projects/project-detail.component.ts#ProjectDetailComponent.openTasks -references-> s:src/app/projects/project-detail.component.ts#ProjectDetailComponent.constructor  ×1  @10:10
+s:src/app/projects/project-list.component.spec.ts#declarations -references-> s:src/app/projects/project-list.component.spec.ts#ProjectCardStubComponent  ×1  @10:30
+s:src/app/projects/project-list.component.spec.ts#declarations -references-> s:src/app/projects/project-list.component.spec.ts#TestHostComponent  ×1  @10:56
+s:src/app/projects/project-list.component.spec.ts#TestHostComponent -renders-> s:src/app/projects/project-list.component.spec.ts#ProjectCardStubComponent  ×1  inferred  @7:41
+s:src/app/projects/project-list.component.spec.ts#TestHostComponent -renders-> s:src/app/projects/project-list.component.ts#ProjectListComponent  ×1  @7:41
+s:src/app/projects/project-list.component.ts#ProjectListComponent -references/template-> f:src/app/projects/project-list.component.html  ×1  @6:44
+s:src/app/projects/project-list.component.ts#ProjectListComponent -renders-> s:src/app/projects/project-card.component.ts#ProjectCardComponent  ×1  inferred  @6:44
+s:src/app/projects/project-list.component.ts#ProjectListComponent -renders-> s:src/app/shared/button.component.ts#ButtonComponent  ×1  @6:44
+s:src/app/projects/project-list.component.ts#ProjectListComponent -references/pipe-> s:src/app/shared/shout.pipe.ts#ShoutPipe  ×1  @6:44
+s:src/app/projects/project-list.component.ts#ProjectListComponent.clear -references-> s:src/app/projects/project-list.component.ts#ProjectListComponent.constructor  ×1  @26:10
+s:src/app/projects/project-list.component.ts#ProjectListComponent.clear -instantiates-> s:src/app/store/project.actions.ts#ClearSelection  ×1  @26:29
+s:src/app/projects/project-list.component.ts#ProjectListComponent.clear -publishes/dispatch-> s:src/app/store/project.actions.ts#ProjectActionEnum.Clear  ×1  @26:5
+s:src/app/projects/project-list.component.ts#ProjectListComponent.load -references-> s:src/app/projects/project-list.component.ts#ProjectListComponent.constructor  ×1  @13:10
+s:src/app/projects/project-list.component.ts#ProjectListComponent.load -instantiates-> s:src/app/store/project.actions.ts#ProjectActions  ×1  @13:44
+s:src/app/projects/project-list.component.ts#ProjectListComponent.load -references-> s:src/app/store/project.actions.ts#ProjectActions  ×1  @13:29
+s:src/app/projects/project-list.component.ts#ProjectListComponent.load -publishes/dispatch-> s:src/app/store/project.actions.ts#REQUEST_PROJECTS  ×1  @13:5
+s:src/app/projects/project-list.component.ts#ProjectListComponent.select -references-> s:src/app/projects/project-list.component.ts#ProjectListComponent.constructor  ×1  @18:10
+s:src/app/projects/project-list.component.ts#ProjectListComponent.select -publishes/dispatch-> s:src/app/store/project.actions.ts#ProjectActionEnum.Select  ×1  @18:5
+s:src/app/projects/project-list.component.ts#ProjectListComponent.select -instantiates-> s:src/app/store/project.actions.ts#SelectProject  ×1  @17:24
+s:src/app/projects/project-list.component.ts#ProjectListComponent.toggle -references-> s:src/app/projects/project-list.component.ts#ProjectListComponent.constructor  ×1  @22:10
+s:src/app/projects/project-list.component.ts#ProjectListComponent.toggle -calls-> s:src/app/store/ui.actions.ts#toggleSidebar  ×1  @22:25
+s:src/app/projects/project-list.component.ts#ProjectListComponent.toggle -publishes/dispatch-> s:src/app/store/ui.actions.ts#toggleSidebar  ×1  @22:5
+s:src/app/projects/project-route.paths.ts#PROJECT_ROUTE_PATHS -references-> s:src/app/projects/route-params.ts#ROUTE_PARAM_PROJECT_ID  ×1  @7:18
+s:src/app/projects/project.service.ts#ProjectService.create -type-ref-> s:src/app/projects/project.service.ts#Project  ×3  @28:19 @28:40 @29:27
+s:src/app/projects/project.service.ts#ProjectService.create -references-> s:src/app/projects/project.service.ts#ProjectService.constructor  ×1  @29:17
+s:src/app/projects/project.service.ts#ProjectService.create -references-> s:src/app/projects/project.service.ts#ProjectService.urls  ×1  @29:41
+s:src/app/projects/project.service.ts#ProjectService.create -calls-> s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.build  ×1  @29:67
+s:src/app/projects/project.service.ts#ProjectService.create -calls-> s:src/app/shared/api-url.helper.ts#ApiUrlHelper.withPath  ×1  @29:46
+s:src/app/projects/project.service.ts#ProjectService.download -references-> s:src/app/projects/project.service.ts#ProjectService.constructor  ×1  @41:17
+s:src/app/projects/project.service.ts#ProjectService.findAll -type-ref-> s:src/app/projects/project.service.ts#Project  ×2  @23:37 @25:26
+s:src/app/projects/project.service.ts#ProjectService.findAll -references-> s:src/app/projects/project.service.ts#ProjectService.constructor  ×1  @25:17
+s:src/app/projects/project.service.ts#ProjectService.findAll -references-> s:src/app/projects/project.service.ts#ProjectService.urls  ×1  @24:22
+s:src/app/projects/project.service.ts#ProjectService.findAll -calls-> s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.build  ×1  @24:77
+s:src/app/projects/project.service.ts#ProjectService.findAll -calls-> s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.withQueryParam  ×1  @24:48
+s:src/app/projects/project.service.ts#ProjectService.findAll -calls-> s:src/app/shared/api-url.helper.ts#ApiUrlHelper.withPath  ×1  @24:27
+s:src/app/projects/project.service.ts#ProjectService.findOne -type-ref-> s:src/app/projects/project.service.ts#Project  ×2  @18:35 @20:26
+s:src/app/projects/project.service.ts#ProjectService.findOne -references-> s:src/app/projects/project.service.ts#ProjectService.constructor  ×1  @20:17
+s:src/app/projects/project.service.ts#ProjectService.findOne -references-> s:src/app/projects/project.service.ts#ProjectService.urls  ×1  @19:22
+s:src/app/projects/project.service.ts#ProjectService.findOne -calls-> s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.build  ×1  @19:54
+s:src/app/projects/project.service.ts#ProjectService.findOne -calls-> s:src/app/shared/api-url.helper.ts#ApiUrlHelper.withPath  ×1  @19:27
+s:src/app/projects/project.service.ts#ProjectService.health -references-> s:src/app/projects/project.service.ts#ProjectService.constructor  ×1  @37:17
+s:src/app/projects/project.service.ts#ProjectService.health -calls-> s:src/app/shared/api-url.helper.ts#apiUrl  ×1  @37:37
+s:src/app/projects/project.service.ts#ProjectService.remove -references-> s:src/app/projects/project.service.ts#ProjectService.constructor  ×1  @33:17
+s:src/app/projects/project.service.ts#ProjectService.remove -references-> s:src/app/projects/project.service.ts#ProjectService.urls  ×1  @33:51
+s:src/app/projects/project.service.ts#ProjectService.remove -calls-> s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.build  ×1  @33:83
+s:src/app/projects/project.service.ts#ProjectService.remove -calls-> s:src/app/shared/api-url.helper.ts#ApiUrlHelper.withPath  ×1  @33:56
+s:src/app/projects/project.service.ts#ProjectService.urls -instantiates-> s:src/app/shared/api-url.helper.ts#ApiUrlHelper  ×1  @14:31
+s:src/app/projects/project.service.ts#ProjectService.urls -references-> s:src/app/shared/api-versions.enum.ts#ApiVersions  ×2  @14:44 @14:56
+s:src/app/projects/projects.component.ts#ProjectsComponent -references/template-> f:src/app/projects/projects.component.html  ×1  @3:40
+s:src/app/projects/projects.component.ts#ProjectsComponent -renders-> s:src/app/shared/highlight.directive.ts#HighlightDirective  ×1  @3:40
+s:src/app/projects/projects.module.ts#ProjectsModule -references-> s:src/app/projects/project-card.component.ts#ProjectCardComponent  ×1  @12:59
+s:src/app/projects/projects.module.ts#ProjectsModule -references-> s:src/app/projects/project-detail.component.ts#ProjectDetailComponent  ×1  @12:81
+s:src/app/projects/projects.module.ts#ProjectsModule -references-> s:src/app/projects/project-list.component.ts#ProjectListComponent  ×1  @12:37
+s:src/app/projects/projects.module.ts#ProjectsModule -references-> s:src/app/projects/projects.component.ts#ProjectsComponent  ×1  @12:18
+s:src/app/projects/projects.module.ts#ProjectsModule -references-> s:src/app/projects/projects.routes.ts#PROJECT_ROUTES  ×1  @11:35
+s:src/app/projects/projects.module.ts#ProjectsModule -references-> s:src/app/projects/task-list.component.ts#TaskListComponent  ×1  @12:105
+s:src/app/projects/projects.routes.ts#PROJECT_ROUTES -references-> s:src/app/projects/project-detail.component.ts#ProjectDetailComponent  ×1  @15:57
+s:src/app/projects/projects.routes.ts#PROJECT_ROUTES -references-> s:src/app/projects/project-list.component.ts#ProjectListComponent  ×1  @14:52
+s:src/app/projects/projects.routes.ts#PROJECT_ROUTES -references-> s:src/app/projects/project-route.paths.ts#PROJECT_ROUTE_PATHS  ×4  @10:11 @13:31 @14:15 @15:15
+s:src/app/projects/projects.routes.ts#PROJECT_ROUTES -references-> s:src/app/projects/projects.component.ts#ProjectsComponent  ×1  @11:16
+s:src/app/projects/projects.routes.ts#PROJECT_ROUTES -references-> s:src/app/projects/tasks.routes.ts#TASK_ROUTES  ×1  @15:95
+s:src/app/projects/tasks.routes.ts#TASK_ROUTES -references-> s:src/app/projects/task-list.component.ts#TaskListComponent  ×1  @4:57
+s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.build -references-> s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.constructor  ×1  @23:20
+s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.build -references-> s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.path  ×1  @23:33
+s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.build -references-> s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.query  ×1  @22:28
+s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.withBasePath -instantiates-> s:src/app/shared/api-url.builder.ts#ApiUrlBuilder  ×1  @8:16
+s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.withBasePath -type-ref-> s:src/app/shared/api-url.builder.ts#ApiUrlBuilder  ×1  @7:38
+s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.withPath -type-ref-> s:src/app/shared/api-url.builder.ts#ApiUrlBuilder  ×1  @11:27
+s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.withPath -references-> s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.path  ×1  @12:10
+s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.withQueryParam -type-ref-> s:src/app/shared/api-url.builder.ts#ApiUrlBuilder  ×1  @16:57
+s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.withQueryParam -references-> s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.query  ×1  @17:10
+s:src/app/shared/api-url.helper.ts#ApiUrlHelper.withPath -references-> s:src/app/shared/api-url.builder.ts#ApiUrlBuilder  ×1  @12:12
+s:src/app/shared/api-url.helper.ts#ApiUrlHelper.withPath -type-ref-> s:src/app/shared/api-url.builder.ts#ApiUrlBuilder  ×1  @11:27
+s:src/app/shared/api-url.helper.ts#ApiUrlHelper.withPath -calls-> s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.withBasePath  ×1  @12:26
+s:src/app/shared/api-url.helper.ts#ApiUrlHelper.withPath -calls-> s:src/app/shared/api-url.builder.ts#ApiUrlBuilder.withPath  ×1  @12:70
+s:src/app/shared/api-url.helper.ts#ApiUrlHelper.withPath -calls-> s:src/app/shared/api-url.helper.ts#apiUrl  ×1  @12:42
+s:src/app/shared/api-url.helper.ts#ApiUrlHelper.withPath -references-> s:src/app/shared/api-url.helper.ts#ApiUrlHelper.constructor  ×1  @12:59
+s:src/app/shared/header.component.ts#HeaderComponent -navigates//admin/users-> f:src/app/admin/admin-users.component.ts  ×1  inferred  @5:3
+s:src/app/shared/header.component.ts#HeaderComponent -navigates//projects/list-> f:src/app/projects/project-list.component.ts  ×1  inferred  @5:3
+s:src/app/shared/header.component.ts#HeaderComponent -renders-> s:src/app/shared/highlight.directive.ts#HighlightDirective  ×1  @5:3
+s:src/app/shared/header.component.ts#HeaderComponent -references/pipe-> s:src/app/shared/shout.pipe.ts#ShoutPipe  ×1  @5:3
+s:src/app/store/project.actions.ts#ClearSelection.type -references-> s:src/app/store/project.actions.ts#ProjectActionEnum  ×2  @33:19 @33:37
+s:src/app/store/project.actions.ts#ProjectActions -type-ref-> s:src/app/projects/project.service.ts#Project  ×1  @21:33
+s:src/app/store/project.actions.ts#ProjectActions -references-> s:src/app/store/project.actions.ts#REQUEST_PROJECTS  ×1  @15:12
+s:src/app/store/project.actions.ts#ProjectActions -references-> s:src/app/store/project.actions.ts#REQUEST_PROJECTS_FULFILLED  ×1  @19:12
+s:src/app/store/project.actions.ts#SelectProject.type -references-> s:src/app/store/project.actions.ts#ProjectActionEnum  ×2  @26:19 @26:37
+s:src/app/store/project.effects.ts#ProjectEffects.constructor -type-ref-> s:src/app/projects/project.service.ts#ProjectService  ×1  @21:31
+s:src/app/store/project.effects.ts#ProjectEffects.requestAll$ -calls-> s:src/app/projects/project.service.ts#ProjectService.findAll  ×1  @13:36
+s:src/app/store/project.effects.ts#ProjectEffects.requestAll$ -instantiates-> s:src/app/store/project.actions.ts#ProjectActions  ×1  @13:83
+s:src/app/store/project.effects.ts#ProjectEffects.requestAll$ -references-> s:src/app/store/project.actions.ts#ProjectActions  ×1  @13:68
+s:src/app/store/project.effects.ts#ProjectEffects.requestAll$ -references-> s:src/app/store/project.actions.ts#REQUEST_PROJECTS  ×1  @12:14
+s:src/app/store/project.effects.ts#ProjectEffects.requestAll$ -subscribes/ofType-> s:src/app/store/project.actions.ts#REQUEST_PROJECTS  ×1  @12:14
+s:src/app/store/project.effects.ts#ProjectEffects.requestAll$ -publishes/effect-> s:src/app/store/project.actions.ts#REQUEST_PROJECTS_FULFILLED  ×1  @13:64
+s:src/app/store/project.effects.ts#ProjectEffects.requestAll$ -references-> s:src/app/store/project.effects.ts#ProjectEffects.constructor  ×2  @11:10 @13:28
+s:src/app/store/project.effects.ts#ProjectEffects.select$ -references-> s:src/app/store/project.actions.ts#ProjectActionEnum  ×2  @17:58 @17:76
+s:src/app/store/project.effects.ts#ProjectEffects.select$ -subscribes/ofType-> s:src/app/store/project.actions.ts#ProjectActionEnum.Select  ×1  @17:58
+s:src/app/store/project.effects.ts#ProjectEffects.select$ -references-> s:src/app/store/project.effects.ts#ProjectEffects.constructor  ×1  @17:37
+s:src/app/store/project.effects.ts#ProjectEffects.select$ -calls-> s:src/app/store/ui.actions.ts#toggleSidebar  ×1  @17:95
+s:src/app/store/project.effects.ts#ProjectEffects.select$ -publishes/effect-> s:src/app/store/ui.actions.ts#toggleSidebar  ×1  @17:95
+s:src/app/store/project.reducer.ts#label -references-> s:src/app/store/project.reducer.ts#SPINNER  ×1  @27:10
+s:src/app/store/project.reducer.ts#projectReducer -references-> s:src/app/store/project.actions.ts#ProjectActionEnum  ×4  @14:10 @14:28 @15:10 @15:28
+s:src/app/store/project.reducer.ts#projectReducer -subscribes/reducer-> s:src/app/store/project.actions.ts#ProjectActionEnum.Clear  ×1  @15:10
+s:src/app/store/project.reducer.ts#projectReducer -subscribes/reducer-> s:src/app/store/project.actions.ts#ProjectActionEnum.Select  ×1  @14:10
+s:src/app/store/project.reducer.ts#projectReducer -references-> s:src/app/store/project.actions.ts#REQUEST_PROJECTS  ×1  @10:10
+s:src/app/store/project.reducer.ts#projectReducer -subscribes/reducer-> s:src/app/store/project.actions.ts#REQUEST_PROJECTS  ×1  @10:10
+s:src/app/store/project.reducer.ts#projectReducer -references-> s:src/app/store/project.actions.ts#REQUEST_PROJECTS_FULFILLED  ×1  @12:10
+s:src/app/store/project.reducer.ts#projectReducer -subscribes/reducer-> s:src/app/store/project.actions.ts#REQUEST_PROJECTS_FULFILLED  ×1  @12:10
+s:src/app/store/project.reducer.ts#projectReducer -type-ref-> s:src/app/store/project.reducer.ts#ProjectState  ×2  @8:39 @8:91
+s:src/app/store/ui.reducer.ts#uiReducer -references-> s:src/app/store/ui.actions.ts#toggleSidebar  ×1  @6:6
+s:src/app/store/ui.reducer.ts#uiReducer -subscribes/reducer-> s:src/app/store/ui.actions.ts#toggleSidebar  ×1  @6:6

@@ -1,0 +1,87 @@
+/* arc42 kit: label and legend styles shared by the arc42 views (imported by Legend.tsx). */
+
+/* a diagram's caption on its board: "arc42 §5 · Building Block View" */
+.label.a42-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* a board's heading: "Level 1 · my-app" */
+.label.a42-heading {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* a building block's, a participant's, a neighbor's name */
+.label.a42-name {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* counts and side notes */
+.label.a42-small {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+/* a name on a pill, for what sits on busy ground */
+.label.a42-pill {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  text-shadow: none;
+}
+
+.label.a42-accent {
+  color: var(--accent);
+}
+
+.label.a42-danger {
+  color: var(--danger);
+}
+
+.label.a42-warn {
+  color: var(--warn);
+}
+
+/* outside the selection */
+.label.a42-dim {
+  opacity: 0.35;
+}
+
+.a42-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.a42-legend-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.a42-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0 6px;
+  border-radius: 8px;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.a42-limits {
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* starts at its anchor instead of centering on it (a board's caption and heading in its corner) */
+.label.a42-left {
+  translate: 50% 0;
+}

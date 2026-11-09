@@ -1,0 +1,35 @@
+# Publishes the package when a version tag (v0.2.0) is pushed: npm version minor,
+# then git push --follow-tags. npm's trusted publishing (OIDC) signs it with
+# provenance; no npm token is stored. The first version is published by hand
+# (a package must exist before its trusted publisher can be set on npmjs.com).
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: npm
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 26
+          registry-url: https://registry.npmjs.org
+      - name: The tag is package.json's version
+        run: test "v$(node -p "require('./package.json').version")" = "$GITHUB_REF_NAME"
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run test:pack
+      - run: npm run build
+      - run: npm publish --provenance --access public

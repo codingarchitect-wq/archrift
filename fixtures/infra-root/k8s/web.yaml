@@ -1,0 +1,99 @@
+# The web frontend, as plain manifests
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: web
+  namespace: shop
+spec:
+  defaultBackend:
+    service:
+      name: web
+      port:
+        number: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web
+  namespace: shop
+spec:
+  selector:
+    app: web
+    tier: frontend
+  ports:
+    - port: 80
+      targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  namespace: shop
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: web
+        tier: frontend
+    spec:
+      serviceAccountName: web
+      containers:
+        - name: web
+          image: docker.io/library/nginx:1.27
+          env:
+            - name: API_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: web-config
+                  key: apiUrl
+            - name: API_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: web-credentials
+                  key: token
+      volumes:
+        - name: cache
+          persistentVolumeClaim:
+            claimName: web-cache
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: web-config
+  namespace: shop
+data:
+  apiUrl: http://orders:8080
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: web-credentials
+  namespace: shop
+type: Opaque
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: web
+  namespace: shop
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: web-cache
+  namespace: shop
+spec:
+  accessModes: [ReadWriteOnce]
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: shop-events
+  namespace: kafka
+spec:
+  topicName: acme.shop.events
+  partitions: 3

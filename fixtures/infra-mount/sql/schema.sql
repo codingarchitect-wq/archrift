@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS customer (
+  id BIGINT PRIMARY KEY
+);
+ALTER TABLE customer ADD COLUMN name VARCHAR(100);
+CREATE TABLE audit.customer_log (id BIGINT);

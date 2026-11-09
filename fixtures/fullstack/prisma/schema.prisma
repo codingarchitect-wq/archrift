@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client"
+}
+
+model User {
+  id       String    @id
+  email    String    @unique
+  accounts Account[]
+}
+
+model Account {
+  id     String      @id
+  name   String
+  type   AccountType
+  userId String
+  user   User        @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+}
+
+enum AccountType {
+  checking
+  savings
+}

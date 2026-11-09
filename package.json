@@ -1,0 +1,78 @@
+{
+  "name": "archrift",
+  "version": "0.1.0",
+  "description": "Your codebase's architecture as a 3D map, rules that fail CI, and answers for coding agents. TypeScript, Kotlin, Go. Runs on your machine.",
+  "keywords": [
+    "architecture",
+    "software-architecture",
+    "visualization",
+    "3d",
+    "dependency-graph",
+    "architecture-rules",
+    "arc42",
+    "typescript",
+    "kotlin",
+    "go",
+    "claude-code",
+    "coding-agents"
+  ],
+  "homepage": "https://github.com/codingarchitect-wq/archrift#readme",
+  "bugs": "https://github.com/codingarchitect-wq/archrift/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codingarchitect-wq/archrift.git"
+  },
+  "license": "MIT",
+  "author": "Alexandru Prian",
+  "type": "module",
+  "bin": {
+    "archrift": "bin/archrift.js"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "dist/viewer/",
+    "dist/static/",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "archrift": "node src/cli/main.ts",
+    "dev": "vite",
+    "build": "npm run build:viewer && npm run build:lib",
+    "build:viewer": "vite build && vite build --mode static && vite build --mode highlighter",
+    "build:lib": "rm -rf lib && tsc -p tsconfig.build.json",
+    "serve": "node src/cli/main.ts serve",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "test:pack": "node scripts/test-pack.mjs",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "dependencies": {
+    "@tree-sitter-grammars/tree-sitter-kotlin": "^1.1.0",
+    "tree-sitter-go": "^0.25.0",
+    "typescript": "~6.0.3",
+    "web-tree-sitter": "^0.27.1",
+    "yaml": "^2.9.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^22.20.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/three": "^0.186.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "d3-force-3d": "^3.0.6",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "shiki": "^4.4.3",
+    "three": "^0.186.1",
+    "vite": "^8.3.1",
+    "vitest": "^5.0.2",
+    "zustand": "^5.0.15"
+  }
+}

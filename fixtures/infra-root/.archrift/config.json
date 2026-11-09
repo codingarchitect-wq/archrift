@@ -1,0 +1,10 @@
+{
+  "name": "infra-root",
+  "mounts": { "infra": "../infra-mount" },
+  "tsconfig": ["infra/pulumi/"],
+  "layers": [
+    { "name": "services", "match": "services/**" },
+    { "name": "infrastructure", "match": ["infra/**", "k8s/**", "db/**", "docker-compose.yml"] }
+  ],
+  "history": { "enabled": false }
+}

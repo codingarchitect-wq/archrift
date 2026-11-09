@@ -1,0 +1,186 @@
+# nodes
+d:.  directory  name="kotlin-spring"  files=11  loc=143
+d:common-lib  directory  files=2  loc=30
+d:common-lib/src  directory  files=2  loc=30
+d:common-lib/src/main  directory  files=2  loc=30
+d:common-lib/src/main/avro  directory  files=1  loc=13
+d:common-lib/src/main/kotlin  directory  files=1  loc=17
+d:common-lib/src/main/kotlin/com  directory  files=1  loc=17
+d:common-lib/src/main/kotlin/com/acme  directory  files=1  loc=17
+d:common-lib/src/main/kotlin/com/acme/common  directory  files=1  loc=17
+d:order-service  directory  files=9  loc=113
+d:order-service/src  directory  files=9  loc=113
+d:order-service/src/main  directory  files=8  loc=104
+d:order-service/src/main/kotlin  directory  files=8  loc=104
+d:order-service/src/main/kotlin/com  directory  files=8  loc=104
+d:order-service/src/main/kotlin/com/acme  directory  files=8  loc=104
+d:order-service/src/main/kotlin/com/acme/order  directory  files=8  loc=104
+d:order-service/src/test  directory  files=1  loc=9
+d:order-service/src/test/kotlin  directory  files=1  loc=9
+d:order-service/src/test/kotlin/com  directory  files=1  loc=9
+d:order-service/src/test/kotlin/com/acme  directory  files=1  loc=9
+d:order-service/src/test/kotlin/com/acme/order  directory  files=1  loc=9
+f:common-lib/src/main/avro/OrderEventAvro.avsc  file  complexity=1  externalDeps=0  fanIn=1  fanOut=0  instability=0  loc=13  symbols=2  testReach=0  testedDirectly=0  [avro,feature:orders]
+f:common-lib/src/main/kotlin/com/acme/common/Base.kt  file  complexity=1  externalDeps=0  fanIn=3  fanOut=0  instability=0  loc=17  symbols=4  testReach=0  testedDirectly=0  [feature:orders,kotlin]
+f:order-service/src/main/kotlin/com/acme/order/LegacyStamp.kt  file  complexity=1  externalDeps=2  fanIn=0  fanOut=1  instability=1  loc=7  symbols=1  testReach=0  testedDirectly=0  [feature:orders,kotlin,paradigm:jvm.dates=java-util-date,paradigm:jvm.di=constructor]
+f:order-service/src/main/kotlin/com/acme/order/Order.kt  file  complexity=1  externalDeps=1  fanIn=3  fanOut=1  instability=0.25  loc=11  symbols=2  testReach=0  testedDirectly=0  [db:sql,feature:orders,kotlin,paradigm:jvm.namespace=jakarta,paradigm:jvm.persistence=jpa]
+f:order-service/src/main/kotlin/com/acme/order/OrderClock.kt  file  complexity=1  externalDeps=2  fanIn=1  fanOut=0  instability=0  loc=7  symbols=1  testReach=0  testedDirectly=0  [feature:orders,kotlin,paradigm:jvm.dates=java-time]
+f:order-service/src/main/kotlin/com/acme/order/OrderController.kt  file  complexity=1  externalDeps=1  fanIn=0  fanOut=3  instability=1  loc=22  symbols=1  testReach=0  testedDirectly=0  [api:/v1/orders,api:/v1/orders/new,api:/v1/orders/{customer},feature:orders,kotlin,paradigm:jvm.di=constructor]
+f:order-service/src/main/kotlin/com/acme/order/OrderRepository.kt  file  complexity=1  externalDeps=2  fanIn=1  fanOut=1  instability=0.5  loc=6  symbols=1  testReach=0  testedDirectly=0  [feature:orders,kotlin,paradigm:jvm.persistence=jpa]
+f:order-service/src/main/kotlin/com/acme/order/OrderService.kt  file  complexity=1  externalDeps=4  fanIn=2  fanOut=5  instability=0.71  loc=26  symbols=1  testReach=0  testedDirectly=0  [feature:orders,kotlin,paradigm:jvm.di=constructor,paradigm:jvm.messaging=spring-kafka]
+f:order-service/src/main/kotlin/com/acme/order/PaymentListener.kt  file  complexity=1  externalDeps=3  fanIn=0  fanOut=1  instability=1  loc=18  symbols=3  testReach=0  testedDirectly=0  [feature:orders,kotlin,paradigm:jvm.di=constructor,paradigm:jvm.messaging=spring-kafka]
+f:order-service/src/main/kotlin/com/acme/order/TopicProperties.kt  file  complexity=1  externalDeps=1  fanIn=1  fanOut=0  instability=0  loc=7  symbols=1  testReach=0  testedDirectly=0  [feature:orders,kotlin,paradigm:jvm.config=configuration-properties]
+f:order-service/src/test/kotlin/com/acme/order/OrderServiceTest.kt  file  complexity=1  externalDeps=1  fanIn=0  fanOut=2  instability=1  loc=9  symbols=1  [feature:orders,kotlin,paradigm:jvm.test=junit5,test]
+s:common-lib/src/main/avro/OrderEventAvro.avsc#OrderEventAvro  symbol/record  1:1-13:2  complexity=1  fanIn=3  fanOut=0  loc=13  [avro]  sig="record OrderEventAvro"
+s:common-lib/src/main/avro/OrderEventAvro.avsc#OrderEventAvro.orderId  member/field  exported  6:7-6:7  complexity=1  fanIn=0  fanOut=0  loc=1  sig="orderId: long"
+s:common-lib/src/main/avro/OrderEventAvro.avsc#OrderEventAvro.previous  member/field  exported  11:7-11:7  complexity=1  fanIn=0  fanOut=1  loc=1  sig="previous: [null, OrderEventAvro]"
+s:common-lib/src/main/avro/OrderEventAvro.avsc#OrderEventAvro.status  member/field  exported  8:7-8:7  complexity=1  fanIn=0  fanOut=1  loc=1  sig="status: OrderStatusAvro"
+s:common-lib/src/main/avro/OrderEventAvro.avsc#OrderStatusAvro  symbol/enum  9:15-9:89  complexity=1  fanIn=1  fanOut=0  loc=1  [avro]  sig="enum OrderStatusAvro"
+s:common-lib/src/main/avro/OrderEventAvro.avsc#OrderStatusAvro.OPEN  member/enum-entry  exported  9:1-9:1  complexity=1  fanIn=0  fanOut=0  loc=1
+s:common-lib/src/main/avro/OrderEventAvro.avsc#OrderStatusAvro.PAID  member/enum-entry  exported  9:1-9:1  complexity=1  fanIn=0  fanOut=0  loc=1
+s:common-lib/src/main/kotlin/com/acme/common/Base.kt#Audited  symbol/annotation  exported  20:1-22:25  complexity=1  fanIn=1  fanOut=0  loc=3  sig="annotation class Audited"
+s:common-lib/src/main/kotlin/com/acme/common/Base.kt#Base  symbol/class  exported  9:1-18:2  complexity=1  fanIn=1  fanOut=1  loc=8  [abstract]  sig="abstract class Base : Shape"
+s:common-lib/src/main/kotlin/com/acme/common/Base.kt#Base.API  member/property  exported  15:5-15:26  complexity=1  fanIn=1  fanOut=0  loc=1  [const,static]  sig="const val API"
+s:common-lib/src/main/kotlin/com/acme/common/Base.kt#Base.describe  member/method  exported  12:3-12:51  complexity=1  fanIn=1  fanOut=2  loc=1  sig="open fun describe(): String"
+s:common-lib/src/main/kotlin/com/acme/common/Base.kt#Base.name  member/property  exported  10:3-10:37  complexity=1  fanIn=1  fanOut=1  loc=1  sig="override val name: String"
+s:common-lib/src/main/kotlin/com/acme/common/Base.kt#Base.UNIT  member/property  exported  16:5-16:26  complexity=1  fanIn=0  fanOut=0  loc=1  [const,static]  sig="const val UNIT"
+s:common-lib/src/main/kotlin/com/acme/common/Base.kt#Shape  symbol/interface  exported  3:1-7:2  complexity=1  fanIn=1  fanOut=0  loc=4  sig="interface Shape"
+s:common-lib/src/main/kotlin/com/acme/common/Base.kt#Shape.area  member/method  exported  4:3-4:21  complexity=1  fanIn=2  fanOut=0  loc=1  sig="fun area(): Double"
+s:common-lib/src/main/kotlin/com/acme/common/Base.kt#Shape.name  member/property  exported  6:3-6:19  complexity=1  fanIn=1  fanOut=0  loc=1  sig="val name: String"
+s:common-lib/src/main/kotlin/com/acme/common/Base.kt#shout  symbol/function  exported  24:1-24:41  complexity=1  fanIn=1  fanOut=0  loc=1  [extension]  sig="fun String.shout(): String"
+s:order-service/src/main/kotlin/com/acme/order/LegacyStamp.kt#LegacyStamp  symbol/component  exported  7:1-10:2  complexity=1  fanIn=0  fanOut=1  loc=4  [entrypoint,spring]  sig="class LegacyStamp(private val clock: OrderClock)"
+s:order-service/src/main/kotlin/com/acme/order/LegacyStamp.kt#LegacyStamp.clock  member/property  8:19-8:48  complexity=1  fanIn=0  fanOut=0  loc=1  sig="private val clock: OrderClock"
+s:order-service/src/main/kotlin/com/acme/order/LegacyStamp.kt#LegacyStamp.stamp  member/method  exported  9:3-9:43  complexity=1  fanIn=0  fanOut=1  loc=1  sig="fun stamp(): Date"
+s:order-service/src/main/kotlin/com/acme/order/Order.kt#Order  symbol/entity  exported  7:1-14:2  complexity=1  fanIn=6  fanOut=1  loc=6  [db:sql,entity,table:orders]  sig="class Order(val id: Long, val customer: String, val size: Double) : Base()"
+s:order-service/src/main/kotlin/com/acme/order/Order.kt#Order.area  member/method  exported  11:3-11:44  complexity=1  fanIn=0  fanOut=1  loc=1  sig="override fun area(): Double"
+s:order-service/src/main/kotlin/com/acme/order/Order.kt#Order.customer  member/property  exported  9:27-9:47  complexity=1  fanIn=0  fanOut=0  loc=1  sig="val customer: String"
+s:order-service/src/main/kotlin/com/acme/order/Order.kt#Order.describe  member/method  exported  13:3-13:69  complexity=1  fanIn=0  fanOut=1  loc=1  sig="override fun describe(): String"
+s:order-service/src/main/kotlin/com/acme/order/Order.kt#Order.id  member/property  exported  9:13-9:25  complexity=1  fanIn=0  fanOut=0  loc=1  sig="val id: Long"
+s:order-service/src/main/kotlin/com/acme/order/Order.kt#Order.size  member/property  exported  9:49-9:65  complexity=1  fanIn=0  fanOut=0  loc=1  sig="val size: Double"
+s:order-service/src/main/kotlin/com/acme/order/Order.kt#Orders  symbol/type  exported  16:1-16:31  complexity=1  fanIn=2  fanOut=1  loc=1  sig="typealias Orders = List<Order>"
+s:order-service/src/main/kotlin/com/acme/order/OrderClock.kt#OrderClock  symbol/component  exported  7:1-10:2  complexity=1  fanIn=1  fanOut=0  loc=4  [entrypoint,spring]  sig="class OrderClock"
+s:order-service/src/main/kotlin/com/acme/order/OrderClock.kt#OrderClock.millis  member/method  exported  9:3-9:52  complexity=1  fanIn=1  fanOut=0  loc=1  sig="fun millis(): Long"
+s:order-service/src/main/kotlin/com/acme/order/OrderController.kt#OrderController  symbol/controller  exported  10:1-27:2  complexity=1  fanIn=0  fanOut=2  loc=15  [entrypoint,spring]  sig="class OrderController(private val orderService: OrderService)"
+s:order-service/src/main/kotlin/com/acme/order/OrderController.kt#OrderController.create  member/method  exported  17:3-21:4  complexity=1  fanIn=0  fanOut=3  loc=5  [http:POST /v1/orders,http:POST /v1/orders/new]  sig="fun create(customer: String): Order"
+s:order-service/src/main/kotlin/com/acme/order/OrderController.kt#OrderController.list  member/method  exported  14:3-15:79  complexity=1  fanIn=0  fanOut=3  loc=2  [http:GET /v1/orders/{customer}]  sig="fun list(customer: String): Orders"
+s:order-service/src/main/kotlin/com/acme/order/OrderController.kt#OrderController.ORDERS  member/property  exported  24:5-24:33  complexity=1  fanIn=2  fanOut=0  loc=1  [const,static]  sig="const val ORDERS"
+s:order-service/src/main/kotlin/com/acme/order/OrderController.kt#OrderController.ORDERS_BY_CUSTOMER  member/property  exported  25:5-25:56  complexity=1  fanIn=1  fanOut=1  loc=1  [const,static]  sig="const val ORDERS_BY_CUSTOMER"
+s:order-service/src/main/kotlin/com/acme/order/OrderController.kt#OrderController.orderService  member/property  12:23-12:61  complexity=1  fanIn=0  fanOut=0  loc=1  sig="private val orderService: OrderService"
+s:order-service/src/main/kotlin/com/acme/order/OrderRepository.kt#OrderRepository  symbol/repository  exported  5:1-9:2  complexity=1  fanIn=1  fanOut=1  loc=4  [db:sql]  sig="interface OrderRepository : JpaRepository<Order, Long>"
+s:order-service/src/main/kotlin/com/acme/order/OrderRepository.kt#OrderRepository.deleteAllByCustomer  member/method  exported  8:3-8:44  complexity=1  fanIn=0  fanOut=1  loc=1  sig="fun deleteAllByCustomer(customer: String)"
+s:order-service/src/main/kotlin/com/acme/order/OrderRepository.kt#OrderRepository.findAllByCustomer  member/method  exported  6:3-6:55  complexity=1  fanIn=1  fanOut=1  loc=1  sig="fun findAllByCustomer(customer: String): List<Order>"
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService  symbol/service  exported  9:1-32:2  complexity=1  fanIn=2  fanOut=4  loc=20  [entrypoint,spring]  sig="class OrderService( private val orderRepository: OrderRepository, private val kafkaTemplate: KafkaTemplate<String, OrderEventAvro>, private val topics: TopicPr…"
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.kafkaTemplate  member/property  13:5-13:69  complexity=1  fanIn=0  fanOut=0  loc=1  sig="private val kafkaTemplate: KafkaTemplate<String, OrderEventAvro>"
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.of  member/method  exported  24:3-24:81  complexity=1  fanIn=2  fanOut=2  loc=1  sig="fun of(customer: String): Orders"
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.orderRepository  member/property  12:5-12:49  complexity=1  fanIn=0  fanOut=0  loc=1  sig="private val orderRepository: OrderRepository"
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.ORDERS_TOPIC  member/property  exported  29:5-29:49  complexity=1  fanIn=1  fanOut=0  loc=1  [const,static]  sig="const val ORDERS_TOPIC"
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.PAYMENT_CHANNEL  member/property  exported  30:5-30:42  complexity=1  fanIn=1  fanOut=0  loc=1  [const,static]  sig="const val PAYMENT_CHANNEL"
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.place  member/method  exported  17:3-22:4  complexity=1  fanIn=1  fanOut=4  loc=6  sig="fun place(customer: String, size: Double): Order"
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.topicName  member/method  exported  26:3-26:71  complexity=1  fanIn=0  fanOut=2  loc=1  sig="fun topicName(): String"
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.topics  member/property  14:5-14:40  complexity=1  fanIn=0  fanOut=0  loc=1  sig="private val topics: TopicProperties"
+s:order-service/src/main/kotlin/com/acme/order/PaymentListener.kt#Kind  symbol/enum  exported  21:1-24:2  complexity=1  fanIn=0  fanOut=0  loc=4  [test-only]  sig="enum class Kind"
+s:order-service/src/main/kotlin/com/acme/order/PaymentListener.kt#Kind.LARGE  member/enum-entry  exported  23:3-23:8  complexity=1  fanIn=0  fanOut=0  loc=1
+s:order-service/src/main/kotlin/com/acme/order/PaymentListener.kt#Kind.SMALL  member/enum-entry  exported  22:3-22:8  complexity=1  fanIn=0  fanOut=0  loc=1
+s:order-service/src/main/kotlin/com/acme/order/PaymentListener.kt#PaymentListener  symbol/component  exported  6:1-13:2  complexity=1  fanIn=0  fanOut=1  loc=7  [entrypoint,spring]  sig="class PaymentListener(private val orderService: OrderService)"
+s:order-service/src/main/kotlin/com/acme/order/PaymentListener.kt#PaymentListener.listen  member/method  exported  9:3-12:4  complexity=1  fanIn=0  fanOut=1  loc=4  [kafka-listener]  sig="fun listen(customer: String)"
+s:order-service/src/main/kotlin/com/acme/order/PaymentListener.kt#PaymentListener.orderService  member/property  7:23-7:61  complexity=1  fanIn=0  fanOut=0  loc=1  sig="private val orderService: OrderService"
+s:order-service/src/main/kotlin/com/acme/order/PaymentListener.kt#Registry  symbol/object  exported  15:1-19:2  complexity=1  fanIn=0  fanOut=0  loc=4  [test-only]  sig="object Registry"
+s:order-service/src/main/kotlin/com/acme/order/PaymentListener.kt#Registry.register  member/method  exported  18:3-18:48  complexity=1  fanIn=0  fanOut=1  loc=1  sig="fun register(name: String)"
+s:order-service/src/main/kotlin/com/acme/order/PaymentListener.kt#Registry.shapes  member/property  exported  16:3-16:39  complexity=1  fanIn=1  fanOut=0  loc=1  sig="val shapes"
+s:order-service/src/main/kotlin/com/acme/order/TopicProperties.kt#TopicProperties  symbol/class  exported  5:1-10:2  complexity=1  fanIn=1  fanOut=0  loc=5  sig="class TopicProperties"
+s:order-service/src/main/kotlin/com/acme/order/TopicProperties.kt#TopicProperties.bindings  member/property  exported  7:3-7:49  complexity=1  fanIn=1  fanOut=0  loc=1  sig="var bindings: Map<String, String>"
+s:order-service/src/main/kotlin/com/acme/order/TopicProperties.kt#TopicProperties.getTopicForChannel  member/method  exported  9:3-9:79  complexity=1  fanIn=1  fanOut=1  loc=1  sig="fun getTopicForChannel(channel: String): String"
+s:order-service/src/test/kotlin/com/acme/order/OrderServiceTest.kt#OrderServiceTest  symbol/class  exported  5:1-11:2  complexity=1  fanIn=0  fanOut=0  loc=7  sig="class OrderServiceTest"
+s:order-service/src/test/kotlin/com/acme/order/OrderServiceTest.kt#OrderServiceTest.placesAnOrder  member/method  exported  6:3-10:4  complexity=1  fanIn=0  fanOut=6  loc=5  sig="fun placesAnOrder(service: OrderService)"
+x:db:mysql:acme-orders  external  name="acme-orders"  [database,infra,mysql]  sig="mysql: acme-orders"
+x:jvm:jakarta.persistence  external  name="jakarta.persistence"  [jvm]
+x:jvm:java.time  external  name="java.time"  [jvm]
+x:jvm:java.util  external  name="java.util"  [jvm]
+x:jvm:org.junit.jupiter  external  name="org.junit.jupiter"  [jvm]
+x:jvm:org.springframework.boot  external  name="org.springframework.boot"  [jvm]
+x:jvm:org.springframework.data  external  name="org.springframework.data"  [jvm]
+x:jvm:org.springframework.kafka  external  name="org.springframework.kafka"  [jvm]
+x:jvm:org.springframework.stereotype  external  name="org.springframework.stereotype"  [jvm]
+x:jvm:org.springframework.web  external  name="org.springframework.web"  [jvm]
+x:kafka:acme.orders  external  name="orders"  [infra,kafka,topic]  sig="acme.local.orders"
+x:kafka:acme.payments  external  name="payments"  [infra,kafka,topic]  sig="acme.local.payments"
+
+# edges
+f:order-service/src/main/kotlin/com/acme/order/LegacyStamp.kt -imports/static-> x:jvm:java.util  ×1  @3:1
+f:order-service/src/main/kotlin/com/acme/order/LegacyStamp.kt -imports/static-> x:jvm:org.springframework.stereotype  ×1  @4:1
+f:order-service/src/main/kotlin/com/acme/order/Order.kt -imports/static-> f:common-lib/src/main/kotlin/com/acme/common/Base.kt  ×1  @3:1
+f:order-service/src/main/kotlin/com/acme/order/Order.kt -imports/static-> x:jvm:jakarta.persistence  ×2  @4:1 @5:1
+f:order-service/src/main/kotlin/com/acme/order/OrderClock.kt -imports/static-> x:jvm:java.time  ×1  @3:1
+f:order-service/src/main/kotlin/com/acme/order/OrderClock.kt -imports/static-> x:jvm:org.springframework.stereotype  ×1  @4:1
+f:order-service/src/main/kotlin/com/acme/order/OrderController.kt -imports/static-> f:common-lib/src/main/kotlin/com/acme/common/Base.kt  ×1  @3:1
+f:order-service/src/main/kotlin/com/acme/order/OrderController.kt -imports/static-> x:jvm:org.springframework.web  ×5  @4:1 @5:1 @6:1 @7:1 @8:1
+f:order-service/src/main/kotlin/com/acme/order/OrderRepository.kt -imports/static-> x:jvm:org.springframework.data  ×1  @3:1
+f:order-service/src/main/kotlin/com/acme/order/OrderService.kt -imports/static-> f:common-lib/src/main/avro/OrderEventAvro.avsc  ×1  @5:1
+f:order-service/src/main/kotlin/com/acme/order/OrderService.kt -imports/static-> f:common-lib/src/main/kotlin/com/acme/common/Base.kt  ×2  @3:1 @4:1
+f:order-service/src/main/kotlin/com/acme/order/OrderService.kt -imports/static-> x:jvm:org.springframework.kafka  ×1  @6:1
+f:order-service/src/main/kotlin/com/acme/order/OrderService.kt -imports/static-> x:jvm:org.springframework.stereotype  ×1  @7:1
+f:order-service/src/main/kotlin/com/acme/order/PaymentListener.kt -imports/static-> x:jvm:org.springframework.kafka  ×1  @3:1
+f:order-service/src/main/kotlin/com/acme/order/PaymentListener.kt -imports/static-> x:jvm:org.springframework.stereotype  ×1  @4:1
+f:order-service/src/main/kotlin/com/acme/order/TopicProperties.kt -imports/static-> x:jvm:org.springframework.boot  ×1  @3:1
+f:order-service/src/test/kotlin/com/acme/order/OrderServiceTest.kt -imports/static-> x:jvm:org.junit.jupiter  ×1  @3:1
+s:common-lib/src/main/avro/OrderEventAvro.avsc#OrderEventAvro.previous -type-ref-> s:common-lib/src/main/avro/OrderEventAvro.avsc#OrderEventAvro  ×1  @11:7
+s:common-lib/src/main/avro/OrderEventAvro.avsc#OrderEventAvro.status -type-ref-> s:common-lib/src/main/avro/OrderEventAvro.avsc#OrderStatusAvro  ×1  @8:7
+s:common-lib/src/main/kotlin/com/acme/common/Base.kt#Base -implements-> s:common-lib/src/main/kotlin/com/acme/common/Base.kt#Shape  ×1  @9:23
+s:common-lib/src/main/kotlin/com/acme/common/Base.kt#Base.describe -references-> s:common-lib/src/main/kotlin/com/acme/common/Base.kt#Base.name  ×1  @12:35
+s:common-lib/src/main/kotlin/com/acme/common/Base.kt#Base.describe -calls-> s:common-lib/src/main/kotlin/com/acme/common/Base.kt#Shape.area  ×1  @12:43
+s:common-lib/src/main/kotlin/com/acme/common/Base.kt#Base.name -implements-> s:common-lib/src/main/kotlin/com/acme/common/Base.kt#Shape.name  ×1  @10:3
+s:order-service/src/main/kotlin/com/acme/order/LegacyStamp.kt#LegacyStamp -type-ref-> s:order-service/src/main/kotlin/com/acme/order/OrderClock.kt#OrderClock  ×1  @8:38
+s:order-service/src/main/kotlin/com/acme/order/LegacyStamp.kt#LegacyStamp.stamp -calls-> s:order-service/src/main/kotlin/com/acme/order/OrderClock.kt#OrderClock.millis  ×1  @9:34
+s:order-service/src/main/kotlin/com/acme/order/Order.kt#Order -extends-> s:common-lib/src/main/kotlin/com/acme/common/Base.kt#Base  ×1  @9:69
+s:order-service/src/main/kotlin/com/acme/order/Order.kt#Order.area -implements-> s:common-lib/src/main/kotlin/com/acme/common/Base.kt#Shape.area  ×1  @11:3
+s:order-service/src/main/kotlin/com/acme/order/Order.kt#Order.describe -calls-> s:common-lib/src/main/kotlin/com/acme/common/Base.kt#Base.describe  ×1  @13:59
+s:order-service/src/main/kotlin/com/acme/order/Order.kt#Order.describe -overrides-> s:common-lib/src/main/kotlin/com/acme/common/Base.kt#Base.describe  ×1  @13:3
+s:order-service/src/main/kotlin/com/acme/order/Order.kt#Orders -type-ref-> s:order-service/src/main/kotlin/com/acme/order/Order.kt#Order  ×1  @16:25
+s:order-service/src/main/kotlin/com/acme/order/OrderController.kt#OrderController -references-> s:common-lib/src/main/kotlin/com/acme/common/Base.kt#Base.API  ×1  @11:17
+s:order-service/src/main/kotlin/com/acme/order/OrderController.kt#OrderController -type-ref-> s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService  ×1  @12:49
+s:order-service/src/main/kotlin/com/acme/order/OrderController.kt#OrderController.create -type-ref-> s:order-service/src/main/kotlin/com/acme/order/Order.kt#Order  ×1  @18:47
+s:order-service/src/main/kotlin/com/acme/order/OrderController.kt#OrderController.create -references-> s:order-service/src/main/kotlin/com/acme/order/OrderController.kt#OrderController.ORDERS  ×2  @17:18 @17:28
+s:order-service/src/main/kotlin/com/acme/order/OrderController.kt#OrderController.create -calls-> s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.place  ×1  @19:30
+s:order-service/src/main/kotlin/com/acme/order/OrderController.kt#OrderController.list -type-ref-> s:order-service/src/main/kotlin/com/acme/order/Order.kt#Orders  ×1  @15:45
+s:order-service/src/main/kotlin/com/acme/order/OrderController.kt#OrderController.list -references-> s:order-service/src/main/kotlin/com/acme/order/OrderController.kt#OrderController.ORDERS_BY_CUSTOMER  ×1  @14:15
+s:order-service/src/main/kotlin/com/acme/order/OrderController.kt#OrderController.list -calls-> s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.of  ×1  @15:67
+s:order-service/src/main/kotlin/com/acme/order/OrderController.kt#OrderController.ORDERS_BY_CUSTOMER -references-> s:order-service/src/main/kotlin/com/acme/order/OrderController.kt#OrderController.ORDERS  ×1  @25:38
+s:order-service/src/main/kotlin/com/acme/order/OrderRepository.kt#OrderRepository -type-ref-> s:order-service/src/main/kotlin/com/acme/order/Order.kt#Order  ×1  @5:43
+s:order-service/src/main/kotlin/com/acme/order/OrderRepository.kt#OrderRepository -queries-> x:db:mysql:acme-orders  ×1  inferred  @1:1
+s:order-service/src/main/kotlin/com/acme/order/OrderRepository.kt#OrderRepository.deleteAllByCustomer -queries/write-> s:order-service/src/main/kotlin/com/acme/order/Order.kt#Order  ×1  @8:3
+s:order-service/src/main/kotlin/com/acme/order/OrderRepository.kt#OrderRepository.findAllByCustomer -queries/read-> s:order-service/src/main/kotlin/com/acme/order/Order.kt#Order  ×1  @6:3
+s:order-service/src/main/kotlin/com/acme/order/OrderRepository.kt#OrderRepository.findAllByCustomer -type-ref-> s:order-service/src/main/kotlin/com/acme/order/Order.kt#Order  ×1  @6:49
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService -type-ref-> s:common-lib/src/main/avro/OrderEventAvro.avsc#OrderEventAvro  ×1  @13:54
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService -references-> s:common-lib/src/main/kotlin/com/acme/common/Base.kt#Audited  ×1  @9:2
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService -type-ref-> s:order-service/src/main/kotlin/com/acme/order/OrderRepository.kt#OrderRepository  ×1  @12:34
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService -type-ref-> s:order-service/src/main/kotlin/com/acme/order/TopicProperties.kt#TopicProperties  ×1  @14:25
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.of -type-ref-> s:order-service/src/main/kotlin/com/acme/order/Order.kt#Orders  ×1  @24:29
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.of -calls-> s:order-service/src/main/kotlin/com/acme/order/OrderRepository.kt#OrderRepository.findAllByCustomer  ×1  @24:54
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.place -instantiates-> s:common-lib/src/main/avro/OrderEventAvro.avsc#OrderEventAvro  ×1  @20:48
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.place -calls-> s:common-lib/src/main/kotlin/com/acme/common/Base.kt#shout  ×1  @18:35
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.place -instantiates-> s:order-service/src/main/kotlin/com/acme/order/Order.kt#Order  ×1  @18:17
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.place -queries/write-> s:order-service/src/main/kotlin/com/acme/order/Order.kt#Order  ×1  @19:33
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.place -type-ref-> s:order-service/src/main/kotlin/com/acme/order/Order.kt#Order  ×1  @17:46
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.place -references-> s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.ORDERS_TOPIC  ×1  @20:24
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.place -publishes-> x:kafka:acme.orders  ×1  inferred  @20:5
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.topicName -references-> s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.PAYMENT_CHANNEL  ×1  @26:55
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.topicName -calls-> s:order-service/src/main/kotlin/com/acme/order/TopicProperties.kt#TopicProperties.getTopicForChannel  ×1  @26:36
+s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.topicName -publishes-> x:kafka:acme.payments  ×1  inferred  @26:29
+s:order-service/src/main/kotlin/com/acme/order/PaymentListener.kt#PaymentListener -type-ref-> s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService  ×1  @7:49
+s:order-service/src/main/kotlin/com/acme/order/PaymentListener.kt#PaymentListener.listen -calls-> s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.of  ×1  @11:18
+s:order-service/src/main/kotlin/com/acme/order/PaymentListener.kt#PaymentListener.listen -subscribes-> x:kafka:acme.payments  ×1  inferred  @9:3
+s:order-service/src/main/kotlin/com/acme/order/PaymentListener.kt#Registry.register -references-> s:order-service/src/main/kotlin/com/acme/order/PaymentListener.kt#Registry.shapes  ×1  @18:32
+s:order-service/src/main/kotlin/com/acme/order/TopicProperties.kt#TopicProperties.getTopicForChannel -references-> s:order-service/src/main/kotlin/com/acme/order/TopicProperties.kt#TopicProperties.bindings  ×1  @9:53
+s:order-service/src/test/kotlin/com/acme/order/OrderServiceTest.kt#OrderServiceTest.placesAnOrder -type-ref-> s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService  ×1  @7:30
+s:order-service/src/test/kotlin/com/acme/order/OrderServiceTest.kt#OrderServiceTest.placesAnOrder -calls-> s:order-service/src/main/kotlin/com/acme/order/OrderService.kt#OrderService.place  ×1  @8:13
+s:order-service/src/test/kotlin/com/acme/order/OrderServiceTest.kt#OrderServiceTest.placesAnOrder -references-> s:order-service/src/main/kotlin/com/acme/order/PaymentListener.kt#Kind  ×1  @8:26
+s:order-service/src/test/kotlin/com/acme/order/OrderServiceTest.kt#OrderServiceTest.placesAnOrder -references-> s:order-service/src/main/kotlin/com/acme/order/PaymentListener.kt#Kind.SMALL  ×1  @8:31
+s:order-service/src/test/kotlin/com/acme/order/OrderServiceTest.kt#OrderServiceTest.placesAnOrder -references-> s:order-service/src/main/kotlin/com/acme/order/PaymentListener.kt#Registry  ×1  @9:5
+s:order-service/src/test/kotlin/com/acme/order/OrderServiceTest.kt#OrderServiceTest.placesAnOrder -calls-> s:order-service/src/main/kotlin/com/acme/order/PaymentListener.kt#Registry.register  ×1  @9:14
+
+# databases
+x:db:mysql:acme-orders  mysql  jpa  module="order-service"  name="acme-orders"  node=x:db:mysql:acme-orders
+  table orders  entity=Order  nodes=s:order-service/src/main/kotlin/com/acme/order/Order.kt#Order
+    id  Long  :9
+    customer  String  :9
+    size  Double  :9

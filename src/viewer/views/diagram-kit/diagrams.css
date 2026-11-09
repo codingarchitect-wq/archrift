@@ -1,0 +1,137 @@
+/* Diagram kit: the diagram views' legend and panel styles (the arc42 kit's arc42.css has the label classes). */
+
+.dg-legend .swatches span {
+  gap: 4px;
+}
+
+.dg-mark {
+  flex: none;
+  color: var(--muted);
+}
+
+/* a list of files in the legend (who reads and writes a table), each a button selecting its file */
+.dg-files {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 8px;
+  max-height: 28vh;
+  overflow-y: auto;
+  margin-top: 2px;
+}
+
+.dg-files > b {
+  font-weight: 600;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.dg-files ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 6px;
+}
+
+.dg-files button {
+  background: transparent;
+  border: none;
+  padding: 0 2px;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+}
+
+.dg-files button:hover {
+  text-decoration: underline;
+}
+
+.dg-files .dim {
+  font-size: 10px;
+}
+
+/* the toolbar's pickers */
+.dg-picker ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 46vh;
+  overflow-y: auto;
+}
+
+.dg-picker .dg-group {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+}
+
+.dg-picker button {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  padding: 3px 8px;
+  text-align: left;
+}
+
+.dg-picker button:hover,
+.dg-picker button[aria-checked='true'] {
+  background: var(--hover);
+}
+
+.dg-picker button[aria-checked='true'] .dg-entry {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.dg-picker .dim {
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.dg-picker input {
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+/* the FK and UQ tags as the cards write them */
+.dg-tag {
+  font: 600 9px ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--muted);
+}
+
+/* a card's title written over it from afar */
+.label.dg-title {
+  font-size: 11px;
+  padding: 0 5px;
+}
+
+/* two or three choices as one control (the Classes view's family | folder) */
+.dg-modes {
+  display: inline-flex;
+}
+
+.dg-modes button {
+  border-radius: 0;
+  margin-left: -1px;
+}
+
+.dg-modes button:first-child {
+  border-radius: 6px 0 0 6px;
+  margin-left: 0;
+}
+
+.dg-modes button:last-child {
+  border-radius: 0 6px 6px 0;
+}
+
+.dg-modes button[aria-pressed='true'] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}

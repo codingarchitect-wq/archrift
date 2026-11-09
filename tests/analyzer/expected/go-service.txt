@@ -1,0 +1,244 @@
+# nodes
+d:.  directory  name="go-service"  files=13  loc=251
+d:api  directory  files=2  loc=42
+d:config  directory  files=1  loc=24
+d:messaging  directory  files=3  loc=61
+d:order  directory  files=6  loc=97
+f:api/handler_test.go  file  complexity=2  externalDeps=3  fanIn=0  fanOut=1  instability=1  loc=14  symbols=1  [go,test]
+f:api/handler.go  file  complexity=2  externalDeps=2  fanIn=1  fanOut=1  instability=0.5  loc=28  symbols=4  testReach=0  testedDirectly=0  [go]
+f:config/config.go  file  complexity=1  externalDeps=0  fanIn=3  fanOut=0  instability=0  loc=24  symbols=6  testReach=0  testedDirectly=0  [go]
+f:main.go  file  complexity=2  externalDeps=5  fanIn=0  fanOut=7  instability=1  loc=27  symbols=1  testReach=0  testedDirectly=0  [entrypoint,go,paradigm:go.kafka=confluent]
+f:messaging/admin.go  file  complexity=3  externalDeps=4  fanIn=1  fanOut=1  instability=0.5  loc=22  symbols=2  testReach=0  testedDirectly=0  [go,paradigm:go.kafka=confluent]
+f:messaging/consumer.go  file  complexity=5  externalDeps=2  fanIn=1  fanOut=2  instability=0.67  loc=21  symbols=1  testReach=0  testedDirectly=0  [go,paradigm:go.kafka=confluent]
+f:messaging/producer.go  file  complexity=1  externalDeps=1  fanIn=1  fanOut=1  instability=0.5  loc=18  symbols=2  testReach=0  testedDirectly=0  [go,paradigm:go.kafka=confluent]
+f:order/base.go  file  complexity=1  externalDeps=0  fanIn=1  fanOut=0  instability=0  loc=10  symbols=1  testReach=0  testedDirectly=0  [go]
+f:order/memory_find.go  file  complexity=2  externalDeps=0  fanIn=0  fanOut=2  instability=1  loc=8  symbols=1  testReach=0  testedDirectly=0  [go]
+f:order/memory.go  file  complexity=1  externalDeps=0  fanIn=2  fanOut=2  instability=0.5  loc=13  symbols=2  testReach=1  testedDirectly=1  [go]
+f:order/order_external_test.go  file  complexity=2  externalDeps=1  fanIn=0  fanOut=2  instability=1  loc=11  symbols=1  [go,test]
+f:order/order.go  file  complexity=4  externalDeps=1  fanIn=6  fanOut=0  instability=0  loc=37  symbols=7  testReach=1  testedDirectly=1  [go]
+f:order/service_test.go  file  complexity=4  externalDeps=1  fanIn=0  fanOut=3  instability=1  loc=18  symbols=2  [go,test]
+s:api/handler_test.go#TestHealth  symbol/function  exported  9:1-16:2  complexity=2  fanIn=0  fanOut=1  loc=8  sig="func TestHealth(t *testing.T)"
+s:api/handler.go#Handler  symbol/struct  exported  10:1-12:2  complexity=1  fanIn=2  fanOut=0  loc=3  [dead-export]  sig="type Handler struct"
+s:api/handler.go#Handler.GetOrder  member/method  exported  19:1-26:2  complexity=2  fanIn=1  fanOut=2  loc=8  [http:GET /v1/orders/{id}]  sig="func (h *Handler) GetOrder(c *gin.Context)"
+s:api/handler.go#Handler.service  member/property  11:2-11:24  complexity=1  fanIn=1  fanOut=1  loc=1  sig="service *order.Service"
+s:api/handler.go#Health  symbol/function  exported  36:1-38:2  complexity=1  fanIn=1  fanOut=0  loc=3  [http:ANY /health]  sig="func Health(w http.ResponseWriter, _ *http.Request)"
+s:api/handler.go#NewHandler  symbol/function  exported  14:1-16:2  complexity=1  fanIn=1  fanOut=2  loc=3  sig="func NewHandler(service *order.Service) *Handler"
+s:api/handler.go#Register  symbol/function  exported  29:1-33:2  complexity=1  fanIn=1  fanOut=2  loc=5  [http:POST /v1/orders]  sig="func Register(router *gin.Engine, h *Handler)"
+s:config/config.go#Configuration  symbol/struct  exported  4:1-7:2  complexity=1  fanIn=2  fanOut=0  loc=4  sig="type Configuration struct"
+s:config/config.go#Configuration.Kafka  member/property  exported  5:2-5:24  complexity=1  fanIn=2  fanOut=1  loc=1  sig="Kafka KafkaProperties"
+s:config/config.go#Configuration.Server  member/property  exported  6:2-6:25  complexity=1  fanIn=0  fanOut=1  loc=1  sig="Server ServerProperties"
+s:config/config.go#KafkaProperties  symbol/struct  exported  9:1-12:2  complexity=1  fanIn=2  fanOut=0  loc=4  sig="type KafkaProperties struct"
+s:config/config.go#KafkaProperties.Broker  member/property  exported  10:2-10:15  complexity=1  fanIn=3  fanOut=0  loc=1  sig="Broker string"
+s:config/config.go#KafkaProperties.Topic  member/property  exported  11:2-11:25  complexity=1  fanIn=3  fanOut=1  loc=1  sig="Topic TopicsProperties"
+s:config/config.go#NewConfiguration  symbol/function  exported  29:1-31:2  complexity=1  fanIn=1  fanOut=2  loc=3  sig="func NewConfiguration() Configuration"
+s:config/config.go#ServerProperties  symbol/struct  exported  25:1-27:2  complexity=1  fanIn=2  fanOut=0  loc=3  [dead-export]  sig="type ServerProperties struct"
+s:config/config.go#ServerProperties.Port  member/property  exported  26:2-26:10  complexity=1  fanIn=0  fanOut=0  loc=1  sig="Port int"
+s:config/config.go#TopicProperties  symbol/struct  exported  20:1-23:2  complexity=1  fanIn=2  fanOut=0  loc=4  sig="type TopicProperties struct"
+s:config/config.go#TopicProperties.Name  member/property  exported  21:2-21:41  complexity=1  fanIn=3  fanOut=0  loc=1  sig="Name string"
+s:config/config.go#TopicProperties.Partitions  member/property  exported  22:2-22:16  complexity=1  fanIn=1  fanOut=0  loc=1  sig="Partitions int"
+s:config/config.go#TopicsProperties  symbol/struct  exported  14:1-18:2  complexity=1  fanIn=1  fanOut=0  loc=5  sig="type TopicsProperties struct"
+s:config/config.go#TopicsProperties.AutoCreate  member/property  exported  15:2-15:17  complexity=1  fanIn=1  fanOut=0  loc=1  sig="AutoCreate bool"
+s:config/config.go#TopicsProperties.Orders  member/property  exported  16:2-16:28  complexity=1  fanIn=1  fanOut=1  loc=1  sig="Orders TopicProperties"
+s:config/config.go#TopicsProperties.Shipped  member/property  exported  17:2-17:28  complexity=1  fanIn=2  fanOut=1  loc=1  sig="Shipped TopicProperties"
+s:main.go#main  symbol/function  15:1-33:2  complexity=2  fanIn=0  fanOut=14  loc=16  sig="func main()"
+s:messaging/admin.go#CreateTopics  symbol/function  exported  14:1-28:2  complexity=3  fanIn=1  fanOut=9  loc=15  sig="func CreateTopics(configuration config.Configuration)"
+s:messaging/admin.go#DeadLetterTopic  symbol/variable  exported  11:1-11:42  complexity=1  fanIn=1  fanOut=0  loc=1  [const,dead-export]  sig="const DeadLetterTopic"
+s:messaging/consumer.go#Listen  symbol/function  exported  10:1-24:2  complexity=5  fanIn=1  fanOut=8  loc=15  sig="func Listen(props config.KafkaProperties, service *order.Service)"
+s:messaging/producer.go#NewPublisher  symbol/function  exported  14:1-16:2  complexity=1  fanIn=1  fanOut=1  loc=3  sig="func NewPublisher(producer *kafka.Producer, topic string) *Publisher"
+s:messaging/producer.go#Publisher  symbol/struct  exported  9:1-12:2  complexity=1  fanIn=1  fanOut=1  loc=4  [dead-export]  sig="type Publisher struct"
+s:messaging/producer.go#Publisher.producer  member/property  10:2-10:26  complexity=1  fanIn=1  fanOut=0  loc=1  sig="producer *kafka.Producer"
+s:messaging/producer.go#Publisher.Publish  member/method  exported  18:1-23:2  complexity=1  fanIn=0  fanOut=5  loc=6  sig="func (p *Publisher) Publish(o order.Order) error"
+s:messaging/producer.go#Publisher.topic  member/property  11:2-11:17  complexity=1  fanIn=1  fanOut=0  loc=1  sig="topic string"
+s:order/base.go#base  symbol/struct  4:1-6:2  complexity=1  fanIn=1  fanOut=0  loc=3  sig="type base struct"
+s:order/base.go#base.touch  member/method  8:1-10:2  complexity=1  fanIn=1  fanOut=1  loc=3  sig="func (b *base) touch()"
+s:order/base.go#base.writes  member/property  5:2-5:12  complexity=1  fanIn=2  fanOut=0  loc=1  sig="writes int"
+s:order/base.go#base.Writes  member/method  exported  12:1-14:2  complexity=1  fanIn=0  fanOut=1  loc=3  sig="func (b *base) Writes() int"
+s:order/memory_find.go#memoryStore.Find  symbol/method  name="memoryStore.Find"  exported  4:1-10:2  complexity=2  fanIn=0  fanOut=5  loc=7  sig="func (m *memoryStore) Find(id string) (*Order, error)"
+s:order/memory.go#memoryStore  symbol/struct  3:1-6:2  complexity=1  fanIn=2  fanOut=1  loc=4  sig="type memoryStore struct"
+s:order/memory.go#memoryStore.base  member/property  4:2-4:6  complexity=1  fanIn=0  fanOut=1  loc=1  [embedded]  sig="base"
+s:order/memory.go#memoryStore.orders  member/property  5:2-5:25  complexity=1  fanIn=2  fanOut=1  loc=1  sig="orders map[string]Order"
+s:order/memory.go#memoryStore.Save  member/method  exported  12:1-16:2  complexity=1  fanIn=0  fanOut=5  loc=5  sig="func (m *memoryStore) Save(o Order) error"
+s:order/memory.go#NewMemoryStore  symbol/function  exported  8:1-10:2  complexity=1  fanIn=1  fanOut=2  loc=3  sig="func NewMemoryStore() *memoryStore"
+s:order/order_external_test.go#TestFind  symbol/function  exported  9:1-14:2  complexity=2  fanIn=0  fanOut=4  loc=6  sig="func TestFind(t *testing.T)"
+s:order/order.go#ErrNotFound  symbol/variable  exported  27:1-27:48  complexity=1  fanIn=1  fanOut=0  loc=1  sig="var ErrNotFound"
+s:order/order.go#Events  symbol/interface  exported  23:1-25:2  complexity=1  fanIn=3  fanOut=0  loc=3  sig="type Events interface"
+s:order/order.go#Events.Publish  member/method  exported  24:2-24:24  complexity=1  fanIn=2  fanOut=1  loc=1  sig="Publish(o Order) error"
+s:order/order.go#Item  symbol/struct  exported  11:1-14:2  complexity=1  fanIn=1  fanOut=0  loc=4  [test-only]  sig="type Item struct"
+s:order/order.go#Item.Quantity  member/property  exported  13:2-13:14  complexity=1  fanIn=0  fanOut=0  loc=1  sig="Quantity int"
+s:order/order.go#Item.SKU  member/property  exported  12:2-12:17  complexity=1  fanIn=0  fanOut=0  loc=1  sig="SKU string"
+s:order/order.go#NewService  symbol/function  exported  34:1-36:2  complexity=1  fanIn=1  fanOut=3  loc=3  sig="func NewService(store Store, events Events) *Service"
+s:order/order.go#Order  symbol/struct  exported  6:1-9:2  complexity=1  fanIn=11  fanOut=0  loc=4  sig="type Order struct"
+s:order/order.go#Order.ID  member/property  exported  7:2-7:14  complexity=1  fanIn=3  fanOut=0  loc=1  sig="ID string"
+s:order/order.go#Order.Items  member/property  exported  8:2-8:14  complexity=1  fanIn=1  fanOut=1  loc=1  sig="Items []Item"
+s:order/order.go#Service  symbol/struct  exported  29:1-32:2  complexity=1  fanIn=4  fanOut=0  loc=4  sig="type Service struct"
+s:order/order.go#Service.events  member/property  31:2-31:15  complexity=1  fanIn=1  fanOut=1  loc=1  sig="events Events"
+s:order/order.go#Service.Find  member/method  exported  48:1-50:2  complexity=1  fanIn=1  fanOut=3  loc=3  sig="func (s *Service) Find(id string) (*Order, error)"
+s:order/order.go#Service.Place  member/method  exported  38:1-46:2  complexity=4  fanIn=1  fanOut=7  loc=9  sig="func (s *Service) Place(o Order) error"
+s:order/order.go#Service.store  member/property  30:2-30:14  complexity=1  fanIn=2  fanOut=1  loc=1  sig="store Store"
+s:order/order.go#Store  symbol/interface  exported  17:1-20:2  complexity=1  fanIn=3  fanOut=0  loc=4  sig="type Store interface"
+s:order/order.go#Store.Find  member/method  exported  19:2-19:33  complexity=1  fanIn=2  fanOut=1  loc=1  sig="Find(id string) (*Order, error)"
+s:order/order.go#Store.Save  member/method  exported  18:2-18:21  complexity=1  fanIn=2  fanOut=1  loc=1  sig="Save(o Order) error"
+s:order/service_test.go#recorder  symbol/struct  5:1-5:42  complexity=1  fanIn=0  fanOut=1  loc=1  sig="type recorder struct"
+s:order/service_test.go#recorder.Publish  member/method  exported  7:1-10:2  complexity=1  fanIn=0  fanOut=3  loc=4  sig="func (r *recorder) Publish(o Order) error"
+s:order/service_test.go#recorder.published  member/property  5:23-5:40  complexity=1  fanIn=0  fanOut=1  loc=1  sig="published []Order"
+s:order/service_test.go#TestPlace  symbol/function  exported  12:1-22:2  complexity=4  fanIn=0  fanOut=8  loc=11  sig="func TestPlace(t *testing.T)"
+x:go:context  external  name="context"  [go]
+x:go:errors  external  name="errors"  [go]
+x:go:github.com/confluentinc/confluent-kafka-go  external  name="github.com/confluentinc/confluent-kafka-go"  [go]
+x:go:github.com/gin-gonic/gin  external  name="github.com/gin-gonic/gin"  [go]
+x:go:net/http  external  name="net/http"  [go]
+x:go:net/http/httptest  external  name="net/http/httptest"  [go]
+x:go:net/http/pprof  external  name="net/http/pprof"  [go]
+x:go:testing  external  name="testing"  [go]
+x:kafka:shop.orders  external  name="orders"  [infra,kafka,topic]  sig="shop.orders"
+x:kafka:shop.orders.dlq  external  name="orders.dlq"  [infra,kafka,topic]  sig="shop.orders.dlq"
+x:kafka:shop.orders.shipped  external  name="orders.shipped"  [infra,kafka,topic]  sig="shop.orders.shipped"
+
+# edges
+f:api/handler_test.go -imports/static-> x:go:net/http  ×1  @4:2
+f:api/handler_test.go -imports/static-> x:go:net/http/httptest  ×1  @5:2
+f:api/handler_test.go -imports/static-> x:go:testing  ×1  @6:2
+f:api/handler.go -imports/static-> f:order/order.go  ×1  @6:2
+f:api/handler.go -imports/static-> x:go:github.com/gin-gonic/gin  ×1  @7:2
+f:api/handler.go -imports/static-> x:go:net/http  ×1  @4:2
+f:main.go -imports/static-> f:api/handler.go  ×1  @7:2
+f:main.go -imports/static-> f:config/config.go  ×1  @8:2
+f:main.go -imports/static-> f:messaging/admin.go  ×1  @9:2
+f:main.go -imports/static-> f:messaging/consumer.go  ×1  @9:2
+f:main.go -imports/static-> f:messaging/producer.go  ×1  @9:2
+f:main.go -imports/static-> f:order/memory.go  ×1  @10:2
+f:main.go -imports/static-> f:order/order.go  ×1  @10:2
+f:main.go -imports/static-> x:go:github.com/confluentinc/confluent-kafka-go  ×1  @11:2
+f:main.go -imports/static-> x:go:github.com/gin-gonic/gin  ×1  @12:2
+f:main.go -imports/static-> x:go:net/http  ×1  @4:2
+f:main.go -imports/side-effect-> x:go:net/http/pprof  ×1  @5:2
+f:messaging/admin.go -imports/static-> f:config/config.go  ×1  @6:2
+f:messaging/admin.go -imports/static-> x:go:context  ×1  @4:2
+f:messaging/admin.go -imports/static-> x:go:github.com/confluentinc/confluent-kafka-go  ×1  @7:2
+f:messaging/consumer.go -imports/static-> f:config/config.go  ×1  @4:2
+f:messaging/consumer.go -imports/static-> f:order/order.go  ×1  @5:2
+f:messaging/consumer.go -imports/static-> x:go:github.com/confluentinc/confluent-kafka-go  ×1  @6:2
+f:messaging/producer.go -imports/static-> f:order/order.go  ×1  @4:2
+f:messaging/producer.go -imports/static-> x:go:github.com/confluentinc/confluent-kafka-go  ×1  @5:2
+f:order/order_external_test.go -imports/static-> f:order/memory.go  ×1  @6:2
+f:order/order_external_test.go -imports/static-> f:order/order.go  ×1  @6:2
+f:order/order_external_test.go -imports/static-> x:go:testing  ×1  @4:2
+f:order/order.go -imports/static-> x:go:errors  ×1  @3:8
+f:order/service_test.go -imports/static-> x:go:testing  ×1  @3:8
+s:api/handler_test.go#TestHealth -calls-> s:api/handler.go#Health  ×1  @12:2
+s:api/handler_test.go#TestHealth -http-call/GET-> s:api/handler.go#Health  ×1  inferred  @10:16
+s:api/handler.go#Handler.GetOrder -references-> s:api/handler.go#Handler.service  ×1  @20:18
+s:api/handler.go#Handler.GetOrder -calls-> s:order/order.go#Service.Find  ×1  @20:26
+s:api/handler.go#Handler.service -type-ref-> s:order/order.go#Service  ×1  @11:17
+s:api/handler.go#NewHandler -instantiates-> s:api/handler.go#Handler  ×1  @15:10
+s:api/handler.go#NewHandler -type-ref-> s:api/handler.go#Handler  ×1  @14:42
+s:api/handler.go#NewHandler -type-ref-> s:order/order.go#Service  ×1  @14:32
+s:api/handler.go#Register -type-ref-> s:api/handler.go#Handler  ×1  @29:38
+s:api/handler.go#Register -references-> s:api/handler.go#Handler.GetOrder  ×1  @31:26
+s:config/config.go#Configuration.Kafka -type-ref-> s:config/config.go#KafkaProperties  ×1  @5:9
+s:config/config.go#Configuration.Server -type-ref-> s:config/config.go#ServerProperties  ×1  @6:9
+s:config/config.go#KafkaProperties.Topic -type-ref-> s:config/config.go#TopicsProperties  ×1  @11:9
+s:config/config.go#NewConfiguration -instantiates-> s:config/config.go#Configuration  ×1  @30:9
+s:config/config.go#NewConfiguration -type-ref-> s:config/config.go#Configuration  ×1  @29:25
+s:config/config.go#NewConfiguration -instantiates-> s:config/config.go#ServerProperties  ×1  @30:31
+s:config/config.go#TopicsProperties.Orders -type-ref-> s:config/config.go#TopicProperties  ×1  @16:13
+s:config/config.go#TopicsProperties.Shipped -type-ref-> s:config/config.go#TopicProperties  ×1  @17:13
+s:main.go#main -references-> s:api/handler.go#Health  ×1  @31:33
+s:main.go#main -calls-> s:api/handler.go#NewHandler  ×1  @30:27
+s:main.go#main -calls-> s:api/handler.go#Register  ×1  @30:6
+s:main.go#main -references-> s:config/config.go#Configuration.Kafka  ×3  @19:89 @23:62 @27:36
+s:main.go#main -references-> s:config/config.go#KafkaProperties.Broker  ×1  @19:95
+s:main.go#main -references-> s:config/config.go#KafkaProperties.Topic  ×1  @23:68
+s:main.go#main -calls-> s:config/config.go#NewConfiguration  ×1  @16:26
+s:main.go#main -references-> s:config/config.go#TopicProperties.Name  ×1  @23:82
+s:main.go#main -references-> s:config/config.go#TopicsProperties.Shipped  ×1  @23:74
+s:main.go#main -calls-> s:messaging/admin.go#CreateTopics  ×1  @17:12
+s:main.go#main -calls-> s:messaging/consumer.go#Listen  ×1  @27:15
+s:main.go#main -calls-> s:messaging/producer.go#NewPublisher  ×1  @23:25
+s:main.go#main -calls-> s:order/memory.go#NewMemoryStore  ×1  @24:18
+s:main.go#main -calls-> s:order/order.go#NewService  ×1  @25:20
+s:main.go#main -publishes-> x:kafka:shop.orders.shipped  ×1  inferred  @23:15
+s:messaging/admin.go#CreateTopics -type-ref-> s:config/config.go#Configuration  ×1  @14:40
+s:messaging/admin.go#CreateTopics -references-> s:config/config.go#Configuration.Kafka  ×3  @15:20 @18:27 @23:90
+s:messaging/admin.go#CreateTopics -references-> s:config/config.go#KafkaProperties.Broker  ×1  @23:96
+s:messaging/admin.go#CreateTopics -references-> s:config/config.go#KafkaProperties.Topic  ×2  @15:26 @18:33
+s:messaging/admin.go#CreateTopics -references-> s:config/config.go#TopicProperties.Name  ×1  @20:19
+s:messaging/admin.go#CreateTopics -references-> s:config/config.go#TopicProperties.Partitions  ×1  @20:48
+s:messaging/admin.go#CreateTopics -references-> s:config/config.go#TopicsProperties.AutoCreate  ×1  @15:32
+s:messaging/admin.go#CreateTopics -references-> s:config/config.go#TopicsProperties.Shipped  ×1  @18:39
+s:messaging/admin.go#CreateTopics -references-> s:messaging/admin.go#DeadLetterTopic  ×1  @21:11
+s:messaging/admin.go#CreateTopics -references/declares-> x:kafka:shop.orders.dlq  ×1  inferred  @19:11
+s:messaging/admin.go#CreateTopics -references/declares-> x:kafka:shop.orders.shipped  ×1  inferred  @19:11
+s:messaging/consumer.go#Listen -type-ref-> s:config/config.go#KafkaProperties  ×1  @10:26
+s:messaging/consumer.go#Listen -references-> s:config/config.go#KafkaProperties.Broker  ×1  @11:81
+s:messaging/consumer.go#Listen -references-> s:config/config.go#KafkaProperties.Topic  ×1  @15:52
+s:messaging/consumer.go#Listen -references-> s:config/config.go#TopicProperties.Name  ×1  @15:65
+s:messaging/consumer.go#Listen -references-> s:config/config.go#TopicsProperties.Orders  ×1  @15:58
+s:messaging/consumer.go#Listen -instantiates-> s:order/order.go#Order  ×1  @21:28
+s:messaging/consumer.go#Listen -type-ref-> s:order/order.go#Service  ×1  @10:58
+s:messaging/consumer.go#Listen -calls-> s:order/order.go#Service.Place  ×1  @21:16
+s:messaging/consumer.go#Listen -subscribes-> x:kafka:shop.orders  ×1  inferred  @15:12
+s:messaging/producer.go#NewPublisher -instantiates-> s:messaging/producer.go#Publisher  ×1  @15:10
+s:messaging/producer.go#NewPublisher -type-ref-> s:messaging/producer.go#Publisher  ×1  @14:60
+s:messaging/producer.go#Publisher -implements-> s:order/order.go#Events  ×1  @9:1
+s:messaging/producer.go#Publisher.Publish -references-> s:messaging/producer.go#Publisher.producer  ×1  @19:11
+s:messaging/producer.go#Publisher.Publish -references-> s:messaging/producer.go#Publisher.topic  ×1  @20:50
+s:messaging/producer.go#Publisher.Publish -implements-> s:order/order.go#Events.Publish  ×1  @18:1
+s:messaging/producer.go#Publisher.Publish -type-ref-> s:order/order.go#Order  ×1  @18:37
+s:messaging/producer.go#Publisher.Publish -references-> s:order/order.go#Order.ID  ×1  @21:28
+s:order/base.go#base.touch -references-> s:order/base.go#base.writes  ×1  @9:4
+s:order/base.go#base.Writes -references-> s:order/base.go#base.writes  ×1  @13:11
+s:order/memory_find.go#memoryStore.Find -type-ref-> s:order/memory.go#memoryStore  ×1  @4:10
+s:order/memory_find.go#memoryStore.Find -references-> s:order/memory.go#memoryStore.orders  ×1  @5:13
+s:order/memory_find.go#memoryStore.Find -references-> s:order/order.go#ErrNotFound  ×1  @7:15
+s:order/memory_find.go#memoryStore.Find -type-ref-> s:order/order.go#Order  ×1  @4:41
+s:order/memory_find.go#memoryStore.Find -implements-> s:order/order.go#Store.Find  ×1  @4:1
+s:order/memory.go#memoryStore -implements-> s:order/order.go#Store  ×1  @3:1
+s:order/memory.go#memoryStore.base -type-ref-> s:order/base.go#base  ×1  @4:2
+s:order/memory.go#memoryStore.orders -type-ref-> s:order/order.go#Order  ×1  @5:20
+s:order/memory.go#memoryStore.Save -calls-> s:order/base.go#base.touch  ×1  @14:4
+s:order/memory.go#memoryStore.Save -references-> s:order/memory.go#memoryStore.orders  ×1  @13:4
+s:order/memory.go#memoryStore.Save -type-ref-> s:order/order.go#Order  ×1  @12:30
+s:order/memory.go#memoryStore.Save -references-> s:order/order.go#Order.ID  ×1  @13:13
+s:order/memory.go#memoryStore.Save -implements-> s:order/order.go#Store.Save  ×1  @12:1
+s:order/memory.go#NewMemoryStore -instantiates-> s:order/memory.go#memoryStore  ×1  @9:10
+s:order/memory.go#NewMemoryStore -type-ref-> s:order/memory.go#memoryStore  ×1  @8:24
+s:order/memory.go#NewMemoryStore -type-ref-> s:order/order.go#Order  ×1  @9:41
+s:order/order_external_test.go#TestFind -calls-> s:order/memory.go#NewMemoryStore  ×1  @10:24
+s:order/order_external_test.go#TestFind -references-> s:order/order.go#ErrNotFound  ×1  @11:47
+s:order/order_external_test.go#TestFind -calls-> s:order/order.go#NewService  ×1  @10:13
+s:order/order_external_test.go#TestFind -calls-> s:order/order.go#Service.Find  ×1  @11:23
+s:order/order.go#Events.Publish -type-ref-> s:order/order.go#Order  ×1  @24:12
+s:order/order.go#NewService -type-ref-> s:order/order.go#Events  ×1  @34:37
+s:order/order.go#NewService -instantiates-> s:order/order.go#Service  ×1  @35:10
+s:order/order.go#NewService -type-ref-> s:order/order.go#Service  ×1  @34:46
+s:order/order.go#NewService -type-ref-> s:order/order.go#Store  ×1  @34:23
+s:order/order.go#Order.Items -type-ref-> s:order/order.go#Item  ×1  @8:10
+s:order/order.go#Service.events -type-ref-> s:order/order.go#Events  ×1  @31:9
+s:order/order.go#Service.Find -type-ref-> s:order/order.go#Order  ×1  @48:37
+s:order/order.go#Service.Find -references-> s:order/order.go#Service.store  ×1  @49:11
+s:order/order.go#Service.Find -calls-> s:order/order.go#Store.Find  ×1  @49:17
+s:order/order.go#Service.Place -calls-> s:order/order.go#Events.Publish  ×1  @45:18
+s:order/order.go#Service.Place -type-ref-> s:order/order.go#Order  ×1  @38:27
+s:order/order.go#Service.Place -references-> s:order/order.go#Order.ID  ×1  @39:28
+s:order/order.go#Service.Place -references-> s:order/order.go#Order.Items  ×1  @39:11
+s:order/order.go#Service.Place -references-> s:order/order.go#Service.events  ×1  @45:11
+s:order/order.go#Service.Place -references-> s:order/order.go#Service.store  ×1  @42:14
+s:order/order.go#Service.Place -calls-> s:order/order.go#Store.Save  ×1  @42:20
+s:order/order.go#Service.store -type-ref-> s:order/order.go#Store  ×1  @30:9
+s:order/order.go#Store.Find -type-ref-> s:order/order.go#Order  ×1  @19:20
+s:order/order.go#Store.Save -type-ref-> s:order/order.go#Order  ×1  @18:9
+s:order/service_test.go#recorder -implements-> s:order/order.go#Events  ×1  @5:1
+s:order/service_test.go#recorder.Publish -implements-> s:order/order.go#Events.Publish  ×1  @7:1
+s:order/service_test.go#recorder.Publish -type-ref-> s:order/order.go#Order  ×1  @7:30
+s:order/service_test.go#recorder.Publish -references-> s:order/service_test.go#recorder.published  ×2  @8:4 @8:25
+s:order/service_test.go#recorder.published -type-ref-> s:order/order.go#Order  ×1  @5:35
+s:order/service_test.go#TestPlace -calls-> s:order/base.go#base.Writes  ×1  @19:11
+s:order/service_test.go#TestPlace -calls-> s:order/memory.go#NewMemoryStore  ×1  @13:11
+s:order/service_test.go#TestPlace -instantiates-> s:order/order.go#Item  ×1  @16:55
+s:order/service_test.go#TestPlace -type-ref-> s:order/order.go#Item  ×1  @16:50
+s:order/service_test.go#TestPlace -calls-> s:order/order.go#NewService  ×1  @15:13
+s:order/service_test.go#TestPlace -instantiates-> s:order/order.go#Order  ×1  @16:26
+s:order/service_test.go#TestPlace -calls-> s:order/order.go#Service.Place  ×1  @16:20
+s:order/service_test.go#TestPlace -instantiates-> s:order/service_test.go#recorder  ×1  @14:13
+s:order/service_test.go#TestPlace -references-> s:order/service_test.go#recorder.published  ×1  @19:39

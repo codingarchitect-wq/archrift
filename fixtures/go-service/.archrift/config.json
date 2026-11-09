@@ -1,0 +1,5 @@
+{
+  "tests": ["**/*_test.go"],
+  "entrypoints": ["main.go"],
+  "history": { "enabled": false }
+}

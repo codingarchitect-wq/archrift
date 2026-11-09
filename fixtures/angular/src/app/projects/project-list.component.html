@@ -1,0 +1,3 @@
+<app-project-card *ngFor="let p of projects" [project]="p" (click)="select(p.id)"></app-project-card>
+<button app-button type="button" (click)="toggle()">{{ 'Toggle' | shout }}</button>
+<p>{{ projects.length || 0 }} projects</p>

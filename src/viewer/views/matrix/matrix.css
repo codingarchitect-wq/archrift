@@ -1,0 +1,122 @@
+/* The Matrix view (views/matrix): labels beside its rows, the cell readout,
+   the legend and the rain toggle. .matrix-view is on the scene's container
+   while the view is shown. */
+
+:root {
+  --matrix-green: #3fe07a;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --matrix-green: #167a3e;
+  }
+}
+
+/* a map from above says nothing about a wall: the legend stands there instead
+   (important: `#scene canvas` sets every canvas's display) */
+.matrix-view .minimap {
+  display: none !important;
+}
+
+/* Row names stand right-aligned left of their strip, level with it. The engine
+   centres a label over its anchor by an estimate of 7px per character; in a
+   monospace font (6.62px at 11px) this shift puts the right edge 4px left of the anchor. */
+.matrix-view .label.selected:not(.matrix-col, .matrix-crossing),
+.matrix-view .label.neighbor:not(.matrix-col),
+.matrix-view .label.external,
+.matrix-view .label.matrix-block {
+  font-family: Menlo, 'SF Mono', ui-monospace, monospace;
+  font-size: 11px;
+  translate: calc(-47.13% - 4px) 9px;
+}
+
+.matrix-view .label.matrix-col,
+.matrix-view .label.matrix-crossing {
+  font-family: Menlo, 'SF Mono', ui-monospace, monospace;
+  font-size: 11px;
+}
+
+/* the selection's name where its row and column cross, when its strip is out of view: up and right of the cell */
+.matrix-view .label.matrix-crossing {
+  translate: calc(50% + 6px) -4px;
+}
+
+.matrix-view:not(.matrix-far) .label.matrix-crossing {
+  display: none;
+}
+
+/* close enough to read the names on the wall: the floating labels would only repeat them */
+.matrix-view.matrix-legible .label.neighbor,
+.matrix-view.matrix-legible .label.external,
+.matrix-view.matrix-legible .label.selected:not(.matrix-crossing) {
+  display: none;
+}
+
+.matrix-view .label.matrix-block {
+  font-weight: 700;
+  color: var(--matrix-green);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  text-shadow: none;
+}
+
+.matrix-tip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background: var(--panel-solid);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--matrix-green);
+  border-radius: 6px;
+  padding: 4px 8px;
+  max-width: 560px;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.matrix-controls button[aria-pressed='true'] {
+  background: var(--matrix-green);
+  border-color: var(--matrix-green);
+  color: var(--bg);
+}
+
+.matrix-legend {
+  left: 12px;
+  bottom: 12px;
+  width: 172px;
+  padding: 7px 10px 8px;
+  font-size: 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.matrix-legend h3 {
+  margin: 0 0 2px;
+  font: 700 10px/1.5 Menlo, 'SF Mono', ui-monospace, monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--matrix-green);
+}
+
+.matrix-legend i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  margin-right: 6px;
+  vertical-align: -1px;
+}
+
+.matrix-legend i.uses {
+  background: linear-gradient(90deg, color-mix(in srgb, var(--matrix-green) 45%, transparent), var(--matrix-green));
+}
+
+@media (max-width: 760px) {
+  .matrix-legend {
+    display: none;
+  }
+}

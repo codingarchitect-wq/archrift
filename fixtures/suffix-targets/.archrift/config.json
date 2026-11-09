@@ -1,0 +1,26 @@
+{
+  "name": "suffix-targets",
+  "exclude": ["src/generated/**"],
+  "entrypoints": ["src/main.ts", "**/*.worker.ts"],
+  "targets": {
+    "web": { "moduleSuffixes": [""] },
+    "desktop": { "moduleSuffixes": [".desktop", ""] }
+  },
+  "rules": [
+    {
+      "name": "generated-behind-platform",
+      "description": "Only the platform module talks to generated code.",
+      "forbid": { "from": "src/**", "to": "src/generated/**", "except": "src/platform/**" }
+    },
+    {
+      "name": "web-without-desktop-code",
+      "target": "web",
+      "forbidReach": { "from": "tag:entrypoint", "to": "**/*.desktop.ts" }
+    },
+    {
+      "name": "main-reaches-desktop",
+      "severity": "warn",
+      "forbidReach": { "from": "src/main.ts", "to": "src/platform/impl.desktop.ts" }
+    }
+  ]
+}
