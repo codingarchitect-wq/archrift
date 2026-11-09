@@ -91,18 +91,6 @@ function singleFile(): Plugin {
   }
 }
 
-/** The view plug-ins (a folder of src/viewer/views with an index), for `export html --view` to check a name against. */
-function viewList(): Plugin {
-  return {
-    name: 'archrift-view-list',
-    closeBundle() {
-      const dir = path.join(VIEWER, 'views')
-      const ids = fs.readdirSync(dir).filter(d => ['index.ts', 'index.tsx'].some(f => fs.existsSync(path.join(dir, d, f))))
-      fs.writeFileSync(path.join(STATIC_DIR, 'views.json'), `${JSON.stringify(ids.sort())}\n`)
-    },
-  }
-}
-
 export function staticConfig(): UserConfig {
   return {
     root: 'src/viewer',
@@ -118,7 +106,7 @@ export function staticConfig(): UserConfig {
     },
     // classic workers: a module worker from a blob doesn't start in a page opened from disk
     worker: { format: 'iife' },
-    plugins: [staticSiblings(), inlineWorkers(), react(), singleFile(), viewList()],
+    plugins: [staticSiblings(), inlineWorkers(), react(), singleFile()],
   }
 }
 

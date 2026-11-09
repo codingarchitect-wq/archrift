@@ -15,7 +15,7 @@ import { readSavedViews } from '../server/api.ts'
 import { EMBED_MARK, embedTags } from '../server/embed.ts'
 import type { ExportMeta } from '../server/embed.ts'
 import { infoOf } from '../server/views.ts'
-import { DEFAULT_OPTIONS, optionsFromQuery, optionsToQuery } from '../viewer/url-state.ts'
+import { DEFAULT_OPTIONS, VIEW_IDS, optionsFromQuery, optionsToQuery } from '../viewer/url-state.ts'
 import { countFiles } from './output.ts'
 import { TOOL_DIR, defaultOut, descriptionsPath, slug } from './projects.ts'
 import { readDescriptionsFile } from './describe.ts'
@@ -148,17 +148,11 @@ export function startLink(view: string | undefined, log: (msg: string) => void =
   if (!view) return { link: '', view: DEFAULT_OPTIONS.view }
   const url = /^[a-z][a-z0-9-]*$/.test(view) ? new URL(`?view=${view}`, 'http://archrift/') : new URL(view, 'http://archrift/')
   const options = { ...optionsFromQuery(url.search), timeline: false, at: '' }
-  const known = knownViews()
-  if (!known.includes(options.view)) log(`archrift export: no view "${options.view}" (${known.join(', ')}); the page opens on the City`)
+  if (!(VIEW_IDS as readonly string[]).includes(options.view)) log(`archrift export: no view "${options.view}" (${VIEW_IDS.join(', ')}); the page opens on the City`)
   const hash = url.hash.startsWith('#n=') ? url.hash : ''
   return { link: optionsToQuery(options) + hash, view: options.view }
 }
 
-/** City, Layers, Galaxy, and the view plug-ins the static viewer was built with (views.json, written by its build). */
-function knownViews(): string[] {
-  const plugins = JSON.parse(fs.readFileSync(path.join(STATIC_DIR, 'views.json'), 'utf8')) as string[]
-  return ['city', 'layers', 'galaxy', ...plugins]
-}
 
 /** The text of every file the graph knows, by path; binary, very large and unreadable ones stay out. */
 function readSources(graph: Graph, root: string): { texts: Record<string, string>; skipped: string[] } {

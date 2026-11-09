@@ -1071,7 +1071,8 @@ kbd {
 }
 
 .onboarding {
-  top: 110px;
+  /* below the toolbar, however many rows it wraps onto (Toolbar.tsx sets the variable) */
+  top: calc(var(--toolbar-bottom, 98px) + 12px);
   left: 50%;
   transform: translateX(-50%);
   width: min(620px, calc(100vw - 460px));

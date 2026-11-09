@@ -14,6 +14,24 @@ import { AskButton } from './Ask.tsx'
 
 const NO_TARGETS: string[] = []
 
+/**
+ * The toolbar wraps onto more rows in a narrow window or with wider fonts; panels placed under
+ * it (the first visit's hint) read where it ends from `--toolbar-bottom`.
+ */
+function useToolbarBottom() {
+  const ref = useRef<HTMLElement>(null)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const set = () => document.documentElement.style.setProperty('--toolbar-bottom', `${Math.round(el.getBoundingClientRect().bottom)}px`)
+    const observer = new ResizeObserver(set)
+    observer.observe(el)
+    set()
+    return () => observer.disconnect()
+  }, [])
+  return ref
+}
+
 export function Toolbar({ children }: { children?: ReactNode }) {
   const back = useStore(store, s => s.back.length)
   const forward = useStore(store, s => s.forward.length)
@@ -26,8 +44,9 @@ export function Toolbar({ children }: { children?: ReactNode }) {
   const history = useStore(store, s => !!s.now?.graph.meta.history)
   const described = useStore(store, s => Object.keys(s.descriptions.entries).length > 0)
   const Controls = pluginFor(options.view)?.Controls
+  const nav = useToolbarBottom()
   return (
-    <nav className="panel toolbar" aria-label="Toolbar">
+    <nav ref={nav} className="panel toolbar" aria-label="Toolbar">
       <ProjectMenu />
       <Search />
       <AskButton />

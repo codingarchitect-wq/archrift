@@ -24,7 +24,7 @@ step('pack')
 const tarball = path.join(work, JSON.parse(run('npm', ['pack', '--json', '--pack-destination', work], { cwd: ROOT }))[0].filename)
 const listed = run('tar', ['-tzf', tarball]).split('\n')
 expect(!listed.some(f => f.startsWith('package/src/') || f.startsWith('package/tests/') || f.startsWith('package/fixtures/')), 'the tarball carries no src/, tests/ or fixtures/')
-expect(['package/bin/archrift.js', 'package/lib/cli/main.js', 'package/dist/viewer/index.html', 'package/dist/static/index.html', 'package/dist/static/views.json', 'package/LICENSE'].every(f => listed.includes(f)), 'the tarball carries bin, lib, both viewers and the license')
+expect(['package/bin/archrift.js', 'package/lib/cli/main.js', 'package/dist/viewer/index.html', 'package/dist/static/index.html', 'package/LICENSE'].every(f => listed.includes(f)), 'the tarball carries bin, lib, both viewers and the license')
 
 step('install into a scratch project')
 const app = path.join(work, 'app')

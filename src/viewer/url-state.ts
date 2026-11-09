@@ -4,6 +4,12 @@
 
 export type EdgeMode = 'auto' | 'all' | 'selection' | 'violations' | 'none'
 export type ColorBy = 'area' | 'complexity' | 'fanIn' | 'group' | 'cycles' | 'tests' | 'violations' | 'churn' | 'hotspot' | 'age' | 'change' | 'changes'
+/**
+ * Every view's id: the three built in, then the view plug-ins (a folder of src/viewer/views with an
+ * index; tests/viewer/view-ids.test.ts keeps the list in step). `export html --view` checks names against it.
+ */
+export const VIEW_IDS = ['city', 'layers', 'galaxy', 'blocks', 'classes', 'coherence', 'context', 'crosscutting', 'erd', 'matrix', 'risks', 'runtime', 'terrain', 'transit', 'tree', 'wheel'] as const
+
 /** city, layers, galaxy, or a view plug-in's id (src/viewer/views); unknown ones show the city. */
 export type View = string
 export type Layering = 'config' | 'auto'
